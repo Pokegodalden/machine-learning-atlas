@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "checkedOn": "2026-10-24",
+  "method": "Pixel comparison of identical static field phases and pointer deformation against the pre-optimization renderer; 2% relative alpha-difference tolerance allows rasterization roundoff and path direction.",
+  "cases": [
+    {
+      "width": 390,
+      "height": 1000,
+      "time": 0,
+      "blend": 0,
+      "alphaMass": 194850,
+      "relativeAlphaDifference": 0.00002052861175263023,
+      "pixelsDifferingAboveTwoAlphaLevels": 0
+    },
+    {
+      "width": 390,
+      "height": 1000,
+      "time": 57,
+      "blend": 0.7,
+      "alphaMass": 196322,
+      "relativeAlphaDifference": 0.0025162742840843105,
+      "pixelsDifferingAboveTwoAlphaLevels": 77
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "time": 0,
+      "blend": 0,
+      "alphaMass": 436412,
+      "relativeAlphaDifference": 0.003162149528427266,
+      "pixelsDifferingAboveTwoAlphaLevels": 114
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "time": 57,
+      "blend": 0.7,
+      "alphaMass": 461072,
+      "relativeAlphaDifference": 0.004470017697886664,
+      "pixelsDifferingAboveTwoAlphaLevels": 228
+    },
+    {
+      "width": 3840,
+      "height": 2160,
+      "time": 0,
+      "blend": 0,
+      "alphaMass": 379123,
+      "relativeAlphaDifference": 0.0008044882531526708,
+      "pixelsDifferingAboveTwoAlphaLevels": 13
+    },
+    {
+      "width": 3840,
+      "height": 2160,
+      "time": 57,
+      "blend": 0.7,
+      "alphaMass": 358551,
+      "relativeAlphaDifference": 0.0006582048299962907,
+      "pixelsDifferingAboveTwoAlphaLevels": 7
+    }
+  ]
+}

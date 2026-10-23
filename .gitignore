@@ -5,3 +5,5 @@ atlas-app/*-failure.png
 *.log
 .env
 .env.*
+__pycache__/
+*.py[cod]

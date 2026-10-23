@@ -3,7 +3,8 @@ Updated: 24 October 2026
 Current app: v2.2.0 (original and earlier editions preserved)
 App URL: http://127.0.0.1:8773/?v=2.2&rev=workflow-completion#/explore
 Repository: https://github.com/Pokegodalden/machine-learning-atlas
-Public preview: Deployment in preparation; human release acceptance remains open.
+Public preview: https://pokegodalden.github.io/machine-learning-atlas/
+Public preview verified: 24 hosted checks; human release acceptance remains open.
 
 STATUS KEY
 (Done) = Completed for the stated scope.
@@ -363,8 +364,9 @@ A. ORIGINAL 14-STEP WORKFLOW WITH CURRENT STATUS
    (Done) Local v2.2 build, source/build archive, defined starter scope and
    prioritized expansion backlog. Earlier editions are preserved.
    (Done) Created public repository Pokegodalden/machine-learning-atlas with
-   user approval for public source code. GitHub Pages deployment is in preparation.
-   Remaining: Verify public preview deployment and complete Step 13 human acceptance
+   user approval for public source code. GitHub Pages preview is deployed and verified.
+   (Done) Hosted route, worker, real fit, sharing and narrow-screen checks (24).
+   Remaining: Complete Step 13 human acceptance
    before declaring an accepted first release. A public preview does not waive it.
    Evidence: atlas-v2.2/RELEASE-CHECKLIST.txt; atlas-v2.2/BEGINNER-PILOT.txt.
 
@@ -557,6 +559,7 @@ D. CURRENT VERIFICATION AND PROJECT RECORDS
 - Sharing: atlas-v2.2/atlas-app/sharing-browser-validation.json
 - Focused accessibility/browser review: atlas-v2.2/atlas-app/release-accessibility-validation.json
 - Controlled performance: atlas-v2.2/atlas-app/release-performance-validation.json
+- Hosted smoke checks: atlas-v2.2/atlas-app/deployment-validation.json
 - Beginner pilot packet: atlas-v2.2/BEGINNER-PILOT.txt
 - Release scope and expansion priorities: atlas-v2.2/RELEASE-CHECKLIST.txt
 - Latest source/build archive: machine-learning-atlas-v2.2.zip
@@ -568,7 +571,8 @@ D. CURRENT VERIFICATION AND PROJECT RECORDS
 - Final-check data evaluated: No
 - Actual human screen-reader review completed: No
 - Beginner usability pilot completed: No
-- Public preview deployment: In preparation
+- Public preview deployment: Verified at https://pokegodalden.github.io/machine-learning-atlas/
+- Hosted deployment checks passed: 24
 - Accepted first release declared: No
 
 This checklist records implemented work and verified evidence. Pending human

@@ -1,0 +1,21 @@
+const {chromium}=require(process.env.MLA_PLAYWRIGHT_MODULE||'playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),base=process.env.MLA_HOSTED_URL||'https://pokegodalden.github.io/machine-learning-atlas/';
+(async()=>{
+ const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true}),page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),checks=[],errors=[],failed=[];
+ const check=(name,value)=>{assert(value,name);checks.push(name);};page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)failed.push({url:r.url(),status:r.status()});});
+ try{
+  await page.goto(base,{waitUntil:'domcontentloaded',timeout:60000});await page.waitForFunction(()=>!!window.MLA_APP,null,{timeout:60000});check('Public deployment loads all 80 catalog entries',await page.locator('.algorithm-card').count()===80);
+  for(const route of ['algorithm/pca','library','activities','compare','compare/clustering',...['linear-regression','knn','logistic-regression','decision-tree','random-forest','svm','kmeans','pca','mlp','q-learning'].map(id=>'lesson/'+id)]){
+   await page.evaluate(route=>location.hash='/'+route,route);await page.waitForFunction(route=>location.hash==='#/'+route,route);await page.locator('h1').waitFor();check(route+': published route renders',await page.locator('h1').count()===1&&!/not found/i.test(await page.locator('h1').innerText()));
+  }
+  await page.evaluate(()=>location.hash='/lesson/linear-regression');await page.locator('#fit-preview').waitFor();await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='completed'&&!MLA_APP.state.linearMotion,null,{timeout:30000});check('Hosted model worker computes a real finite regression fit',await page.evaluate(()=>Number.isFinite(MLA_APP.experiment.result.model.slope)));
+  await page.locator('#experiment-tools').evaluate(n=>n.open=true);await page.locator('#share-experiment').click();await page.locator('#experiment-share-url').waitFor();const link=await page.locator('#experiment-share-url').inputValue();check('Published sharing retains the GitHub Pages project path',link.startsWith(base+'#/shared/'));
+  const recipient=await browser.newPage({reducedMotion:'reduce'});await recipient.goto(link);await recipient.locator('#shared-open').waitFor({timeout:60000});check('Published sharing reviews settings without automatic execution',await recipient.locator('h1').innerText().then(t=>t.length>0)&&await recipient.evaluate(()=>MLA_APP.experiment.status!=='running'));await recipient.locator('#shared-open').click();await recipient.waitForURL('**/#/lesson/linear-regression');check('Published link restores the correct lesson',await recipient.locator('#fit-preview').count()===1);await recipient.close();
+  await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForFunction(()=>document.querySelector('.ambient-contours')?.dataset.motion==='animated');check('Hosted contour module worker is active',await page.locator('.ambient-contours').getAttribute('data-renderer')==='worker');
+  await page.locator('#experiment-tools').evaluate(n=>n.open=false);await page.screenshot({path:path.join(root,'screens/public-preview-regression.png')});
+  await page.setViewportSize({width:390,height:1000});await page.evaluate(()=>location.hash='/compare');await page.locator('#compare-run-both').waitFor();check('Published comparison remains usable on narrow screens',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  check('Hosted resources have no failed HTTP responses',failed.length===0);check('No browser errors',errors.length===0);
+ }catch(error){errors.push(error.stack||error.message);}
+ finally{await browser.close();}
+ const report={status:errors.length?'failed':'passed',checkedOn:'2026-10-24',url:base,checks,errors,failedResponses:failed,acceptedFirstRelease:false,humanAcceptancePending:true};fs.writeFileSync(path.join(root,'deployment-validation.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,checks:checks.length,errors}));if(errors.length)process.exitCode=1;
+})().catch(e=>{console.error(e);process.exitCode=1;});

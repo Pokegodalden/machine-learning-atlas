@@ -5,7 +5,7 @@
   "appVersion": "2.2.0",
   "status": "audit-completed-follow-up-required",
   "releaseCandidateDeclared": false,
-  "publicDeployment": false,
+  "publicDeployment": true,
   "implementedScope": {
     "catalogEntries": 80,
     "starterLessons": 10,
@@ -107,8 +107,8 @@
     {
       "priority": 1,
       "workflowStep": 14,
-      "item": "Verify public preview and complete human acceptance before first accepted release",
-      "status": "in-progress",
+      "item": "Promote verified public preview to accepted first release after Step 13 human acceptance",
+      "status": "awaiting-human-acceptance",
       "nextMilestone": false
     }
   ],
@@ -213,6 +213,16 @@
     "url": "https://github.com/Pokegodalden/machine-learning-atlas",
     "visibility": "public",
     "ownerConfirmed": true,
-    "deploymentStatus": "preparing-github-pages"
+    "deploymentStatus": "deployed-public-preview",
+    "siteUrl": "https://pokegodalden.github.io/machine-learning-atlas/"
+  },
+  "publicPreview": {
+    "status": "deployed-and-smoke-tested",
+    "url": "https://pokegodalden.github.io/machine-learning-atlas/",
+    "repository": "https://github.com/Pokegodalden/machine-learning-atlas",
+    "hostedChecks": 24,
+    "verification": "../atlas-app/deployment-validation.json",
+    "humanAcceptancePending": true,
+    "acceptedFirstRelease": false
   }
 }

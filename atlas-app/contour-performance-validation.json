@@ -1,0 +1,642 @@
+{
+  "checkedOn": "2026-10-24",
+  "method": "Local headless Edge; one page at a time; same-run old/new/disabled/fallback comparison; 1.8 s warm-up, 2 s idle and 2.5 s moving pointer. Temporary source instrumentation only. Render times measure JS calculation and Canvas command submission, not isolated GPU raster/compositing. Worker render cost is off the main thread; cursor times are on the main thread. Not a controlled cross-device performance acceptance test.",
+  "cases": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "mode": "off",
+      "idle": {
+        "renderMs": null,
+        "renderIntervalMs": null,
+        "fps": null,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.665,
+          "p95": 17,
+          "max": 17.3
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": null,
+        "renderIntervalMs": null,
+        "fps": null,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 150,
+          "mean": 16.667,
+          "p95": 17,
+          "max": 17.3
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "mode": "legacy",
+      "idle": {
+        "renderMs": {
+          "samples": 20,
+          "mean": 2.695,
+          "p95": 3.1,
+          "max": 3.2
+        },
+        "renderIntervalMs": {
+          "samples": 19,
+          "mean": 100.037,
+          "p95": 100.6,
+          "max": 100.8
+        },
+        "fps": 10,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.668,
+          "p95": 17.1,
+          "max": 17.4
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 25,
+          "mean": 3.232,
+          "p95": 3.9,
+          "max": 5.9
+        },
+        "renderIntervalMs": {
+          "samples": 24,
+          "mean": 100,
+          "p95": 100.3,
+          "max": 100.7
+        },
+        "fps": 10,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 149,
+          "mean": 16.666,
+          "p95": 17.1,
+          "max": 17.5
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "mode": "worker",
+      "actualRenderer": "worker",
+      "idle": {
+        "renderMs": {
+          "samples": 61,
+          "mean": 1.284,
+          "p95": 2,
+          "max": 2.2
+        },
+        "renderIntervalMs": {
+          "samples": 60,
+          "mean": 33.33,
+          "p95": 33.7,
+          "max": 33.9
+        },
+        "fps": 30,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.667,
+          "p95": 17,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 75,
+          "mean": 1.56,
+          "p95": 2.1,
+          "max": 5
+        },
+        "renderIntervalMs": {
+          "samples": 74,
+          "mean": 33.332,
+          "p95": 33.8,
+          "max": 34
+        },
+        "fps": 30,
+        "cursorMainThreadMs": {
+          "samples": 150,
+          "mean": 0.111,
+          "p95": 0.2,
+          "max": 0.2
+        },
+        "mainFrameIntervalMs": {
+          "samples": 149,
+          "mean": 16.666,
+          "p95": 17.1,
+          "max": 17.3
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "mode": "fallback",
+      "actualRenderer": "main",
+      "idle": {
+        "renderMs": {
+          "samples": 61,
+          "mean": 1.167,
+          "p95": 1.7,
+          "max": 1.8
+        },
+        "renderIntervalMs": {
+          "samples": 60,
+          "mean": 33.305,
+          "p95": 33.9,
+          "max": 34.3
+        },
+        "fps": 30.03,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.666,
+          "p95": 17,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 76,
+          "mean": 1.207,
+          "p95": 1.9,
+          "max": 2.8
+        },
+        "renderIntervalMs": {
+          "samples": 75,
+          "mean": 33.323,
+          "p95": 33.7,
+          "max": 34.2
+        },
+        "fps": 30.01,
+        "cursorMainThreadMs": {
+          "samples": 151,
+          "mean": 0.08,
+          "p95": 0.2,
+          "max": 0.2
+        },
+        "mainFrameIntervalMs": {
+          "samples": 151,
+          "mean": 16.666,
+          "p95": 17,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "large-display",
+      "width": 3840,
+      "height": 2160,
+      "mode": "off",
+      "idle": {
+        "renderMs": null,
+        "renderIntervalMs": null,
+        "fps": null,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.665,
+          "p95": 16.9,
+          "max": 17.1
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": null,
+        "renderIntervalMs": null,
+        "fps": null,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 149,
+          "mean": 16.666,
+          "p95": 16.8,
+          "max": 16.8
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "large-display",
+      "width": 3840,
+      "height": 2160,
+      "mode": "legacy",
+      "idle": {
+        "renderMs": {
+          "samples": 20,
+          "mean": 4.77,
+          "p95": 6.4,
+          "max": 8.3
+        },
+        "renderIntervalMs": {
+          "samples": 19,
+          "mean": 100,
+          "p95": 100.1,
+          "max": 101
+        },
+        "fps": 10,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 119,
+          "mean": 16.666,
+          "p95": 16.8,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 25,
+          "mean": 4.844,
+          "p95": 6.2,
+          "max": 7.4
+        },
+        "renderIntervalMs": {
+          "samples": 24,
+          "mean": 99.996,
+          "p95": 100.4,
+          "max": 101.2
+        },
+        "fps": 10,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 152,
+          "mean": 16.666,
+          "p95": 16.8,
+          "max": 17.1
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "large-display",
+      "width": 3840,
+      "height": 2160,
+      "mode": "worker",
+      "actualRenderer": "worker",
+      "idle": {
+        "renderMs": {
+          "samples": 60,
+          "mean": 2.535,
+          "p95": 3.5,
+          "max": 3.8
+        },
+        "renderIntervalMs": {
+          "samples": 59,
+          "mean": 33.331,
+          "p95": 33.9,
+          "max": 34
+        },
+        "fps": 30,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 119,
+          "mean": 16.666,
+          "p95": 17,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 76,
+          "mean": 2.8,
+          "p95": 3.7,
+          "max": 4.7
+        },
+        "renderIntervalMs": {
+          "samples": 75,
+          "mean": 33.332,
+          "p95": 33.5,
+          "max": 33.6
+        },
+        "fps": 30,
+        "cursorMainThreadMs": {
+          "samples": 151,
+          "mean": 0.095,
+          "p95": 0.2,
+          "max": 0.3
+        },
+        "mainFrameIntervalMs": {
+          "samples": 150,
+          "mean": 16.666,
+          "p95": 16.7,
+          "max": 16.9
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "large-display",
+      "width": 3840,
+      "height": 2160,
+      "mode": "fallback",
+      "actualRenderer": "main",
+      "idle": {
+        "renderMs": {
+          "samples": 60,
+          "mean": 2.16,
+          "p95": 2.6,
+          "max": 2.8
+        },
+        "renderIntervalMs": {
+          "samples": 59,
+          "mean": 33.307,
+          "p95": 34,
+          "max": 35.6
+        },
+        "fps": 30.02,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.663,
+          "p95": 16.9,
+          "max": 17.4
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 76,
+          "mean": 2.322,
+          "p95": 3.2,
+          "max": 4.6
+        },
+        "renderIntervalMs": {
+          "samples": 75,
+          "mean": 33.324,
+          "p95": 34.6,
+          "max": 60.5
+        },
+        "fps": 30.01,
+        "cursorMainThreadMs": {
+          "samples": 150,
+          "mean": 0.076,
+          "p95": 0.2,
+          "max": 0.3
+        },
+        "mainFrameIntervalMs": {
+          "samples": 149,
+          "mean": 16.777,
+          "p95": 16.8,
+          "max": 33.3
+        },
+        "mainFramesOver25Ms": 1,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "narrow",
+      "width": 390,
+      "height": 1000,
+      "mode": "off",
+      "idle": {
+        "renderMs": null,
+        "renderIntervalMs": null,
+        "fps": null,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 119,
+          "mean": 16.662,
+          "p95": 17.1,
+          "max": 17.1
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": null,
+        "renderIntervalMs": null,
+        "fps": null,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 151,
+          "mean": 16.667,
+          "p95": 17,
+          "max": 17.1
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "narrow",
+      "width": 390,
+      "height": 1000,
+      "mode": "legacy",
+      "idle": {
+        "renderMs": {
+          "samples": 20,
+          "mean": 1.48,
+          "p95": 2.4,
+          "max": 4.3
+        },
+        "renderIntervalMs": {
+          "samples": 19,
+          "mean": 100.005,
+          "p95": 100.7,
+          "max": 101.7
+        },
+        "fps": 10,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 119,
+          "mean": 16.666,
+          "p95": 17.1,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 25,
+          "mean": 1.68,
+          "p95": 2.8,
+          "max": 5.4
+        },
+        "renderIntervalMs": {
+          "samples": 24,
+          "mean": 100.017,
+          "p95": 100.4,
+          "max": 100.5
+        },
+        "fps": 10,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 151,
+          "mean": 16.667,
+          "p95": 16.8,
+          "max": 17.1
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "narrow",
+      "width": 390,
+      "height": 1000,
+      "mode": "worker",
+      "actualRenderer": "worker",
+      "idle": {
+        "renderMs": {
+          "samples": 60,
+          "mean": 0.593,
+          "p95": 0.9,
+          "max": 0.9
+        },
+        "renderIntervalMs": {
+          "samples": 59,
+          "mean": 33.325,
+          "p95": 33.6,
+          "max": 33.9
+        },
+        "fps": 30.01,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 119,
+          "mean": 16.663,
+          "p95": 17,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 76,
+          "mean": 0.758,
+          "p95": 1.4,
+          "max": 2.8
+        },
+        "renderIntervalMs": {
+          "samples": 75,
+          "mean": 33.339,
+          "p95": 33.7,
+          "max": 34.2
+        },
+        "fps": 30,
+        "cursorMainThreadMs": {
+          "samples": 150,
+          "mean": 0.118,
+          "p95": 0.2,
+          "max": 0.3
+        },
+        "mainFrameIntervalMs": {
+          "samples": 150,
+          "mean": 16.669,
+          "p95": 17,
+          "max": 17.3
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    },
+    {
+      "label": "narrow",
+      "width": 390,
+      "height": 1000,
+      "mode": "fallback",
+      "actualRenderer": "main",
+      "idle": {
+        "renderMs": {
+          "samples": 61,
+          "mean": 0.505,
+          "p95": 0.7,
+          "max": 0.8
+        },
+        "renderIntervalMs": {
+          "samples": 60,
+          "mean": 33.333,
+          "p95": 33.8,
+          "max": 34.3
+        },
+        "fps": 30,
+        "cursorMainThreadMs": null,
+        "mainFrameIntervalMs": {
+          "samples": 120,
+          "mean": 16.667,
+          "p95": 17,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "pointer": {
+        "renderMs": {
+          "samples": 76,
+          "mean": 0.679,
+          "p95": 1.3,
+          "max": 3.5
+        },
+        "renderIntervalMs": {
+          "samples": 75,
+          "mean": 33.333,
+          "p95": 33.9,
+          "max": 34.1
+        },
+        "fps": 30,
+        "cursorMainThreadMs": {
+          "samples": 152,
+          "mean": 0.089,
+          "p95": 0.2,
+          "max": 0.3
+        },
+        "mainFrameIntervalMs": {
+          "samples": 151,
+          "mean": 16.667,
+          "p95": 16.9,
+          "max": 17.2
+        },
+        "mainFramesOver25Ms": 0,
+        "longTasks": []
+      },
+      "errors": []
+    }
+  ]
+}

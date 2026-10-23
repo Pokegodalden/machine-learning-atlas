@@ -77,6 +77,7 @@ ORIGINAL WORKFLOW COMPLETION PASS - 24 OCTOBER 2026
 4. Measure controlled local responsiveness and representative real fits. (Done)
 5. Prepare beginner pilot packet, explicit release scope and expansion priorities. (Done)
 6. Create public GitHub repository with user approval. (Done) Pokegodalden/machine-learning-atlas.
-7. Publish and smoke-check GitHub Pages preview. (In progress)
+7. Publish and smoke-check GitHub Pages preview. (Done) 24 hosted checks.
+   https://pokegodalden.github.io/machine-learning-atlas/
 8. Complete actual human screen-reader and beginner acceptance. (Not started) Awaiting participants.
 The separate professional-polishing workflow remains planned.

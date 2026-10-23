@@ -38,6 +38,8 @@ RELEASE GATES
 PUBLICATION STATUS
 The repository may host a public preview while human acceptance remains open.
 Publishing a preview does not mark Gate 6 complete or certify accessibility.
+Public preview verified: https://pokegodalden.github.io/machine-learning-atlas/
+Initial deployment: Actions run 39996066307; 24 hosted checks passed.
 Record deployment evidence and the exact deployed source in the workflow.
 
 KNOWN BOUNDARIES

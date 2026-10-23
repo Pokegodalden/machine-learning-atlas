@@ -562,5 +562,14 @@
     "csv": "portable Experiment JSON only",
     "recipient": "review first; explicit open/save; run separately",
     "verification": "../atlas-app/sharing-browser-validation.json"
+  },
+  "publicPreview": {
+    "status": "deployed-and-smoke-tested",
+    "url": "https://pokegodalden.github.io/machine-learning-atlas/",
+    "repository": "https://github.com/Pokegodalden/machine-learning-atlas",
+    "hostedChecks": 24,
+    "verification": "../atlas-app/deployment-validation.json",
+    "humanAcceptancePending": true,
+    "acceptedFirstRelease": false
   }
 }

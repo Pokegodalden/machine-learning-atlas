@@ -2,6 +2,8 @@
 
 An interactive mathematical studio with 80 algorithm explanations, ten runnable lessons, model comparisons and reproducible experiments. It runs in your browser with local model workers and bundled example data.
 
+[Open the public preview](https://pokegodalden.github.io/machine-learning-atlas/).
+
 This is the v2.2 public preview. Numerical and browser verification is documented; actual beginner testing and human screen-reader interpretation remain pending. See [release scope and limitations](RELEASE-CHECKLIST.txt) and the [beginner pilot packet](BEGINNER-PILOT.txt).
 
 ## Run locally

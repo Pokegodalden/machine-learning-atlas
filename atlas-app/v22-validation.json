@@ -94,6 +94,8 @@
   "controlledLocalPerformanceEvidence": "release-performance-validation.json",
   "fullAccessibilityAuditCompleted": false,
   "beginnerPilotCompleted": false,
-  "publicDeploymentPerformed": false,
+  "publicDeploymentPerformed": true,
+  "hostedDeploymentChecksPassed": 24,
+  "publicPreviewAcceptancePending": true,
   "reservedFinalCheckEvaluated": false
 }
