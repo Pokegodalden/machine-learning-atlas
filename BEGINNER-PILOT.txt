@@ -1,0 +1,56 @@
+MACHINE LEARNING ATLAS - BEGINNER USABILITY PILOT
+Prepared: 2026-10-24
+Status: Awaiting an actual participant. No participant findings are claimed.
+
+PURPOSE
+Check whether a person new to machine learning can discover an algorithm,
+change one parameter, run an experiment and explain the observed result.
+
+SESSION
+Allow 20-30 minutes. Use a fresh browser profile or private window so existing
+saved items do not influence the tasks. Record the app build, browser, viewport
+and participant's prior experience. Use bundled examples, not personal data.
+Ask the participant to think aloud. Avoid leading them to the expected answer.
+Record assistance separately from independent completion.
+
+TASKS
+1. Find an algorithm that predicts a numerical value. Explain its purpose.
+2. Open linear regression, change a quantity, fit the model and explain a
+   vertical residual using one selected observation.
+3. Open the neighbors activity. Predict what changing k might do, run both
+   conditions and describe the measured result without assuming it improved.
+4. Compare two classifiers on the same data. Identify the current metric for
+   each model and inspect one observation where their predictions differ.
+5. Change a training parameter and identify whether the displayed result is
+   still current. Run again and explain what changed.
+6. Save an experiment, refresh the page, reopen it and recompute the result.
+7. Bookmark an algorithm, find it under Saved and remove the bookmark.
+8. Copy a sharing link, open it in a fresh window, review the settings and
+   open the experiment. Explain why fitted results must be recomputed.
+
+RECORD FOR EACH TASK
+- Completed independently / completed with assistance / not completed
+- Time taken, wrong turns and help requested
+- Terms or symbols the participant could not explain
+- What they thought would happen and what they believed the result meant
+- Severity: blocker / major difficulty / minor difficulty / suggestion
+- Proposed fix, verification and retest result
+
+FOLLOW-UP QUESTIONS
+What does the chart show? Which controls felt safe to explore? What is saved?
+How do you know a result matches current settings? What would you try next?
+
+COMPLETION
+Enter actual observations, fix blockers and major misunderstandings, rerun
+affected checks and repeat the failed tasks. Record remaining limitations.
+Do not mark the beginner pilot complete based on agent-generated responses.
+
+PARTICIPANT RECORD
+Date:
+Build / deployed commit:
+Browser / device / viewport:
+Experience:
+Task observations:
+Findings and fixes:
+Retest:
+Moderator:

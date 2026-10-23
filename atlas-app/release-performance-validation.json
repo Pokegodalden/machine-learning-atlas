@@ -1,0 +1,135 @@
+{
+  "status": "passed",
+  "checkedOn": "2026-10-24",
+  "budgets": {
+    "workerFps": [
+      27,
+      32
+    ],
+    "mainFrameP95Ms": 35,
+    "throttledMainFrameP95Ms": 60,
+    "controlP95Ms": 100,
+    "throttledControlP95Ms": 300,
+    "completedFitMs": 20000
+  },
+  "method": "Budgets declared before measurement. One local headless Edge page at a time; 1.8 s warm-up; 3 s moving-pointer cadence; sixteen input-to-two-animation-frame samples; real OLS/forest/MLP fits. 4x CPU throttling is synthetic and does not represent a particular mobile device. Measurements are local acceptance evidence, not cross-device certification.",
+  "cases": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "cpuThrottle": 1,
+      "workerFps": 29.158383035122597,
+      "mainFrameMs": {
+        "samples": 184,
+        "mean": 16.665217391304346,
+        "p95": 17.100000000000364,
+        "max": 17.699999999999818
+      },
+      "controlResponseMs": {
+        "samples": 16,
+        "mean": 37.74999999254942,
+        "p95": 63.89999997615814,
+        "max": 71.69999992847443
+      },
+      "longTasksMs": [],
+      "fits": [
+        {
+          "model": "linear-regression",
+          "elapsedMs": 1013
+        },
+        {
+          "model": "random-forest",
+          "elapsedMs": 334
+        },
+        {
+          "model": "mlp",
+          "elapsedMs": 1563
+        }
+      ],
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 1000,
+      "cpuThrottle": 1,
+      "workerFps": 29.081295439524123,
+      "mainFrameMs": {
+        "samples": 185,
+        "mean": 16.66162162162162,
+        "p95": 17.100000000000364,
+        "max": 17.800000000000182
+      },
+      "controlResponseMs": {
+        "samples": 16,
+        "mean": 34.61249999701977,
+        "p95": 41.300000071525574,
+        "max": 46.09999990463257
+      },
+      "longTasksMs": [],
+      "fits": [
+        {
+          "model": "linear-regression",
+          "elapsedMs": 984
+        }
+      ],
+      "passed": true
+    },
+    {
+      "width": 3840,
+      "height": 2160,
+      "cpuThrottle": 1,
+      "workerFps": 30.483764082173625,
+      "mainFrameMs": {
+        "samples": 184,
+        "mean": 16.666847826086954,
+        "p95": 17.100000000000364,
+        "max": 17.59999999999991
+      },
+      "controlResponseMs": {
+        "samples": 16,
+        "mean": 36.70624999701977,
+        "p95": 47.89999997615814,
+        "max": 67.5
+      },
+      "longTasksMs": [],
+      "fits": [
+        {
+          "model": "linear-regression",
+          "elapsedMs": 970
+        }
+      ],
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "cpuThrottle": 4,
+      "workerFps": 31.798608810864526,
+      "mainFrameMs": {
+        "samples": 187,
+        "mean": 17.379679144385026,
+        "p95": 17,
+        "max": 116.60000000000036
+      },
+      "controlResponseMs": {
+        "samples": 16,
+        "mean": 266.42500000447035,
+        "p95": 279.09999990463257,
+        "max": 494.2000000476837
+      },
+      "longTasksMs": [],
+      "fits": [
+        {
+          "model": "linear-regression",
+          "elapsedMs": 2540
+        },
+        {
+          "model": "mlp",
+          "elapsedMs": 4531
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "errors": []
+}

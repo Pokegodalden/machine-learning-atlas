@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "completedStep": 4,
+  "updatedOn": "2026-10-15",
+  "title": "Machine Learning Atlas screen design",
+  "prototype": "../design-prototype/index.html",
+  "specification": "../step-04-screen-design.md",
+  "canonicalInputs": ["catalog.json", "taxonomy.json", "demonstration-plan.json", "dataset-manifest.json"],
+  "destinations": [
+    {"id": "explore", "label": "Explore", "route": "#/explore"},
+    {"id": "experiment", "label": "Experiment", "route": "#/lesson/:lastLessonId", "defaultLessonId": "linear-regression"},
+    {"id": "compare", "label": "Compare", "route": "#/compare"}
+  ],
+  "screens": [
+    {"id": "catalog", "route": "#/explore", "destination": "explore", "sections": ["purpose-and-starter", "learning-signal-map", "filters", "search", "catalog-cards", "empty-state"]},
+    {"id": "algorithm-detail", "route": "#/algorithm/:id", "destination": "explore", "sections": ["intuition", "tags", "assumptions", "strengths", "limitations", "parameters", "related-ideas", "references"]},
+    {"id": "visual-lesson", "route": "#/lesson/:id", "destination": "experiment", "sections": ["question", "explanation-depth", "storyboard", "mathematical-stage", "equation", "playback", "metrics", "reflection", "parameters", "dataset-facts"]},
+    {"id": "comparison", "route": "#/compare", "destination": "compare", "sections": ["shared-experiment", "model-pair", "matched-input-plots", "parameter-summaries", "evaluation-table", "result-state"]}
+  ],
+  "prototypeScope": {
+    "catalogEntries": 80,
+    "lessonLayouts": 10,
+    "fixtureInputs": 7,
+    "workingNumericalIllustration": "training-only one-feature ordinary least-squares linear regression",
+    "modelAdapterStatus": "not-implemented",
+    "comparisonTrainingEnabled": false,
+    "comparisonMetricStatus": "awaiting-real-runs",
+    "persistence": "in-memory-until-refresh"
+  },
+  "preservedDuringNavigation": ["catalog-filters", "per-model-parameters", "explanation-depth", "comparison-selections", "last-lesson"],
+  "stoppedDuringNavigation": ["playback"],
+  "futureResultStates": ["ready", "running", "completed", "requires-new-run", "canceled", "failed"],
+  "breakpointsPx": [480, 820, 1170],
+  "screenshots": {
+    "explore": "../design-prototype/screens/explore-desktop.png",
+    "lesson": "../design-prototype/screens/lesson-desktop.png",
+    "comparison": "../design-prototype/screens/compare-desktop.png",
+    "mobileLesson": "../design-prototype/screens/lesson-mobile.png"
+  },
+  "validation": "../design-prototype/design-validation.json",
+  "handoff": "Step 5: application architecture"
+}

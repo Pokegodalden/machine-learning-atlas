@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "checkedOn": "2026-10-24",
+  "runStrategy": "Fresh full 30-suite run after sharing and chart-surface changes; 29 passed initially. The library assertion was refined to count the four export actions instead of all toolbar buttons, then its 77 checks passed on rerun. Latest result per suite is recorded.",
+  "initialReport": "browser-batch-original-workflow-initial.json",
+  "followupReport": "browser-batch-original-workflow-followup.json",
+  "suites": [
+    {
+      "suite": "verify-art-motion.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":53,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-ambient-contours.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":50,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-chart-first.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":180,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-browser.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 66,\n  \"errors\": [],\n  \"referenceFit\": {\n    \"slope\": 0.8174018338677819,\n    \"intercept\": 0.41558672762540966,\n    \"trainingRmse\": 0.41473890868900654\n  }\n}\n"
+    },
+    {
+      "suite": "verify-clustering-comparison.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":44,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-csv-size.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":13,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-comparison.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 61,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    },
+    {
+      "suite": "verify-experiment-library.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":77,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-data-workbench.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":76,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-explore-comments.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":60,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-fit-scroll.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":115,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-forest.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 74,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    },
+    {
+      "suite": "verify-guided-activities.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":65,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-csv.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":126,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-kmeans.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 68,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    },
+    {
+      "suite": "verify-knn.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 49,\n  \"errors\": []\n}\n"
+    },
+    {
+      "suite": "verify-lesson.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 45,\n  \"errors\": []\n}\n"
+    },
+    {
+      "suite": "verify-logistic.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 52,\n  \"errors\": []\n}\n"
+    },
+    {
+      "suite": "verify-micro-interactions.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":70,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-pca.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 67,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    },
+    {
+      "suite": "verify-q-learning.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":63,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-mlp.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 64,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    },
+    {
+      "suite": "verify-sharing.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":42,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-run-timing.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":73,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-task-data.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":90,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-svm.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 69,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    },
+    {
+      "suite": "verify-settings-history.cjs",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checks\":79,\"errors\":[],\"remoteAssetRequests\":[]}\n"
+    },
+    {
+      "suite": "verify-v2.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":228,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-v22.cjs",
+      "exitCode": 0,
+      "output": "{\"checks\":93,\"errors\":[]}\n"
+    },
+    {
+      "suite": "verify-tree.cjs",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"passed\",\n  \"checks\": 60,\n  \"errors\": [],\n  \"remote\": []\n}\n"
+    }
+  ]
+}

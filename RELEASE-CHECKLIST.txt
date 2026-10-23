@@ -1,0 +1,69 @@
+MACHINE LEARNING ATLAS - FIRST PUBLIC PREVIEW CHECKLIST
+Prepared: 2026-10-24
+Target: Pokegodalden/machine-learning-atlas (public GitHub repository)
+Hosting: GitHub Pages
+Version: 2.2.0
+
+STARTER RELEASE SCOPE
+- Eighty searchable, tagged algorithm explanations.
+- Ten runnable lessons with bounded parameters and accurate visual explanations.
+- Six-classifier comparison and independent K-means setting comparisons.
+- Reproducible built-in/generated/CSV data and task-appropriate evaluation.
+- Named experiment save/reopen, parameter history, bookmarks and exports.
+- Reproducible links for built-in/generated settings, reviewed before opening.
+- Embedded CSV remains in portable JSON files rather than sharing links.
+- Offline runtime assets, local model workers and no hosted model service.
+
+ACCEPTANCE EVIDENCE
+- Numerical/state/unit results: atlas-app/unit-validation.txt.
+- Browser results and provenance: atlas-app/browser-batch-validation.json.
+- Sharing: atlas-app/sharing-browser-validation.json.
+- Focused Edge/Chrome semantic, contrast, layout and fit review:
+  atlas-app/release-accessibility-validation.json.
+- Contour geometry and performance:
+  atlas-app/contour-geometry-validation.json and contour-performance-validation.json.
+- Additional controlled local performance checks:
+  atlas-app/release-performance-validation.json.
+- Source/build/dataset and earlier-version preservation: atlas-app/v22-validation.json.
+
+RELEASE GATES
+1. Required numerical and functional tests pass.
+2. Sharing preserves exact parameters, revisions, seeds and protocols.
+3. Current results, cancellation, data restrictions and exports remain correct.
+4. Relevant keyboard, contrast, reduced-motion and responsive checks pass.
+5. The Pages deployment loads under /machine-learning-atlas/, including workers,
+   canonical content and navigation, and can complete a real model fit.
+6. Actual human screen-reader interpretation and beginner usability are reviewed.
+
+PUBLICATION STATUS
+The repository may host a public preview while human acceptance remains open.
+Publishing a preview does not mark Gate 6 complete or certify accessibility.
+Record deployment evidence and the exact deployed source in the workflow.
+
+KNOWN BOUNDARIES
+- Ten runnable starters, not every catalog algorithm.
+- Browser-local storage is scoped to the origin. Export/import configurations
+  to transfer between localhost and the published site.
+- Shared links contain experiment names/settings and require the same compatible
+  app/data revisions. They contain no fitted models and do not auto-run.
+- CSV imports: 256 KiB UTF-8, 80-400 records and 2-12 columns, with supported
+  numeric/binary preparation and task-specific feature limits.
+- Model computation is bounded. No universal best-model claim is made.
+- Reserved final-check rows remain excluded from fitting and inspection.
+- Edge/Chrome are both Chromium. Firefox/Safari and actual assistive-technology
+  use require separate evidence. Local headless timing is not device-wide proof.
+
+PRIORITIZED EXPANSION BACKLOG
+P1. Human screen-reader review and beginner pilot findings; fix major issues.
+P1. Firefox/Safari compatibility and representative physical mobile testing.
+P2. Regression comparison: introduce a verified ridge adapter alongside OLS;
+    share data/splits, report MAE/RMSE/timing and preserve protocol provenance.
+P2. PCA setting comparison with variance/reconstruction measures, not accuracy.
+P2. Additional adapter scaffolding with contract tests and bounded work budgets.
+P3. Semi-supervised label propagation on a small two-dimensional dataset.
+P3. A bounded self-supervised reconstruction demonstration.
+P3. Small recommendation and graph-learning examples with appropriate metrics.
+P4. Generative-model teaching experiments after engine/visual support is ready.
+
+Each new demonstration follows: catalog metadata, parameter schema, compatible
+data, adapter, numerical references, visuals, lesson, browser verification.

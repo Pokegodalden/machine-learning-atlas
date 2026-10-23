@@ -1,0 +1,400 @@
+MACHINE LEARNING ATLAS - PROFESSIONALISING AND POLISHING WORKFLOW
+Created: 2026-10-24
+Starting build: v2.2.0
+Design direction: Mathematical Studio
+Workflow status: Planned
+Next step: Step 1
+
+PURPOSE
+
+Make the app feel like a coherent, professional mathematical learning tool:
+clear charts, confident typography, consistent controls, concise explanations,
+and interactions that reveal how algorithms work.
+
+Retain the contour-A logo, LaTeX-style mathematical identity, dark surfaces,
+cyan observations, gold mathematical emphasis, and chart-first layout. Keep
+the dynamic contours and three cursor points, with restrained presentation.
+
+This workflow covers design, implementation, verification and packaging. The
+polishing work has not started. Use (In progress) while working and mark a step
+(Done) only after its deliverable and completion checks have been verified.
+
+SCOPE AND WORKING RULES
+
+- Work from outputs/atlas-v2.2/atlas-app and its sibling canonical content.
+- Preserve the original app, v2.0 and v2.1. Snapshot v2.2 before implementation.
+- Keep all 80 catalog entries, ten lessons, comparisons, saved experiments,
+  data tools, exports, model parameters and numerical safeguards available.
+- Preserve computed regression/PCA geometry and correct residual/projection
+  illustrations. Decorative previews remain explicitly schematic.
+- Preserve the OffscreenCanvas worker, optimized fallback, 30 fps background
+  target, independent cursor loop, pixel budget and lifecycle suspension.
+- Keep reserved final-check data excluded from fitting and inspection.
+- Make changes through shared components and styles wherever practical.
+- Fix discovered functional defects with documented evidence and relevant
+  checks; avoid unrelated model-engine changes during visual polishing.
+- Continue using the current version designation until a new one is requested.
+- Each step builds on the preceding steps. Validate affected behavior as work
+  proceeds, then perform the integrated checks near the end.
+
+
+PHASE A - ESTABLISH THE FOUNDATION
+
+STEP 1 - CAPTURE THE BASELINE AND AUDIT THE INTERFACE (Not started)
+
+Actions:
+1. Save a recoverable snapshot of current sources, content and static build.
+2. Capture Explore, a representative lesson, classification comparison,
+   clustering comparison, an algorithm explanation and Saved.
+3. Capture narrow and desktop layouts, including empty, fitted and stale
+   result states. Record viewport sizes and the exact route/settings.
+4. List inconsistent spacing, typography, borders, controls, chart surfaces,
+   duplicated messages and unclear actions. Rank by user impact.
+5. Record existing validation and performance evidence as the baseline.
+
+Deliverable: Baseline screenshots and a prioritized polishing checklist.
+Complete when: Every main route is represented and the starting build can be
+restored. Distinguish previous validation from newly performed checks.
+
+
+STEP 2 - DEFINE PAGE HIERARCHY AND THE MAIN USER FLOWS (Not started)
+
+Actions:
+1. Map the flows: discover a lesson, adjust a model, run it, interpret a result,
+   compare approaches, save an experiment and reopen it.
+2. Assign a clear main action to each page and experiment state.
+3. Establish a reading order: question, visualization, key evidence, essential
+   controls, then supporting explanations and diagnostics.
+4. Group secondary tools into predictable disclosures without hiding current
+   data provenance, important errors or controls needed for the next action.
+5. Sketch desktop and narrow-screen layouts before changing shared styles.
+
+Deliverable: Page structure and action hierarchy for each main route.
+Complete when: The next useful action is evident and supporting details have
+a consistent home throughout the app.
+
+
+STEP 3 - ESTABLISH DESIGN TOKENS AND TYPOGRAPHY (Not started)
+
+Actions:
+1. Define shared tokens for background, panel, chart, border, text and focus
+   colors. Assign explicit roles to data colors and status colors.
+2. Use the mathematical serif for brand, selected headings and equations;
+   use a readable sans-serif for controls, labels and explanatory text.
+3. Define a compact, responsive type scale and consistent line heights.
+   Use tabular numerals for metrics, timing values and parameter fields.
+4. Standardize spacing around an 8 px rhythm, primarily 8, 16, 24, 32 and
+   48 px, with smaller increments where compact controls require them.
+5. Define consistent corner radii, border weights and control dimensions.
+6. Use local assets and robust font fallbacks to retain offline operation.
+
+Deliverable: Shared design tokens and a typography/spacing reference.
+Complete when: Main text, headings, metrics, equations and surfaces use the
+same system, including when the preferred font is unavailable.
+
+
+STEP 4 - STANDARDIZE THE COMPONENT FAMILY (Not started)
+
+Actions:
+1. Unify buttons, segmented controls, dropdowns, number inputs, sliders,
+   disclosures, status badges, tooltips and feedback messages.
+2. Define primary, secondary and quiet action styles with clear hover,
+   keyboard focus, active, disabled, loading and error states.
+3. Standardize label placement, helper text, icon size and label spacing.
+4. Create consistent treatments for experiment panels, toolbars, metric
+   summaries and compact teaching annotations.
+5. Apply the components to one lesson and one comparison panel first, then
+   replace inconsistent instances across the remaining pages.
+
+Deliverable: Reusable components/styles and a representative working slice.
+Complete when: Equivalent controls look and behave consistently on all routes,
+with no ambiguous icon-only action or hover-only essential explanation.
+
+
+PHASE B - POLISH THE CORE EXPERIENCE
+
+STEP 5 - IMPROVE CHART SURFACES AND DATA READABILITY (Not started)
+
+Actions:
+1. Give all teaching plots, including both comparison plots, an opaque,
+   controlled surface so decorative contours cannot compete with data.
+2. Make axes, ticks, grid lines, observations, model boundaries and selected
+   observations follow a consistent visual hierarchy.
+3. Standardize chart padding, axis label placement, legends and annotations.
+4. Use a stable color mapping for classes, model output and mathematical
+   emphasis. Retain shape or text cues so meaning does not rely on color.
+5. Check residuals, PCA projections, margins and decision boundaries at
+   different parameter settings and chart sizes.
+
+Deliverable: A shared chart presentation applied to lessons and comparisons.
+Complete when: Marks and annotations remain readable over every background
+phase, and the displayed geometry still agrees with the underlying values.
+
+
+STEP 6 - RESTRUCTURE THE COMPARISON WORKSPACE (Not started)
+
+Actions:
+1. Create a compact toolbar for task, dataset and the primary Run both action.
+2. Align desktop panels: model selector, chart, equation, essential parameters,
+   individual run action and status in matching positions.
+3. Retain shared axes, linked observation selection and disagreement tools.
+4. Present current metrics and their measured difference in a compact results
+   strip. Keep detailed tables and experiment records in a clear disclosure.
+5. Replace repeated awaiting-run paragraphs with one useful instruction and
+   concise per-model status labels.
+6. On narrow screens, label the A/B switch with model names and retain the
+   option to view both charts stacked. Show full names accessibly if shortened.
+
+Deliverable: Polished classification and clustering comparison layouts.
+Complete when: Models, data, current status and the next action are obvious;
+changing the layout preserves fitted runs, linked selection and settings.
+
+
+STEP 7 - REFINE LESSON LAYOUTS AND MODEL CUSTOMISATION (Not started)
+
+Actions:
+1. Apply the same chart-first structure across all ten lessons, preserving
+   teaching steps, equations, data origin and explanation access.
+2. Group parameters by purpose and make the most useful adjustments easiest
+   to reach. Keep advanced settings available in clearly named disclosures.
+3. Polish sliders with meaningful ticks, units, default values, valid ranges,
+   explanatory labels and synchronized numeric inputs.
+4. Use dials only where the parameter has a meaningful circular or angular
+   interpretation. Prefer a slider when it communicates the range more clearly.
+5. Any dial must retain numeric entry and keyboard operation. Preserve existing
+   logarithmic scales, integer bounds and fine-adjustment behavior.
+6. Distinguish settings that need a new fit from those that update the current
+   visualization immediately. Keep reset/history and stale-result cues clear.
+
+Deliverable: Consistent, accessible model-customisation controls.
+Complete when: Typing, dragging, keyboard adjustment and reset stay synchronized;
+fitting preserves scroll position, focus and the validity of displayed results.
+
+
+STEP 8 - POLISH EXPLORE AND THE ALGORITHM ATLAS (Not started)
+
+Actions:
+1. Refine hero spacing and typography while retaining the logo, motto and
+   seamless lesson slideshow with its combined navigation controls.
+2. Align learning-journey cards and make their overlapping lesson scope clear.
+3. Standardize the eighty catalog entries: icon area, title, short explanation,
+   category and destination action, allowing naturally long algorithm names.
+4. Simplify the visual grouping of search and filters. Show active filters,
+   result count, clear/reset actions and helpful no-results guidance.
+5. Preserve the enlarged interactive learning-signal graph, keyboard access,
+   selection/filter synchronization and restrained icon animations.
+
+Deliverable: A coherent discovery page and reference catalog.
+Complete when: A user can find a named algorithm or choose a learning journey
+without losing context, encountering clipped titles or missing catalog entries.
+
+
+STEP 9 - UNIFY NAVIGATION, SAVED ITEMS AND UTILITY FLOWS (Not started)
+
+Actions:
+1. Make global navigation, active-page treatment, breadcrumbs and return links
+   consistent across Explore, Experiment, Compare and Saved.
+2. Give data tools, activities, timing studies, save/import and exports a
+   predictable location and consistent presentation.
+3. Refine Saved item titles, metadata, available actions and empty states.
+4. Clearly distinguish saved idea bookmarks from runnable experiment settings.
+5. Keep import errors, storage failures and successful saves visible near the
+   relevant action; show success only after the operation succeeds.
+
+Deliverable: Consistent supporting workflows and navigation.
+Complete when: Users can save, reopen, import and export without ambiguous
+destinations, lost settings or misleading completion messages.
+
+
+STEP 10 - POLISH RESULTS, STATES AND PRODUCT COPY (Not started)
+
+Actions:
+1. Define concise language and styling for ready, running, complete, stale,
+   canceled, failed and unavailable states.
+2. Emphasize the main measured result, then its interpretation and limitations.
+3. Keep metric precision, units, labels and model naming consistent.
+4. Remove redundant uppercase labels, repeated instructions and incidental
+   implementation terminology from normal user flows.
+5. Provide actionable empty/error messages and accurate progress feedback.
+   Avoid unsupported progress percentages or implied computed results.
+6. Keep data provenance and evaluation restrictions available and accurate.
+
+Deliverable: A state/copy reference applied throughout the app.
+Complete when: Users can distinguish current results from earlier or missing
+results, and understand what to do after an error or settings change.
+
+
+PHASE C - STRENGTHEN THE APP'S DISTINCTIVE IDENTITY
+
+STEP 11 - EXTEND THE MATHEMATICAL TEACHING INTERACTIONS (Not started)
+
+Actions:
+1. Inventory existing equation-control-chart links before adding new ones.
+2. Extend the established linear-regression interaction pattern to other
+   lessons where a meaningful, accurate connection can be shown.
+3. Choose one clear teaching interaction per algorithm: for example, reveal
+   selected neighbors, emphasize an SVM margin, or inspect a PCA projection.
+4. Highlight the relevant equation term, parameter and chart geometry together
+   using the shared visual vocabulary.
+5. Provide keyboard/touch equivalents and label schematic versus computed
+   output correctly. Keep the chart understandable without animation.
+
+Deliverable: A coherent set of mathematical teaching interactions.
+Complete when: Each added interaction explains a concept accurately, uses
+current values and does not obstruct fitting, inspection or comparison.
+
+
+STEP 12 - REFINE MOTION AND THE AMBIENT BACKGROUND (Not started)
+
+Actions:
+1. Reduce competing motion through restrained opacity, amplitude and timing.
+   Keep contours behind page surfaces and outside opaque teaching plots.
+2. Make scroll entrances brief and coordinated at section level, avoiding
+   repeated motion on every small text element or layout shifts.
+3. Retain slideshow autoplay behavior and existing pauses for manipulation
+   and focused lesson links.
+4. Add a persistent background-motion preference and clarify its scope.
+   System reduced-motion preferences must continue to work.
+5. Preserve worker rendering, optimized recovery/fallback, independent cursor
+   timing, coalesced pointer messages and inactive/hidden-page suspension.
+
+Deliverable: Consistent motion rules and user control of ambient motion.
+Complete when: Motion supports orientation and explanation; disabling it leaves
+all content visible and all functional controls usable.
+
+
+PHASE D - VERIFY THE COMPLETE EXPERIENCE
+
+STEP 13 - COMPLETE RESPONSIVE AND INPUT-METHOD POLISH (Not started)
+
+Actions:
+1. Review at 320, 390, 610, 768 and 1440 px widths, plus a large display.
+2. Check long titles, expanded explanations, open tools, populated libraries
+   and charts after fitting, rather than only initial page states.
+3. Tune panel stacking, toolbar wrapping, input widths and readable chart sizes.
+4. Keep sticky summaries small enough to leave useful chart space on narrow
+   screens. Check zoom, orientation changes and text enlargement.
+5. Verify mouse, touch and keyboard operation, including sliders, graph nodes,
+   disclosures, observation inspection and comparison view switching.
+
+Deliverable: Verified responsive layouts and input behavior.
+Complete when: Content and primary controls remain usable without unintended
+horizontal page overflow, overlap, focus obstruction or accidental activation.
+
+
+STEP 14 - PERFORM A FOCUSED ACCESSIBILITY REVIEW (Not started)
+
+Actions:
+1. Check text, control and chart contrast on the actual rendered surfaces.
+2. Review heading structure, accessible names, focus order and focus visibility.
+3. Verify keyboard access and escape/dismissal behavior for interactive details.
+4. Check that chart information, equations, statuses and errors have usable
+   text alternatives and sensible screen-reader announcements.
+5. Verify reduced motion and the new motion setting, including changes while
+   animations are active. Keep decorative layers out of assistive content.
+6. Record issues, fixes and any remaining limitations without claiming a full
+   accessibility certification from these focused checks.
+
+Deliverable: Accessibility findings and verified fixes.
+Complete when: Essential workflows work with keyboard and a screen reader,
+and significant identified accessibility blockers have been resolved.
+
+
+STEP 15 - VERIFY FUNCTIONAL AND NUMERICAL REGRESSIONS (Not started)
+
+Actions:
+1. Run the existing numerical/state tests after integrated implementation.
+2. Run affected browser suites throughout development. Include fit/scroll,
+   comparison, controls, chart-first layout, illustration motion and contours.
+3. At the integrated milestone, run the complete browser verification suite
+   using the existing shared-browser runner and isolated contexts.
+4. Check both comparison tasks, all ten lesson fits, cancellation, stale
+   results, parameter history, imports, saved experiments and exports.
+5. Add targeted tests for meaningful new behavior or discovered regressions;
+   use visual review for cosmetic changes rather than implementation mirrors.
+6. Confirm frozen datasets, reference fixtures and earlier builds are intact.
+
+Deliverable: Current test reports with failures resolved and run provenance.
+Complete when: Required checks pass, source/build content agrees, and reports
+accurately distinguish full reruns from reused or targeted verification.
+
+
+STEP 16 - COMPLETE VISUAL QA AND PERFORMANCE COMPARISON (Not started)
+
+Actions:
+1. Capture the same routes, viewports and states used in Step 1.
+2. Review alignment, type wrapping, contrast, spacing, chart clarity and state
+   consistency. Correct isolated page exceptions in the shared system.
+3. Compare performance with the baseline under idle, pointer motion, slider
+   editing, scrolling and real model fitting.
+4. Check narrow, desktop and large-display cases, including worker rendering,
+   unsupported-browser fallback, worker recovery and reduced-motion behavior.
+5. Measure contour cadence, redraw cost and main-thread responsiveness.
+   Verify the 30 fps target and pixel cap without unbounded work or leaks.
+6. Record test hardware/browser, methodology and limitations. Separate script
+   calculation/submission timing from actual raster/compositing measurements.
+
+Deliverable: Before/after screenshots and a performance/visual QA report.
+Complete when: The visual improvements are evident, functional information is
+clearer, and measured performance remains appropriate for the supported cases.
+
+
+STEP 17 - RUN A SHORT USABILITY PASS (Not started)
+
+Actions:
+1. Prepare tasks: find an algorithm, explain a chart, change a parameter, fit
+   a model, compare two results, save an experiment and reopen it.
+2. Test the flows with the available reviewer; arrange beginner feedback when
+   participants are available. Record the actual participant experience level.
+3. Observe unclear labels, missed actions, excessive scrolling and confusion
+   between schematic previews, settings and fitted results.
+4. Fix the highest-impact issues and repeat the affected tasks and checks.
+
+Deliverable: Task observations, prioritized findings and verified improvements.
+Complete when: Reviewed core tasks are understandable and significant findings
+are resolved. Mark beginner testing pending if no beginner participated.
+
+
+PHASE E - PACKAGE AND HAND OVER
+
+STEP 18 - UPDATE DOCUMENTATION AND PACKAGE THE POLISHED BUILD (Not started)
+
+Actions:
+1. Update this workflow with verified completion status and evidence locations.
+2. Update the README, implementation metadata and validation summary to match
+   the delivered interface and any remaining limitations.
+3. Rebuild the static app and verify source/build parity, local assets, worker
+   loading, dataset checksums and preservation of earlier versions.
+4. Refresh the downloadable archive with source, static build, documentation
+   and relevant verification evidence. Verify archive integrity.
+5. Open the polished preview and smoke-check primary routes from the packaged
+   build. Provide a concise change summary, preview link and archive link.
+
+Deliverable: Reviewable polished build, updated workflow and verified archive.
+Complete when: The preview and archive represent the same implementation,
+completed claims have evidence, and remaining work is explicitly recorded.
+
+
+RECOMMENDED PRIORITY
+
+First establish Steps 1-4. Then prioritize Steps 5-7: opaque readable charts,
+the comparison workspace and consistent model controls offer the largest
+immediate improvement. Continue sequentially through the remaining steps.
+
+REFERENCE MATERIAL
+
+- Current implementation and history:
+  outputs/atlas-v2.2/WORKFLOW-v2.2.txt
+  outputs/atlas-v2.2/atlas-app/README.md
+- Current validation summary and verification provenance:
+  outputs/atlas-v2.2/atlas-app/v22-validation.json
+  outputs/atlas-v2.2/atlas-app/browser-batch-validation.json
+- Current contour geometry and performance evidence:
+  outputs/atlas-v2.2/atlas-app/contour-geometry-validation.json
+  outputs/atlas-v2.2/atlas-app/contour-performance-validation.json
+- Typography system reference discussed in the design review:
+  https://www.carbondesignsystem.com/building-blocks/foundations/typography/overview
+- Interaction-motion guidance discussed in the design review:
+  https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions
+
+Paths above are relative to the project workspace unless they are web URLs.

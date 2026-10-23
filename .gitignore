@@ -1,0 +1,7 @@
+atlas-app/dist/
+atlas-app/node_modules/
+atlas-app/screens/
+atlas-app/*-failure.png
+*.log
+.env
+.env.*

@@ -1,0 +1,77 @@
+const {expandChartDetails}=require('./verification-browser.cjs');
+const {openVerificationBrowser}=require('./verification-browser.cjs');
+const {chromium}=require(process.env.MLA_PLAYWRIGHT_MODULE || 'playwright');
+const fs=require('fs'),path=require('path'),assert=require('assert');
+(async()=>{
+ const root=path.resolve(__dirname,'..');fs.mkdirSync(path.join(root,'screens'),{recursive:true});
+ const browser=await openVerificationBrowser(chromium,{executablePath:process.env.MLA_BROWSER_EXECUTABLE || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1050}});
+ await page.route('https://**',r=>r.abort());
+ const errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
+ const check=(name,value)=>{assert(value,name);checks.push(name)};
+ const base='http://127.0.0.1:8773/index.html';
+ const nav=async route=>{await page.goto(base+'#/'+route);await expandChartDetails(page);await page.locator('main h1').waitFor();await page.waitForTimeout(120)};
+ const count=()=>page.locator('.algorithm-card').count();
+ await nav('explore');check('Catalog shows all 80 entries',await count()===80);
+ await page.locator('.edition-reference-heading').scrollIntoViewIfNeeded();check('Reference atlas remains on the Explore route',await page.evaluate(()=>location.hash)==='#/explore'&&await page.locator('#catalog').isVisible());
+ await page.locator('#catalog-search').fill('LDA');check('Ambiguous LDA alias returns both meanings',await count()===2);
+ await page.locator('#catalog-search').fill('');await page.locator('#first-ten').check();check('Starter filter returns 10 lessons',await count()===10);
+ await page.locator('#catalog-search').fill('qqqzxy');check('Search empty state appears',await page.locator('#clear-filters').isVisible());await page.locator('#clear-filters').click();check('Clear restores 80 entries',await count()===80);
+ await page.locator('.type-button[data-learning="reinforcement"]').click();check('Learning type filter matches data',await count()===await page.evaluate(()=>MLA_APP.content.catalog.entries.filter(e=>e.learningTypes.includes('reinforcement')).length));
+ await page.locator('.type-button[data-learning="all"]').click();await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(root,'screens','explore-desktop.png')});
+ await page.locator('[data-entry="linear-regression"] h3 a').click();await page.locator('.detail-lead').waitFor();check('Catalog card opens details',await page.locator('h1').innerText()==='Linear regression');
+ await page.locator('a.primary-link[href="#/lesson/linear-regression"]').click();await page.locator('#lesson-equation').waitFor();await expandChartDetails(page);
+ const before=await page.locator('.metric-value').first().innerText();
+ await page.locator('[data-param-number="slope"]').fill('1.5');check('Parameter updates the equation',await page.locator('#lesson-equation').innerText().then(s=>s.includes('1.5')));check('Parameter updates calculated loss',await page.locator('.metric-value').first().innerText()!==before);
+ await page.locator('[data-dial="intercept"]').focus();await page.keyboard.press('ArrowRight');check('Dial supports keyboard adjustment',await page.evaluate(()=>MLA_APP.config('linear-regression').intercept)!==0);
+ const valid=await page.evaluate(()=>MLA_APP.config('linear-regression').slope);
+ await page.locator('[data-param-number="slope"]').fill('999');check('Invalid input preserves last valid model state',await page.evaluate(()=>MLA_APP.config('linear-regression').slope)===valid);check('Invalid input is explained',await page.locator('#control-slope-error').innerText().then(s=>s.length>0));
+ await page.locator('[data-param-range="slope"]').evaluate(el=>{el.value='0.75';el.dispatchEvent(new Event('input',{bubbles:true}))});check('Slider clears invalid numeric state',await page.locator('[data-param-number="slope"]').getAttribute('aria-invalid')==='false');
+ const sliderCommitted=await page.evaluate(()=>MLA_APP.config('linear-regression').slope);
+ await page.locator('[data-level="advanced"]').click();check('Depth switch preserves parameters',await page.evaluate(()=>MLA_APP.config('linear-regression').slope)===sliderCommitted);
+ await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='completed'&&!MLA_APP.state.linearMotion&&MLA_APP.state.fitted);
+ const actual=await page.evaluate(()=>({...MLA_APP.config('linear-regression')}));
+ const data=JSON.parse(fs.readFileSync(path.join(root,'../datasets/line-noise.json'),'utf8')),rows=data.partitions.train;
+ const mx=rows.reduce((s,i)=>s+data.X[i][0],0)/rows.length,my=rows.reduce((s,i)=>s+data.y[i],0)/rows.length;
+ const slope=rows.reduce((s,i)=>s+(data.X[i][0]-mx)*(data.y[i]-my),0)/rows.reduce((s,i)=>s+(data.X[i][0]-mx)**2,0);
+ check('OLS fit matches independent training-only reference',Math.abs(actual.slope-slope)<1e-12&&Math.abs(actual.intercept-(my-slope*mx))<1e-12);
+ const rmse=Math.sqrt(rows.reduce((s,i)=>s+(data.y[i]-(slope*data.X[i][0]+my-slope*mx))**2,0)/rows.length);
+ check('Displayed training RMSE matches reference',Math.abs(Number(await page.locator('.metric-value').first().innerText())-rmse)<0.00051);
+ await page.locator('[data-level="beginner"]').click();await page.screenshot({path:path.join(root,'screens','lesson-desktop.png')});
+ await page.locator('[data-level="advanced"]').click();await page.locator('[data-param="fit-intercept"]').uncheck();await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='completed'&&!MLA_APP.state.linearMotion&&MLA_APP.state.fitted);check('Through-origin fit keeps zero intercept',await page.evaluate(()=>MLA_APP.config('linear-regression').intercept)===0);
+ await page.locator('#reset-parameters').click();await page.locator('#play-lesson').click();check('Playback enters playing state',await page.locator('#play-lesson').innerText()==='Pause');await page.locator('#play-lesson').click();check('Playback pauses',await page.locator('#play-lesson').innerText()==='Play');
+ const ids=await page.evaluate(()=>MLA_APP.content.plan.lessons.map(l=>l.catalogEntryId));
+ for(const id of ids){await nav('lesson/'+id);check('Lesson renders '+id,await page.locator('#lesson-plot').innerHTML().then(s=>s.length>30));if(!['linear-regression','knn','logistic-regression','decision-tree','random-forest','svm','kmeans','pca','mlp','q-learning'].includes(id))check('Model pending state '+id,await page.locator('#fit-preview').isDisabled())}
+ await nav('compare');check('Comparison waits for real metrics',await page.locator('.metric-placeholder').allTextContents().then(a=>a.length===8&&a.every(s=>s==='—')));
+ const points=await page.locator('#compare-left-plot .compare-observation').count();check('Comparison uses all 48 shared validation inputs',points===48);
+ const shapes=await page.evaluate(()=>['left','right'].map(side=>[...document.querySelectorAll('#compare-'+side+'-plot .compare-observation')].map(el=>el.outerHTML)));
+ check('Both comparison plots share identical input points',JSON.stringify(shapes[0])===JSON.stringify(shapes[1]));
+ await page.locator('#compare-dataset').selectOption('two-blobs');await page.locator('#compare-left-model').selectOption('logistic-regression');check('Comparison selections update',await page.evaluate(()=>MLA_APP.comparison.coordinator.datasetId==='two-blobs'&&MLA_APP.comparison.coordinator.sides.left.modelId==='logistic-regression'));
+ await page.screenshot({path:path.join(root,'screens','compare-desktop.png')});
+ for(const width of [320,390,768]){
+  await page.setViewportSize({width,height:1000});
+  for(const route of ['explore','lesson/linear-regression','lesson/mlp','lesson/q-learning','compare','algorithm/linear-regression']){await nav(route);check('No horizontal overflow '+width+' '+route,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1))}
+ }
+ await page.setViewportSize({width:390,height:1000});await nav('lesson/linear-regression');await page.locator('[data-level="beginner"]').click();await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='completed'&&!MLA_APP.state.linearMotion&&MLA_APP.state.fitted);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(root,'screens','lesson-mobile.png'),fullPage:true});
+ await page.emulateMedia({reducedMotion:'reduce'});check('Reduced-motion disables smooth scroll',await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)==='auto');
+ await nav('invalid-page');check('Unknown route has recovery link',await page.locator('.not-found .primary-link').isVisible());
+ await nav('explore');await page.locator('.skip-link').focus();await page.keyboard.press('Enter');check('Skip link moves focus without losing route',await page.evaluate(()=>document.activeElement.id==='main'&&location.hash==='#/explore'));
+
+ await nav('lesson/linear-regression');await page.locator('[data-param-number="slope"]').fill('1.25');await page.locator('#save-setup').click();check('Setup save confirms persistence',await page.locator('#setup-status').innerText().then(t=>t.includes('saved')));
+ await page.reload();await expandChartDetails(page);await page.locator('#load-setup').waitFor();await page.locator('#load-setup').click();check('Saved setup survives page reload',await page.evaluate(()=>MLA_APP.config('linear-regression').slope)===1.25);
+ await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='completed'&&!MLA_APP.state.linearMotion&&MLA_APP.state.fitted);check('Fit creates versioned worker result',await page.evaluate(()=>MLA_APP.experiment.result.schemaVersion==='1.0.0'&&MLA_APP.experiment.result.predictions.validation.length===32));
+ await page.locator('[data-level="advanced"]').click();const current=await page.locator('[data-param="fit-intercept"]').isChecked();await page.locator('[data-param="fit-intercept"]').setChecked(!current);check('Training change retains prior fit and labels it stale',await page.evaluate(()=>MLA_APP.experiment.status==='requires-new-run'&&!!MLA_APP.experiment.result));check('Stale status is visible',await page.locator('#run-status').innerText().then(t=>t.includes('run again')));
+ await page.evaluate(()=>localStorage.setItem('mla.setups.v1','broken-json'));const prior=await page.evaluate(()=>MLA_APP.config('linear-regression').slope);await page.locator('#load-setup').click();check('Corrupt preset cannot alter valid settings',await page.evaluate(()=>MLA_APP.config('linear-regression').slope)===prior);check('Corrupt preset has visible recovery message',await page.locator('#setup-status').innerText().then(t=>t.includes('Could not load')));
+ await page.evaluate(()=>localStorage.removeItem('mla.setups.v1'));await page.locator('#reset-parameters').click();await page.locator('[data-level="beginner"]').click();await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='completed'&&!MLA_APP.state.linearMotion&&MLA_APP.state.fitted);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(root,'screens','foundation-mobile.png'),fullPage:true});
+ await page.setViewportSize({width:1440,height:1150});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(root,'screens','foundation-desktop.png')});
+ await nav('lesson/knn');await page.locator('#reset-parameters').click();await nav('lesson/linear-regression');check('Resetting another model preserves the fitted line',await page.locator('#run-status').innerText()==='Fitted on training rows');
+ let releaseWorker;const held=new Promise(resolve=>releaseWorker=resolve);
+ await page.context().route('**/model.worker.js',async r=>{await held;try{await r.continue();}catch{}});
+ await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='running');await page.locator('#cancel-run').click();check('Cancel button stops a real pending worker run',await page.evaluate(()=>MLA_APP.experiment.status==='canceled'));releaseWorker();await page.context().unroute('**/model.worker.js');
+ let releaseManual;const heldManual=new Promise(resolve=>releaseManual=resolve);
+ await page.context().route('**/model.worker.js',async r=>{await heldManual;try{await r.continue();}catch{}});
+ await page.locator('#fit-preview').click();await page.waitForFunction(()=>MLA_APP.experiment.status==='running');await page.locator('[data-param-number="slope"]').fill('1.1');check('Manual coefficient change cancels a pending fit',await page.evaluate(()=>MLA_APP.experiment.status==='canceled'&&MLA_APP.config('linear-regression').slope===1.1));releaseManual();await page.context().unroute('**/model.worker.js');
+ check('No JavaScript errors',errors.length===0);
+ fs.writeFileSync(path.join(root,'browser-validation.json'),JSON.stringify({status:'passed',browser:'Microsoft Edge / Playwright',fontMode:'Self-contained static app; no network assets',checks,errors},null,2));
+ console.log(JSON.stringify({status:'passed',checks:checks.length,errors,referenceFit:{slope,intercept:my-slope*mx,trainingRmse:rmse}},null,2));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

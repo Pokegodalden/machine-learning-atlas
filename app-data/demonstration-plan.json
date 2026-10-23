@@ -1,0 +1,1055 @@
+{
+  "schemaVersion": "1.0.0",
+  "completedStep": 3,
+  "updatedOn": "2026-10-15",
+  "title": "Machine Learning Atlas Initial Demonstrations",
+  "catalogFile": "catalog.json",
+  "datasetManifestFile": "dataset-manifest.json",
+  "brandManifestFile": "../brand/brand-manifest.json",
+  "supportingReferences": [
+    {
+      "id": "gym-time-limits",
+      "title": "Gymnasium handling time limits",
+      "url": "https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/"
+    }
+  ],
+  "scope": {
+    "selectedLessonCount": 10,
+    "fixtureCount": 7,
+    "implementationStatus": "specified-not-implemented",
+    "runnableDemoCount": 0,
+    "decision": "Select all ten starter candidates; use the listed order as the recommended learning and build sequence."
+  },
+  "releaseWaves": [
+    {
+      "id": "foundations",
+      "label": "Fitting, neighbors, and probabilities",
+      "lessonIds": [
+        "lesson-linear-regression",
+        "lesson-knn",
+        "lesson-logistic-regression"
+      ]
+    },
+    {
+      "id": "boundaries",
+      "label": "Trees, ensembles, and margins",
+      "lessonIds": [
+        "lesson-decision-tree",
+        "lesson-random-forest",
+        "lesson-svm"
+      ]
+    },
+    {
+      "id": "structure",
+      "label": "Unlabeled structure and projection",
+      "lessonIds": [
+        "lesson-kmeans",
+        "lesson-pca"
+      ]
+    },
+    {
+      "id": "learning-systems",
+      "label": "Neural training and reward-driven decisions",
+      "lessonIds": [
+        "lesson-mlp",
+        "lesson-q-learning"
+      ]
+    }
+  ],
+  "experimentPolicy": {
+    "datasetSeed": 42,
+    "partitionSeed": 137,
+    "modelSeed": 7,
+    "supervisedPartitions": {
+      "train": 0.6,
+      "validation": 0.2,
+      "test": 0.2,
+      "stratifyBinaryLabels": true
+    },
+    "tuning": "Show train and validation results while adjusting settings. Reserve test rows for an explicit final check; repeated test inspection is exploratory rather than an untouched assessment.",
+    "preprocessing": "Fit learned preprocessing only on train rows. Transform query points, evaluation rows, and plot-grid inputs through the same model pipeline.",
+    "comparisons": "Use identical dataset row IDs and partitions. Keep required model-specific preprocessing and clearly name each metric and data partition.",
+    "classificationConvention": "Binary class 1 is positive; report undefined precision/recall cases explicitly using a declared numerical convention.",
+    "plotCoordinates": "Compare on shared raw-coordinate grids. Model-space scores and geometric distances must be labeled with their actual coordinate system.",
+    "runState": "Run-state and settings revision must distinguish ready, running, completed, canceled, failed, and results requiring a new run.",
+    "reproducibility": "Save frozen row IDs, generator metadata, split IDs, model seed, preprocessing, controls, and implementation version. A seed alone does not guarantee cross-engine identical models.",
+    "performanceLimits": "Teaching bounds are proposals. Step 5 selects an execution architecture; Step 8 validates numerical correctness and responsive progress within the chosen device limits."
+  },
+  "presentationPolicy": {
+    "visualStyle": "Use the selected convergence logo, a dark mathematical stage, LaTeX-compatible equations, and concise serif explanatory titles.",
+    "semanticColors": {
+      "dataClass0": "cyan circles",
+      "dataClass1": "purple squares",
+      "activeModel": "yellow",
+      "error": "red with a text or shape cue",
+      "supplementaryQuantity": "green with a label"
+    },
+    "unlabeledScenes": "Start with neutral/cyan observations; introduce cluster identities with labeled colors and distinct shapes. Display centers separately from observations.",
+    "controls": "Every slider or dial has a numeric-input alternative and keyboard operation. Use stepped integer controls, logarithmic positive scales, dropdowns, and toggles as defined.",
+    "playback": "Play, pause, previous step, next step, replay, and 0.5x/1x/2x presentation speed. Playback never changes training work or already computed results.",
+    "reducedMotion": "Offer the same explanatory states as static snapshots with text alternatives.",
+    "states": "Teach intermediate computation only where actual intermediate states are available. Use explicitly labeled geometric interpolation when interpolating between stored states.",
+    "depth": "Beginner and Advanced share the same dataset, model settings, and completed run."
+  },
+  "comparisonGroups": [
+    {
+      "id": "binary-point-classification",
+      "catalogEntryIds": [
+        "knn",
+        "logistic-regression",
+        "decision-tree",
+        "random-forest",
+        "svm",
+        "mlp"
+      ],
+      "datasetIds": [
+        "two-blobs",
+        "two-moons",
+        "xor-corners"
+      ],
+      "sharedMetrics": [
+        "accuracy",
+        "precision-class-1",
+        "recall-class-1",
+        "f1-class-1",
+        "confusion-matrix"
+      ],
+      "rules": "Instantiate every compared model on the exact same selected fixture and partitions; log loss is optional only for compatible probability outputs."
+    },
+    {
+      "id": "tree-versus-forest",
+      "catalogEntryIds": [
+        "decision-tree",
+        "random-forest"
+      ],
+      "datasetIds": [
+        "two-moons",
+        "two-blobs"
+      ],
+      "sharedMetrics": [
+        "accuracy",
+        "f1-class-1"
+      ],
+      "rules": "Use the same rows and compare the actual fitted single tree with the full forest."
+    }
+  ],
+  "nextCoverage": [
+    {
+      "catalogEntryId": "label-propagation",
+      "learningType": "semi-supervised",
+      "status": "backlog-not-selected",
+      "reason": "Reuse point clouds and graph views to show learning from a small labeled subset. Hide labels only on training rows; keep validation/test labels separate."
+    },
+    {
+      "catalogEntryId": "masked-autoencoders",
+      "learningType": "self-supervised",
+      "status": "backlog-not-selected",
+      "reason": "Use a later small image-patch reconstruction lesson to show targets created from the observations themselves."
+    }
+  ],
+  "coverageNote": "The selected runnable core covers supervised, unsupervised, and reinforcement learning. Semi-supervised and self-supervised entries remain browsable in the catalog; their runnable coverage is planned next.",
+  "lessons": [
+    {
+      "id": "lesson-linear-regression",
+      "catalogEntryId": "linear-regression",
+      "title": "What makes a line fit?",
+      "learnerOrder": 1,
+      "buildOrder": 1,
+      "releaseWave": "foundations",
+      "status": "specified-not-implemented",
+      "question": "Which line makes these observations least wrong?",
+      "learningGoal": "Distinguish model coefficients, residuals, loss, and fitted predictions.",
+      "primaryDatasetId": "line-noise",
+      "challengeDatasetId": null,
+      "task": "regression",
+      "suggestedMinutes": 8,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "slope",
+        "intercept",
+        "fit-intercept"
+      ],
+      "parameterOverrides": [],
+      "runControls": [],
+      "sceneInteractions": [
+        "Slope slider and intercept dial each have a numeric-input equivalent.",
+        "Select an observation to connect its input, prediction, residual, and loss contribution.",
+        "Manual coefficient exploration is visibly distinct from the completed fitted result."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "Observations",
+          "explanation": "Reveal the input and noisy numerical response."
+        },
+        {
+          "id": "beat-2",
+          "title": "Explore a candidate line",
+          "explanation": "Move slope and intercept; update its residuals and squared-error loss."
+        },
+        {
+          "id": "beat-3",
+          "title": "Fit the model",
+          "explanation": "Run least-squares fitting and animate toward the actual fitted coefficients."
+        },
+        {
+          "id": "beat-4",
+          "title": "Inspect errors",
+          "explanation": "Show training and validation residuals, then compare with the hidden data-generating relationship."
+        }
+      ],
+      "equations": [
+        "\\hat y=wx+b",
+        "L=\\frac{1}{n}\\sum_i(y_i-\\hat y_i)^2"
+      ],
+      "trainingRecipe": "Fit an intercept-enabled one-feature ordinary least-squares model to train rows. Do not scale the input by default. Manual coefficients are a separate exploration state.",
+      "metrics": [
+        "Training and validation MAE",
+        "Training and validation RMSE",
+        "Residual plot"
+      ],
+      "reflectionPrompt": "Why can the best fitted line differ from the line that generated these noisy observations?",
+      "acceptanceChecks": [
+        "Moving either coefficient recomputes manual-scene loss without fabricating a training run.",
+        "Least-squares coefficients and predictions match an independent numerical reference within declared tolerance.",
+        "Residual sign and squared-loss contribution agree with the displayed point and equation.",
+        "Disabling the fitted intercept constrains the fit to zero offset.",
+        "The known generator coefficients remain reference data, never fitted-model inputs."
+      ],
+      "sourceRefs": [
+        "sk-linear-model-linearregression"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Least squares, matrix rank, residual geometry, and coefficient uncertainty.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-knn",
+      "catalogEntryId": "knn",
+      "title": "Let the neighbors vote",
+      "learnerOrder": 2,
+      "buildOrder": 2,
+      "releaseWave": "foundations",
+      "status": "specified-not-implemented",
+      "question": "How does a query point receive a class label?",
+      "learningGoal": "Explain locality, neighbor count, and distance-weighted voting.",
+      "primaryDatasetId": "two-blobs",
+      "challengeDatasetId": "two-moons",
+      "task": "classification",
+      "suggestedMinutes": 8,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-linear-regression"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "n-neighbors",
+        "weights"
+      ],
+      "parameterOverrides": [
+        {
+          "parameterId": "n-neighbors",
+          "maximum": 25
+        }
+      ],
+      "runControls": [],
+      "sceneInteractions": [
+        "Drag the query point or position it with two coordinate fields.",
+        "Highlight the selected neighbors and their individual vote contributions.",
+        "Changing the query location updates its prediction; changing model settings marks aggregate results for a new experiment."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "A labeled neighborhood",
+          "explanation": "Reveal labeled training points and one query location."
+        },
+        {
+          "id": "beat-2",
+          "title": "Choose neighbors",
+          "explanation": "Highlight the k nearest points in the fitted feature space."
+        },
+        {
+          "id": "beat-3",
+          "title": "Combine evidence",
+          "explanation": "Show votes or distance weights and the resulting class."
+        },
+        {
+          "id": "beat-4",
+          "title": "Inspect the boundary",
+          "explanation": "Compute a decision map and compare training and validation behavior."
+        }
+      ],
+      "equations": [],
+      "trainingRecipe": "Store the standardized training observations and labels. Fit scaling only on train rows. Default Euclidean distance, k=5, uniform votes; class ties choose class 0. For distance weighting, if selected neighbors include zero-distance observations, ignore positive-distance neighbors and vote equally among the selected zero-distance observations; otherwise use inverse-distance weights.",
+      "metrics": [
+        "Training and validation accuracy",
+        "Validation precision, recall, and F1 for class 1",
+        "Validation confusion matrix"
+      ],
+      "reflectionPrompt": "How can using more neighbors smooth a boundary while losing a small local pattern?",
+      "acceptanceChecks": [
+        "Neighbor count never exceeds the training-row count.",
+        "Nearest-neighbor ordering uses distance then row ID for reproducible ties.",
+        "Uniform-vote ties use the declared class ordering; exact-distance duplicates follow a documented weighting rule.",
+        "The highlighted neighbors and vote totals reproduce the displayed query prediction.",
+        "No gradient-descent or parameter-learning animation is shown for this lazy method."
+      ],
+      "sourceRefs": [
+        "sk-neighbors-kneighborsclassifier"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "The chosen distance and feature scale reflect useful similarity. Prediction cost and distance quality deteriorate in difficult high-dimensional spaces.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-logistic-regression",
+      "catalogEntryId": "logistic-regression",
+      "title": "From a score to a probability",
+      "learnerOrder": 3,
+      "buildOrder": 3,
+      "releaseWave": "foundations",
+      "status": "specified-not-implemented",
+      "question": "How does a weighted sum become a class probability?",
+      "learningGoal": "Connect a linear score, sigmoid, threshold, and classification errors.",
+      "primaryDatasetId": "two-blobs",
+      "challengeDatasetId": "xor-corners",
+      "task": "classification",
+      "suggestedMinutes": 8,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-linear-regression",
+        "lesson-knn"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "c",
+        "threshold"
+      ],
+      "parameterOverrides": [],
+      "runControls": [],
+      "sceneInteractions": [
+        "Select a point to trace its standardized inputs, score, probability, and label.",
+        "Adjust regularization on a logarithmic slider; adjust the threshold with a slider or dial.",
+        "Show train and validation results using the same chosen threshold."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "A weighted score",
+          "explanation": "Show how two inputs contribute to a linear score."
+        },
+        {
+          "id": "beat-2",
+          "title": "The sigmoid link",
+          "explanation": "Connect that score to the positive-class probability."
+        },
+        {
+          "id": "beat-3",
+          "title": "Choose a decision threshold",
+          "explanation": "Move the threshold and update labels and the confusion matrix without refitting."
+        },
+        {
+          "id": "beat-4",
+          "title": "Challenge a linear boundary",
+          "explanation": "Switch to XOR and inspect the limitations of this feature basis."
+        }
+      ],
+      "equations": [
+        "p(y=1\\mid x)=\\sigma(w^\\top x+b)",
+        "\\sigma(z)=\\frac{1}{1+e^{-z}}"
+      ],
+      "trainingRecipe": "Fit binary logistic regression with L2 regularization and C=1 to train-standardized features. Specify the backend objective convention when selecting its solver; do not confuse C with a direct penalty coefficient.",
+      "metrics": [
+        "Training and validation log loss",
+        "Validation precision, recall, and F1 for class 1",
+        "Validation confusion matrix"
+      ],
+      "reflectionPrompt": "Why does changing the threshold alter decisions without changing learned probabilities?",
+      "acceptanceChecks": [
+        "Predicted probabilities lie between zero and one.",
+        "Threshold updates preserve fitted coefficients and recompute only decisions and related metrics.",
+        "Thresholds at zero or one show the appropriate constant-label behavior without an invalid finite boundary.",
+        "Training uses a documented regularized binary-log-loss objective and stable numerical evaluation.",
+        "XOR limitations are described from actual outcomes; the lesson does not invent a nonlinear feature expansion."
+      ],
+      "sourceRefs": [
+        "sk-linear-model-logisticregression"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Binary log loss, log odds, regularization, and multinomial extensions.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-decision-tree",
+      "catalogEntryId": "decision-tree",
+      "title": "A boundary made of questions",
+      "learnerOrder": 4,
+      "buildOrder": 4,
+      "releaseWave": "boundaries",
+      "status": "specified-not-implemented",
+      "question": "How do feature-threshold questions divide the plane?",
+      "learningGoal": "Connect recursive splits and leaf predictions to model complexity.",
+      "primaryDatasetId": "two-moons",
+      "challengeDatasetId": "two-blobs",
+      "task": "classification",
+      "suggestedMinutes": 10,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-logistic-regression"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "max-depth",
+        "min-leaf"
+      ],
+      "parameterOverrides": [],
+      "runControls": [],
+      "sceneInteractions": [
+        "Select a region or node to highlight its paired representation.",
+        "Adjust depth and minimum leaf size, then run a fresh fit.",
+        "Select a point to trace its root-to-leaf path."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "One split",
+          "explanation": "Draw the first selected feature threshold and its two regions."
+        },
+        {
+          "id": "beat-2",
+          "title": "Recursive partitioning",
+          "explanation": "Add actual fitted splits and link each region to its tree node."
+        },
+        {
+          "id": "beat-3",
+          "title": "A path to a leaf",
+          "explanation": "Follow one point through its questions to a leaf prediction."
+        },
+        {
+          "id": "beat-4",
+          "title": "Depth and generalization",
+          "explanation": "Compare actual train and validation results at different depth settings."
+        }
+      ],
+      "equations": [
+        "G=1-\\sum_c p_c^2"
+      ],
+      "trainingRecipe": "Fit a binary CART classifier with Gini impurity on raw feature coordinates, max depth 4, minimum leaf size 3, and model seed 7.",
+      "metrics": [
+        "Training and validation accuracy",
+        "Validation F1 for class 1",
+        "Validation confusion matrix",
+        "Leaf count and actual fitted depth"
+      ],
+      "reflectionPrompt": "Why can a deeper tree fit the training points more closely without improving its validation result?",
+      "acceptanceChecks": [
+        "Every rendered split, threshold, sample count, and leaf prediction comes from the fitted tree.",
+        "Node selection and region highlighting identify the same subset of observations.",
+        "Leaf counts and depth respect fitted-model constraints.",
+        "Tie handling and random state are documented for reproducibility.",
+        "Depth changes may improve or worsen validation performance; displayed outcomes are computed."
+      ],
+      "sourceRefs": [
+        "sk-tree-decisiontreeclassifier"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Useful structure can be approximated by recursive partitions. Deep trees can overfit and change sharply with the data.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-random-forest",
+      "catalogEntryId": "random-forest",
+      "title": "Many trees, one prediction",
+      "learnerOrder": 5,
+      "buildOrder": 5,
+      "releaseWave": "boundaries",
+      "status": "specified-not-implemented",
+      "question": "What changes when several varied trees combine predictions?",
+      "learningGoal": "Explain bootstrap diversity, feature randomness, and ensemble aggregation.",
+      "primaryDatasetId": "two-moons",
+      "challengeDatasetId": null,
+      "task": "classification",
+      "suggestedMinutes": 10,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-decision-tree"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "n-estimators",
+        "max-depth"
+      ],
+      "parameterOverrides": [],
+      "runControls": [],
+      "sceneInteractions": [
+        "Inspect up to five example trees while clearly labeling the full ensemble size.",
+        "Adjust tree count and depth; aggregate results always use the full configured forest.",
+        "Select a query point to inspect individual-tree probabilities and their mean."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "Different training views",
+          "explanation": "Reveal sampled rows and feature choices for selected trees."
+        },
+        {
+          "id": "beat-2",
+          "title": "Different boundaries",
+          "explanation": "Show a few actual component boundaries with their sample identities."
+        },
+        {
+          "id": "beat-3",
+          "title": "Aggregate probabilities",
+          "explanation": "Average per-tree class probabilities and apply the class decision rule."
+        },
+        {
+          "id": "beat-4",
+          "title": "Compare with one tree",
+          "explanation": "Compare using identical dataset partitions and evaluation metrics."
+        }
+      ],
+      "equations": [
+        "p(y=c\\mid x)=\\frac{1}{T}\\sum_t p_t(y=c\\mid x)"
+      ],
+      "trainingRecipe": "Use bootstrap sampling, square-root feature subsampling, 50 trees, max depth 4, minimum leaf size 3, and model seed 7. Classify using averaged leaf probabilities, not a fabricated unanimity vote.",
+      "metrics": [
+        "Training and validation accuracy",
+        "Validation F1 for class 1",
+        "Validation confusion matrix",
+        "Actual forest size"
+      ],
+      "reflectionPrompt": "How can trees disagree while the ensemble still makes one prediction?",
+      "acceptanceChecks": [
+        "The aggregate probability equals the mean of all fitted-tree probabilities.",
+        "A displayed subset of trees is labeled as a subset and never substitutes for full aggregation.",
+        "The paired single-tree comparison uses identical partition IDs.",
+        "Bootstrap sampling and feature randomness are recorded or reproducible from model state.",
+        "Increasing the tree count does not trigger a promised accuracy improvement."
+      ],
+      "sourceRefs": [
+        "sk-ensemble-randomforestclassifier"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Variation among trees improves the value of aggregation. Large forests are harder to explain as one rule sequence.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-svm",
+      "catalogEntryId": "svm",
+      "title": "Find the margin",
+      "learnerOrder": 6,
+      "buildOrder": 6,
+      "releaseWave": "boundaries",
+      "status": "specified-not-implemented",
+      "question": "Which observations determine a separating boundary?",
+      "learningGoal": "Explain support vectors, margin tradeoffs, and kernel-dependent boundaries.",
+      "primaryDatasetId": "two-blobs",
+      "challengeDatasetId": "two-moons",
+      "task": "classification",
+      "suggestedMinutes": 10,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-knn",
+        "lesson-logistic-regression"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "c",
+        "kernel",
+        "gamma"
+      ],
+      "parameterOverrides": [
+        {
+          "parameterId": "kernel",
+          "default": "linear"
+        }
+      ],
+      "runControls": [],
+      "sceneInteractions": [
+        "Use a logarithmic C slider and a kernel dropdown.",
+        "Show the gamma control in Advanced when the RBF kernel is active.",
+        "Select a support vector to connect its role in the fitted solution to its plotted location."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "Linear separation",
+          "explanation": "Show the score-zero boundary and the two unit-score contours."
+        },
+        {
+          "id": "beat-2",
+          "title": "Support observations",
+          "explanation": "Identify actual fitted support vectors and margin violations."
+        },
+        {
+          "id": "beat-3",
+          "title": "The C tradeoff",
+          "explanation": "Change C and compare the new fitted boundary and errors."
+        },
+        {
+          "id": "beat-4",
+          "title": "Kernel challenge",
+          "explanation": "Switch to moons and compare linear and RBF kernels with gamma enabled only for RBF."
+        }
+      ],
+      "equations": [
+        "f(x)=w^\\top x+b",
+        "k(x,x\\prime)=\\exp(-\\gamma\\|x-x\\prime\\|^2)"
+      ],
+      "trainingRecipe": "Fit a soft-margin binary SVM on train-standardized features, C=1. Start with a linear kernel; the RBF challenge uses gamma=0.5. Score contours are shown without claiming raw-coordinate Euclidean margin widths.",
+      "metrics": [
+        "Training and validation accuracy",
+        "Validation F1 for class 1",
+        "Validation confusion matrix",
+        "Support-vector count"
+      ],
+      "reflectionPrompt": "Why are most observations absent from the support-vector set?",
+      "acceptanceChecks": [
+        "Binary labels are mapped consistently to the solver's internal class convention.",
+        "The zero-score boundary and unit-score contours come from the actual decision function.",
+        "RBF gamma is inactive for the linear kernel.",
+        "Support-vector markers identify fitted support observations.",
+        "Raw decision scores are not presented as calibrated probabilities; probability-dependent comparisons are omitted."
+      ],
+      "sourceRefs": [
+        "sk-svm-svc",
+        "sk-svm-svr"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Feature scaling and a useful kernel are important. Kernel training can be expensive on large datasets.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-kmeans",
+      "catalogEntryId": "kmeans",
+      "title": "Discover groups without labels",
+      "learnerOrder": 7,
+      "buildOrder": 7,
+      "releaseWave": "structure",
+      "status": "specified-not-implemented",
+      "question": "Can representative centers reveal structure without known class labels?",
+      "learningGoal": "Explain assignment, centroid updates, initialization, and cluster-count assumptions.",
+      "primaryDatasetId": "three-clusters",
+      "challengeDatasetId": null,
+      "task": "clustering",
+      "suggestedMinutes": 10,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-knn"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "geometry"
+      ],
+      "catalogParameterIds": [
+        "n-clusters",
+        "restarts",
+        "initialization"
+      ],
+      "parameterOverrides": [
+        {
+          "parameterId": "n-clusters",
+          "maximum": 8
+        }
+      ],
+      "runControls": [],
+      "sceneInteractions": [
+        "Use a stepped cluster-count slider and an Advanced restart-count control.",
+        "Step through the selected trial; show all centroids and assignment changes.",
+        "Reference group labels may be revealed after fitting, with their teaching-only role explicit."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "Unlabeled observations",
+          "explanation": "Show the point cloud with reference-group labels hidden."
+        },
+        {
+          "id": "beat-2",
+          "title": "Initial centers",
+          "explanation": "Reveal the actual initial centroids for the selected trial."
+        },
+        {
+          "id": "beat-3",
+          "title": "Alternating updates",
+          "explanation": "Step through assignments and mean updates using saved solver states."
+        },
+        {
+          "id": "beat-4",
+          "title": "Inspect the grouping",
+          "explanation": "Compare inertia and valid silhouette scores across actual runs."
+        }
+      ],
+      "equations": [
+        "J=\\sum_i\\|x_i-\\mu_{c_i}\\|^2"
+      ],
+      "trainingRecipe": "Use raw coordinates with comparable units, squared Euclidean distance, K-means++ initialization, k=3, and five restarts. Record complete states for the best actual trial; declare how it is selected. Limit each trial to 100 iterations.",
+      "metrics": [
+        "Inertia per recorded iteration",
+        "Final inertia",
+        "Silhouette score when mathematically defined",
+        "Cluster sizes"
+      ],
+      "reflectionPrompt": "Why does lower inertia alone fail to tell you the right number of clusters?",
+      "acceptanceChecks": [
+        "Reference-group labels are never passed into fitting.",
+        "Centroids equal assigned-point means after standard nonempty update steps.",
+        "Standard Lloyd steps do not increase inertia beyond declared numerical tolerance.",
+        "Empty clusters use a documented recovery rule and are identified in the trace.",
+        "The displayed trial and final result refer to the same actual run; a higher cluster count is not automatically rated better."
+      ],
+      "sourceRefs": [
+        "sk-cluster-kmeans"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Squared Euclidean distance and roughly compact groups are appropriate. Needs a chosen cluster count and is sensitive to initialization and outliers.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-pca",
+      "catalogEntryId": "pca",
+      "title": "Keep the direction that matters",
+      "learnerOrder": 8,
+      "buildOrder": 8,
+      "releaseWave": "structure",
+      "status": "specified-not-implemented",
+      "question": "What remains when a point cloud is projected onto fewer coordinates?",
+      "learningGoal": "Explain centering, variance directions, projection, and reconstruction loss.",
+      "primaryDatasetId": "tilted-cloud",
+      "challengeDatasetId": null,
+      "task": "dimensionality-reduction",
+      "suggestedMinutes": 10,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-linear-regression"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "geometry",
+        "linear-algebra"
+      ],
+      "catalogParameterIds": [
+        "n-components",
+        "whiten"
+      ],
+      "parameterOverrides": [
+        {
+          "parameterId": "n-components",
+          "default": 1,
+          "maximum": 2
+        },
+        {
+          "parameterId": "whiten",
+          "level": "advanced"
+        }
+      ],
+      "runControls": [],
+      "sceneInteractions": [
+        "Use a component-count slider constrained to one or two for this fixture.",
+        "Select a point to connect its original coordinates, projection, and reconstruction.",
+        "Whitening is an Advanced toggle; labels distinguish original variance from rescaled coordinates."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "Center the cloud",
+          "explanation": "Translate points to their fitted mean."
+        },
+        {
+          "id": "beat-2",
+          "title": "Principal directions",
+          "explanation": "Reveal the fitted orthogonal directions and their explained variance."
+        },
+        {
+          "id": "beat-3",
+          "title": "Project and reconstruct",
+          "explanation": "Retain one component, then show reconstruction and point-to-reconstruction distances."
+        },
+        {
+          "id": "beat-4",
+          "title": "Restore or whiten",
+          "explanation": "Retain both components or inspect Advanced whitening as a rescaling operation."
+        }
+      ],
+      "equations": [
+        "z=(x-\\bar x)^\\top v_1",
+        "\\hat x=\\bar x+zv_1"
+      ],
+      "trainingRecipe": "Fit centered full-SVD PCA on all 200 unlabeled fit rows without feature standardization, since the two axes share units and their variance contrast is intentional. Default one component; whitening off. Do not treat population generator parameters as estimated sample axes.",
+      "metrics": [
+        "Explained variance ratio by component",
+        "Cumulative explained variance",
+        "Mean squared reconstruction error in original coordinates"
+      ],
+      "reflectionPrompt": "Why is the direction with greatest variance not necessarily the most useful direction for a labeled prediction task?",
+      "acceptanceChecks": [
+        "The initial one-component preset is valid for the two-feature fixture.",
+        "Fitted axes are orthogonal and the leading direction maximizes sample variance under the stated normalization.",
+        "Reconstruction with both components matches original points within numerical tolerance.",
+        "Eigenvector sign changes do not cause a mathematically identical result to be reported as different.",
+        "Whitening never divides by a zero-variance component."
+      ],
+      "sourceRefs": [
+        "sk-decomposition-pca"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "Large variance is useful and linear projection is appropriate. High variance need not correspond to the most predictive information.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-mlp",
+      "catalogEntryId": "mlp",
+      "title": "Build a nonlinear boundary",
+      "learnerOrder": 9,
+      "buildOrder": 9,
+      "releaseWave": "learning-systems",
+      "status": "specified-not-implemented",
+      "question": "How can layers of simple units represent a relationship that a line cannot?",
+      "learningGoal": "Connect activations, a training objective, gradient updates, and validation behavior.",
+      "primaryDatasetId": "xor-corners",
+      "challengeDatasetId": "two-moons",
+      "task": "classification",
+      "suggestedMinutes": 12,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [
+        "lesson-logistic-regression"
+      ],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "algebra",
+        "calculus"
+      ],
+      "catalogParameterIds": [
+        "hidden-layers",
+        "units",
+        "learning-rate",
+        "epochs",
+        "batch-size"
+      ],
+      "parameterOverrides": [
+        {
+          "parameterId": "hidden-layers",
+          "maximum": 3
+        },
+        {
+          "parameterId": "units",
+          "maximum": 32
+        }
+      ],
+      "runControls": [
+        {
+          "id": "epochs",
+          "label": "Training epochs",
+          "default": 200,
+          "minimum": 50,
+          "maximum": 1000,
+          "integer": true,
+          "purpose": "Set the training budget; changing it requires a new run."
+        },
+        {
+          "id": "batch-size",
+          "label": "Batch size",
+          "default": 32,
+          "choices": [
+            16,
+            32,
+            64
+          ],
+          "purpose": "Choose observations per update; changing it requires a new run."
+        }
+      ],
+      "sceneInteractions": [
+        "Adjust layer count, units per layer, and logarithmic learning rate.",
+        "Use numeric-input alternatives and explicit epoch and batch-size run controls.",
+        "Inspect selected neurons; if the display samples units or connections, label the shown subset."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "The linear limitation",
+          "explanation": "Show a logistic-regression reference on the same partitions and feature basis."
+        },
+        {
+          "id": "beat-2",
+          "title": "Hidden representations",
+          "explanation": "Trace selected input points through actual hidden activations."
+        },
+        {
+          "id": "beat-3",
+          "title": "Learning updates",
+          "explanation": "Show real loss history and checkpoint decision maps as minibatch training proceeds."
+        },
+        {
+          "id": "beat-4",
+          "title": "Capacity and learning rate",
+          "explanation": "Compare completed runs while preserving the held-out partition and seed policy."
+        }
+      ],
+      "equations": [
+        "h^{(l)}=\\tanh(W^{(l)}h^{(l-1)}+b^{(l)})"
+      ],
+      "trainingRecipe": "Use train-standardized features, two hidden layers of 16 tanh units, a sigmoid output, binary cross-entropy, and minibatch SGD without momentum or dropout. Default learning rate 0.01, 200 epochs, batch size 32, model seed 7. Fit from fresh initial weights for each comparison. These are illustrative presets to verify during implementation.",
+      "metrics": [
+        "Training and validation binary log loss by epoch",
+        "Validation accuracy and F1 for class 1",
+        "Validation confusion matrix",
+        "Epochs completed"
+      ],
+      "reflectionPrompt": "How can a network lower training loss without producing a better validation result?",
+      "acceptanceChecks": [
+        "Loss curves and decision maps come from actual checkpoints, not scripted improvements.",
+        "Finite-difference checks validate gradients of the small training implementation.",
+        "Layer and unit controls produce the declared network shape.",
+        "Changing the architecture starts a fresh run; previously fitted weights are not silently reused.",
+        "Cancellation, numerical failure, and slow or unsuccessful training preserve honest partial-result status."
+      ],
+      "sourceRefs": [
+        "sk-neural-network-mlpclassifier"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "The data and objective support learning with the chosen capacity. Training, scaling, capacity, and initialization affect the result.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    },
+    {
+      "id": "lesson-q-learning",
+      "catalogEntryId": "q-learning",
+      "title": "Learn a route from rewards",
+      "learnerOrder": 10,
+      "buildOrder": 10,
+      "releaseWave": "learning-systems",
+      "status": "specified-not-implemented",
+      "question": "How can an agent learn useful actions without being shown the route?",
+      "learningGoal": "Explain state-action values, reward backups, exploration, and the difference between training and greedy evaluation.",
+      "primaryDatasetId": "grid-route",
+      "challengeDatasetId": null,
+      "task": "sequential-decision",
+      "suggestedMinutes": 12,
+      "timeEstimateStatus": "Proposal to validate with learners.",
+      "recommendedPriorLessons": [],
+      "entryPolicy": "Suggested sequence; users may freely browse without completing prerequisites.",
+      "catalogPrerequisites": [
+        "markov-decisions",
+        "probability"
+      ],
+      "catalogParameterIds": [
+        "learning-rate",
+        "discount",
+        "exploration",
+        "episodes"
+      ],
+      "parameterOverrides": [],
+      "runControls": [
+        {
+          "id": "episodes",
+          "label": "Training episodes",
+          "default": 500,
+          "minimum": 50,
+          "maximum": 2000,
+          "integer": true,
+          "purpose": "Set the number of training episodes, separately from animation playback."
+        }
+      ],
+      "sceneInteractions": [
+        "Learning-rate and discount sliders have numeric alternatives.",
+        "The exploration dial changes the training policy; greedy evaluation always uses epsilon zero.",
+        "Select a cell and action to inspect its value and last actual update.",
+        "Playback speed changes presentation, while episode budget changes training work."
+      ],
+      "storyboard": [
+        {
+          "id": "beat-1",
+          "title": "An environment",
+          "explanation": "Reveal the start, goal, walls, legal actions, and rewards."
+        },
+        {
+          "id": "beat-2",
+          "title": "One value update",
+          "explanation": "Trace a transition and substitute its actual quantities into the Q-learning update."
+        },
+        {
+          "id": "beat-3",
+          "title": "Many episodes",
+          "explanation": "Animate sampled trajectories while computing real episode summaries and values."
+        },
+        {
+          "id": "beat-4",
+          "title": "Inspect the learned policy",
+          "explanation": "Run a greedy evaluation trajectory and compare its route length with the grid's shortest feasible path."
+        }
+      ],
+      "equations": [
+        "Q(s,a)\\leftarrow Q(s,a)+\\alpha\\left[r+\\gamma\\max_{a\\prime}Q(s\\prime,a\\prime)-Q(s,a)\\right]"
+      ],
+      "trainingRecipe": "Use a zero-initialized tabular Q function on the fixed 6×6 environment. Default alpha 0.2, gamma 0.95, fixed epsilon 0.1, 500 episodes, 100-step external episode limit, and model seed 7. Break action ties in the fixture's declared order. The finite-horizon display budget is not redefined as an absorbing goal state.",
+      "metrics": [
+        "Undiscounted training return per episode",
+        "Training success rate over the last 50 available episodes",
+        "Greedy evaluation success and steps to goal",
+        "Shortest feasible route length as a labeled environment reference"
+      ],
+      "reflectionPrompt": "Why can exploratory training trajectories differ from the greedy route used for evaluation?",
+      "acceptanceChecks": [
+        "Transitions never enter walls or leave the grid.",
+        "Terminal goal transitions use no bootstrap term; externally truncated nonterminal transitions retain it.",
+        "One-step Q updates match an independent scalar calculation.",
+        "Greedy evaluation does not update Q-values or apply exploration noise.",
+        "Finite training may fail to find the shortest route; the displayed outcome reports that result faithfully."
+      ],
+      "sourceRefs": [
+        "q-learning",
+        "gym-time-limits"
+      ],
+      "viewModes": {
+        "beginner": "Use geometry, short explanations, and the main controls.",
+        "advanced": "The state description and exploration support a suitable Markov decision process. Large state spaces and insufficient exploration undermine tabular learning.",
+        "statePolicy": "Switch explanation depth without changing the experiment."
+      }
+    }
+  ]
+}

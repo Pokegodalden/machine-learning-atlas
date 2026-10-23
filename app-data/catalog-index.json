@@ -1,0 +1,1459 @@
+{
+  "schemaVersion": "1.0.0",
+  "entryCount": 80,
+  "byLearningType": {
+    "supervised": [
+      "linear-regression",
+      "polynomial-regression",
+      "ridge-regression",
+      "lasso-regression",
+      "elastic-net",
+      "logistic-regression",
+      "poisson-regression",
+      "decision-tree",
+      "random-forest",
+      "extra-trees",
+      "adaboost",
+      "gradient-boosting",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "bagging",
+      "stacking",
+      "knn",
+      "svm",
+      "kernel-ridge",
+      "gaussian-naive-bayes",
+      "multinomial-naive-bayes",
+      "gaussian-process",
+      "linear-discriminant-analysis",
+      "quadratic-discriminant-analysis",
+      "mlp",
+      "cnn",
+      "rnn",
+      "lstm",
+      "transformer",
+      "gnn",
+      "matrix-factorization",
+      "hmm",
+      "bayesian-ridge",
+      "bayesian-networks",
+      "gru"
+    ],
+    "unsupervised": [
+      "kmeans",
+      "mini-batch-kmeans",
+      "agglomerative-clustering",
+      "dbscan",
+      "hdbscan",
+      "mean-shift",
+      "spectral-clustering",
+      "gaussian-mixture",
+      "pca",
+      "ica",
+      "nmf",
+      "tsne",
+      "umap",
+      "isomap",
+      "lle",
+      "kde",
+      "isolation-forest",
+      "lof",
+      "one-class-svm",
+      "apriori",
+      "fp-growth",
+      "latent-dirichlet-allocation",
+      "autoencoder",
+      "vae",
+      "gan",
+      "normalizing-flows",
+      "hmm",
+      "bayesian-networks"
+    ],
+    "self-supervised": [
+      "cnn",
+      "rnn",
+      "lstm",
+      "transformer",
+      "gnn",
+      "autoencoder",
+      "autoregressive-models",
+      "diffusion-models",
+      "flow-matching",
+      "next-token-prediction",
+      "masked-language-modeling",
+      "simclr",
+      "gru",
+      "masked-autoencoders"
+    ],
+    "semi-supervised": [
+      "gnn",
+      "self-training",
+      "label-propagation",
+      "label-spreading"
+    ],
+    "reinforcement": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "reinforce",
+      "ppo",
+      "sac",
+      "ddpg",
+      "dyna-q"
+    ]
+  },
+  "byPrimaryFamily": {
+    "linear-models": [
+      "linear-regression",
+      "polynomial-regression",
+      "ridge-regression",
+      "lasso-regression",
+      "elastic-net",
+      "logistic-regression",
+      "poisson-regression"
+    ],
+    "tree-models": [
+      "decision-tree"
+    ],
+    "ensembles": [
+      "random-forest",
+      "extra-trees",
+      "adaboost",
+      "gradient-boosting",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "bagging",
+      "stacking"
+    ],
+    "instance-based": [
+      "knn"
+    ],
+    "kernel-methods": [
+      "svm",
+      "kernel-ridge"
+    ],
+    "probabilistic-models": [
+      "gaussian-naive-bayes",
+      "multinomial-naive-bayes",
+      "gaussian-process",
+      "bayesian-ridge",
+      "bayesian-networks"
+    ],
+    "discriminant-analysis": [
+      "linear-discriminant-analysis",
+      "quadratic-discriminant-analysis"
+    ],
+    "clustering": [
+      "kmeans",
+      "mini-batch-kmeans",
+      "agglomerative-clustering",
+      "dbscan",
+      "hdbscan",
+      "mean-shift",
+      "spectral-clustering",
+      "gaussian-mixture"
+    ],
+    "dimensionality-reduction": [
+      "pca",
+      "ica",
+      "nmf",
+      "tsne",
+      "umap",
+      "isomap",
+      "lle"
+    ],
+    "density-estimation": [
+      "kde"
+    ],
+    "anomaly-detection": [
+      "isolation-forest",
+      "lof",
+      "one-class-svm"
+    ],
+    "association-rules": [
+      "apriori",
+      "fp-growth"
+    ],
+    "topic-models": [
+      "latent-dirichlet-allocation"
+    ],
+    "neural-networks": [
+      "mlp",
+      "cnn",
+      "rnn",
+      "lstm",
+      "transformer",
+      "gnn",
+      "gru"
+    ],
+    "representation-learning": [
+      "autoencoder"
+    ],
+    "generative-models": [
+      "vae",
+      "gan",
+      "autoregressive-models",
+      "diffusion-models",
+      "normalizing-flows",
+      "flow-matching"
+    ],
+    "semi-supervised-methods": [
+      "self-training"
+    ],
+    "graph-semi-supervised": [
+      "label-propagation",
+      "label-spreading"
+    ],
+    "self-supervised-methods": [
+      "next-token-prediction",
+      "masked-language-modeling",
+      "simclr",
+      "masked-autoencoders"
+    ],
+    "reinforcement-learning": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "reinforce",
+      "ppo",
+      "sac",
+      "ddpg",
+      "dyna-q"
+    ],
+    "recommendation": [
+      "matrix-factorization"
+    ],
+    "sequence-models": [
+      "hmm"
+    ]
+  },
+  "byTask": {
+    "regression": [
+      "linear-regression",
+      "polynomial-regression",
+      "ridge-regression",
+      "lasso-regression",
+      "elastic-net",
+      "poisson-regression",
+      "decision-tree",
+      "random-forest",
+      "extra-trees",
+      "adaboost",
+      "gradient-boosting",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "bagging",
+      "stacking",
+      "knn",
+      "svm",
+      "kernel-ridge",
+      "gaussian-process",
+      "mlp",
+      "gnn",
+      "bayesian-ridge"
+    ],
+    "classification": [
+      "logistic-regression",
+      "decision-tree",
+      "random-forest",
+      "extra-trees",
+      "adaboost",
+      "gradient-boosting",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "bagging",
+      "stacking",
+      "knn",
+      "svm",
+      "gaussian-naive-bayes",
+      "multinomial-naive-bayes",
+      "gaussian-process",
+      "linear-discriminant-analysis",
+      "quadratic-discriminant-analysis",
+      "mlp",
+      "cnn",
+      "rnn",
+      "lstm",
+      "transformer",
+      "gnn",
+      "self-training",
+      "label-propagation",
+      "label-spreading",
+      "bayesian-networks",
+      "gru"
+    ],
+    "dimensionality-reduction": [
+      "linear-discriminant-analysis",
+      "pca",
+      "ica",
+      "nmf",
+      "tsne",
+      "umap",
+      "isomap",
+      "lle",
+      "autoencoder"
+    ],
+    "clustering": [
+      "kmeans",
+      "mini-batch-kmeans",
+      "agglomerative-clustering",
+      "dbscan",
+      "hdbscan",
+      "mean-shift",
+      "spectral-clustering",
+      "gaussian-mixture"
+    ],
+    "density-estimation": [
+      "gaussian-mixture",
+      "kde",
+      "autoregressive-models",
+      "normalizing-flows",
+      "bayesian-networks"
+    ],
+    "representation-learning": [
+      "pca",
+      "ica",
+      "nmf",
+      "umap",
+      "latent-dirichlet-allocation",
+      "cnn",
+      "transformer",
+      "gnn",
+      "autoencoder",
+      "vae",
+      "next-token-prediction",
+      "masked-language-modeling",
+      "simclr",
+      "hmm",
+      "masked-autoencoders"
+    ],
+    "anomaly-detection": [
+      "isolation-forest",
+      "lof",
+      "one-class-svm",
+      "autoencoder"
+    ],
+    "association-rules": [
+      "apriori",
+      "fp-growth"
+    ],
+    "topic-modeling": [
+      "latent-dirichlet-allocation"
+    ],
+    "forecasting": [
+      "rnn",
+      "lstm",
+      "transformer",
+      "hmm",
+      "gru"
+    ],
+    "generation": [
+      "rnn",
+      "lstm",
+      "transformer",
+      "vae",
+      "gan",
+      "autoregressive-models",
+      "diffusion-models",
+      "normalizing-flows",
+      "flow-matching",
+      "next-token-prediction",
+      "hmm",
+      "gru"
+    ],
+    "sequential-decision": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "reinforce",
+      "ppo",
+      "sac",
+      "ddpg",
+      "dyna-q"
+    ],
+    "recommendation": [
+      "matrix-factorization"
+    ]
+  },
+  "byDataType": {
+    "tabular": [
+      "linear-regression",
+      "polynomial-regression",
+      "ridge-regression",
+      "lasso-regression",
+      "elastic-net",
+      "logistic-regression",
+      "poisson-regression",
+      "decision-tree",
+      "random-forest",
+      "extra-trees",
+      "adaboost",
+      "gradient-boosting",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "bagging",
+      "stacking",
+      "knn",
+      "svm",
+      "kernel-ridge",
+      "gaussian-naive-bayes",
+      "multinomial-naive-bayes",
+      "gaussian-process",
+      "linear-discriminant-analysis",
+      "quadratic-discriminant-analysis",
+      "kmeans",
+      "mini-batch-kmeans",
+      "agglomerative-clustering",
+      "dbscan",
+      "hdbscan",
+      "mean-shift",
+      "spectral-clustering",
+      "gaussian-mixture",
+      "pca",
+      "ica",
+      "nmf",
+      "tsne",
+      "umap",
+      "isomap",
+      "lle",
+      "kde",
+      "isolation-forest",
+      "lof",
+      "one-class-svm",
+      "apriori",
+      "fp-growth",
+      "mlp",
+      "autoencoder",
+      "vae",
+      "gan",
+      "diffusion-models",
+      "normalizing-flows",
+      "flow-matching",
+      "self-training",
+      "label-propagation",
+      "label-spreading",
+      "bayesian-ridge",
+      "bayesian-networks"
+    ],
+    "text": [
+      "multinomial-naive-bayes",
+      "nmf",
+      "latent-dirichlet-allocation",
+      "rnn",
+      "lstm",
+      "transformer",
+      "autoregressive-models",
+      "next-token-prediction",
+      "masked-language-modeling",
+      "hmm",
+      "gru"
+    ],
+    "audio": [
+      "ica",
+      "rnn",
+      "lstm",
+      "transformer",
+      "autoencoder",
+      "autoregressive-models",
+      "diffusion-models",
+      "flow-matching",
+      "hmm",
+      "gru"
+    ],
+    "time-series": [
+      "ica",
+      "rnn",
+      "lstm",
+      "transformer",
+      "hmm",
+      "gru"
+    ],
+    "image": [
+      "nmf",
+      "cnn",
+      "transformer",
+      "autoencoder",
+      "vae",
+      "gan",
+      "autoregressive-models",
+      "diffusion-models",
+      "normalizing-flows",
+      "flow-matching",
+      "simclr",
+      "masked-autoencoders"
+    ],
+    "graph": [
+      "gnn"
+    ],
+    "environment": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "reinforce",
+      "ppo",
+      "sac",
+      "ddpg",
+      "dyna-q"
+    ],
+    "user-item": [
+      "matrix-factorization"
+    ]
+  },
+  "byKind": {
+    "algorithm": [
+      "linear-regression",
+      "ridge-regression",
+      "lasso-regression",
+      "elastic-net",
+      "logistic-regression",
+      "poisson-regression",
+      "decision-tree",
+      "random-forest",
+      "extra-trees",
+      "adaboost",
+      "gradient-boosting",
+      "knn",
+      "kernel-ridge",
+      "gaussian-naive-bayes",
+      "multinomial-naive-bayes",
+      "linear-discriminant-analysis",
+      "quadratic-discriminant-analysis",
+      "kmeans",
+      "mini-batch-kmeans",
+      "agglomerative-clustering",
+      "dbscan",
+      "hdbscan",
+      "mean-shift",
+      "spectral-clustering",
+      "pca",
+      "ica",
+      "nmf",
+      "tsne",
+      "umap",
+      "isomap",
+      "lle",
+      "kde",
+      "isolation-forest",
+      "lof",
+      "one-class-svm",
+      "apriori",
+      "fp-growth",
+      "latent-dirichlet-allocation",
+      "label-propagation",
+      "label-spreading",
+      "q-learning",
+      "sarsa",
+      "reinforce",
+      "ppo",
+      "sac",
+      "ddpg",
+      "dyna-q",
+      "bayesian-ridge"
+    ],
+    "model-family": [
+      "polynomial-regression",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "svm",
+      "gaussian-process",
+      "gaussian-mixture",
+      "vae",
+      "autoregressive-models",
+      "diffusion-models",
+      "normalizing-flows",
+      "dqn",
+      "matrix-factorization",
+      "hmm",
+      "bayesian-networks"
+    ],
+    "training-method": [
+      "bagging",
+      "stacking",
+      "flow-matching",
+      "self-training",
+      "next-token-prediction",
+      "masked-language-modeling"
+    ],
+    "architecture": [
+      "mlp",
+      "cnn",
+      "rnn",
+      "lstm",
+      "transformer",
+      "gnn",
+      "autoencoder",
+      "gru"
+    ],
+    "training-framework": [
+      "gan",
+      "simclr",
+      "masked-autoencoders"
+    ]
+  },
+  "byMethodTag": {
+    "denoising": [
+      "diffusion-models"
+    ],
+    "vector-field-matching": [
+      "flow-matching"
+    ],
+    "pseudo-labeling": [
+      "self-training"
+    ],
+    "causal-prediction": [
+      "next-token-prediction"
+    ],
+    "masked-prediction": [
+      "masked-language-modeling",
+      "masked-autoencoders"
+    ],
+    "contrastive-learning": [
+      "simclr"
+    ],
+    "value-based": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "dyna-q"
+    ],
+    "off-policy": [
+      "q-learning",
+      "dqn",
+      "sac",
+      "ddpg"
+    ],
+    "tabular": [
+      "q-learning",
+      "sarsa"
+    ],
+    "on-policy": [
+      "sarsa",
+      "reinforce",
+      "ppo"
+    ],
+    "deep-learning": [
+      "dqn"
+    ],
+    "policy-gradient": [
+      "reinforce",
+      "ppo"
+    ],
+    "actor-critic": [
+      "ppo",
+      "sac",
+      "ddpg"
+    ],
+    "entropy-regularized": [
+      "sac"
+    ],
+    "deterministic-policy": [
+      "ddpg"
+    ],
+    "model-based": [
+      "dyna-q"
+    ],
+    "planning": [
+      "dyna-q"
+    ]
+  },
+  "exactTerms": {
+    "linear regression": [
+      "linear-regression"
+    ],
+    "ordinary least squares": [
+      "linear-regression"
+    ],
+    "ols": [
+      "linear-regression"
+    ],
+    "polynomial regression": [
+      "polynomial-regression"
+    ],
+    "ridge regression": [
+      "ridge-regression"
+    ],
+    "l2 regression": [
+      "ridge-regression"
+    ],
+    "lasso regression": [
+      "lasso-regression"
+    ],
+    "l1 regression": [
+      "lasso-regression"
+    ],
+    "elastic net": [
+      "elastic-net"
+    ],
+    "logistic regression": [
+      "logistic-regression"
+    ],
+    "poisson regression": [
+      "poisson-regression"
+    ],
+    "decision tree": [
+      "decision-tree"
+    ],
+    "cart": [
+      "decision-tree"
+    ],
+    "random forest": [
+      "random-forest"
+    ],
+    "extra trees": [
+      "extra-trees"
+    ],
+    "extremely randomized trees": [
+      "extra-trees"
+    ],
+    "adaboost": [
+      "adaboost"
+    ],
+    "gradient boosting": [
+      "gradient-boosting"
+    ],
+    "gradient boosted trees": [
+      "gradient-boosting"
+    ],
+    "xgboost": [
+      "xgboost"
+    ],
+    "lightgbm": [
+      "lightgbm"
+    ],
+    "catboost": [
+      "catboost"
+    ],
+    "bagging": [
+      "bagging"
+    ],
+    "bootstrap aggregating": [
+      "bagging"
+    ],
+    "stacking": [
+      "stacking"
+    ],
+    "knn": [
+      "knn"
+    ],
+    "k nearest neighbors": [
+      "knn"
+    ],
+    "svm": [
+      "svm"
+    ],
+    "support vector machines": [
+      "svm"
+    ],
+    "svc": [
+      "svm"
+    ],
+    "svr": [
+      "svm"
+    ],
+    "kernel ridge": [
+      "kernel-ridge"
+    ],
+    "kernel ridge regression": [
+      "kernel-ridge"
+    ],
+    "gaussian naive bayes": [
+      "gaussian-naive-bayes"
+    ],
+    "multinomial naive bayes": [
+      "multinomial-naive-bayes"
+    ],
+    "gaussian process": [
+      "gaussian-process"
+    ],
+    "gaussian processes": [
+      "gaussian-process"
+    ],
+    "gp": [
+      "gaussian-process"
+    ],
+    "gpr": [
+      "gaussian-process"
+    ],
+    "gpc": [
+      "gaussian-process"
+    ],
+    "linear discriminant analysis": [
+      "linear-discriminant-analysis"
+    ],
+    "lda": [
+      "linear-discriminant-analysis",
+      "latent-dirichlet-allocation"
+    ],
+    "quadratic discriminant analysis": [
+      "quadratic-discriminant-analysis"
+    ],
+    "qda": [
+      "quadratic-discriminant-analysis"
+    ],
+    "kmeans": [
+      "kmeans"
+    ],
+    "k means": [
+      "kmeans"
+    ],
+    "mini batch kmeans": [
+      "mini-batch-kmeans"
+    ],
+    "mini batch k means": [
+      "mini-batch-kmeans"
+    ],
+    "agglomerative clustering": [
+      "agglomerative-clustering"
+    ],
+    "hierarchical agglomerative clustering": [
+      "agglomerative-clustering"
+    ],
+    "dbscan": [
+      "dbscan"
+    ],
+    "density based spatial clustering": [
+      "dbscan"
+    ],
+    "hdbscan": [
+      "hdbscan"
+    ],
+    "mean shift": [
+      "mean-shift"
+    ],
+    "spectral clustering": [
+      "spectral-clustering"
+    ],
+    "gaussian mixture": [
+      "gaussian-mixture"
+    ],
+    "gaussian mixture models": [
+      "gaussian-mixture"
+    ],
+    "gmm": [
+      "gaussian-mixture"
+    ],
+    "pca": [
+      "pca"
+    ],
+    "principal component analysis": [
+      "pca"
+    ],
+    "ica": [
+      "ica"
+    ],
+    "independent component analysis": [
+      "ica"
+    ],
+    "fastica": [
+      "ica"
+    ],
+    "nmf": [
+      "nmf"
+    ],
+    "nonnegative matrix factorization": [
+      "nmf"
+    ],
+    "tsne": [
+      "tsne"
+    ],
+    "t distributed stochastic neighbor embedding": [
+      "tsne"
+    ],
+    "t sne": [
+      "tsne"
+    ],
+    "umap": [
+      "umap"
+    ],
+    "uniform manifold approximation and projection": [
+      "umap"
+    ],
+    "isomap": [
+      "isomap"
+    ],
+    "lle": [
+      "lle"
+    ],
+    "locally linear embedding": [
+      "lle"
+    ],
+    "kde": [
+      "kde"
+    ],
+    "kernel density estimation": [
+      "kde"
+    ],
+    "isolation forest": [
+      "isolation-forest"
+    ],
+    "lof": [
+      "lof"
+    ],
+    "local outlier factor": [
+      "lof"
+    ],
+    "one class svm": [
+      "one-class-svm"
+    ],
+    "one class support vector machine": [
+      "one-class-svm"
+    ],
+    "apriori": [
+      "apriori"
+    ],
+    "fp growth": [
+      "fp-growth"
+    ],
+    "latent dirichlet allocation": [
+      "latent-dirichlet-allocation"
+    ],
+    "topic lda": [
+      "latent-dirichlet-allocation"
+    ],
+    "mlp": [
+      "mlp"
+    ],
+    "multilayer perceptron": [
+      "mlp"
+    ],
+    "feedforward neural network": [
+      "mlp"
+    ],
+    "cnn": [
+      "cnn"
+    ],
+    "convolutional neural networks": [
+      "cnn"
+    ],
+    "convnet": [
+      "cnn"
+    ],
+    "rnn": [
+      "rnn"
+    ],
+    "recurrent neural networks": [
+      "rnn"
+    ],
+    "elman rnn": [
+      "rnn"
+    ],
+    "lstm": [
+      "lstm"
+    ],
+    "long short term memory networks": [
+      "lstm"
+    ],
+    "transformer": [
+      "transformer"
+    ],
+    "transformers": [
+      "transformer"
+    ],
+    "gnn": [
+      "gnn"
+    ],
+    "graph neural networks": [
+      "gnn"
+    ],
+    "graph convolutional network": [
+      "gnn"
+    ],
+    "gcn": [
+      "gnn"
+    ],
+    "autoencoder": [
+      "autoencoder"
+    ],
+    "autoencoders": [
+      "autoencoder"
+    ],
+    "ae": [
+      "autoencoder"
+    ],
+    "vae": [
+      "vae"
+    ],
+    "variational autoencoders": [
+      "vae"
+    ],
+    "gan": [
+      "gan"
+    ],
+    "generative adversarial networks": [
+      "gan"
+    ],
+    "autoregressive models": [
+      "autoregressive-models"
+    ],
+    "diffusion models": [
+      "diffusion-models"
+    ],
+    "ddpm": [
+      "diffusion-models"
+    ],
+    "normalizing flows": [
+      "normalizing-flows"
+    ],
+    "flow matching": [
+      "flow-matching"
+    ],
+    "self training": [
+      "self-training"
+    ],
+    "pseudo label self training": [
+      "self-training"
+    ],
+    "label propagation": [
+      "label-propagation"
+    ],
+    "label spreading": [
+      "label-spreading"
+    ],
+    "next token prediction": [
+      "next-token-prediction"
+    ],
+    "causal language modeling": [
+      "next-token-prediction"
+    ],
+    "clm": [
+      "next-token-prediction"
+    ],
+    "masked language modeling": [
+      "masked-language-modeling"
+    ],
+    "mlm": [
+      "masked-language-modeling"
+    ],
+    "simclr": [
+      "simclr"
+    ],
+    "contrastive learning with simclr": [
+      "simclr"
+    ],
+    "q learning": [
+      "q-learning"
+    ],
+    "tabular q learning": [
+      "q-learning"
+    ],
+    "sarsa": [
+      "sarsa"
+    ],
+    "state action reward state action": [
+      "sarsa"
+    ],
+    "dqn": [
+      "dqn"
+    ],
+    "deep q networks": [
+      "dqn"
+    ],
+    "reinforce": [
+      "reinforce"
+    ],
+    "ppo": [
+      "ppo"
+    ],
+    "proximal policy optimization": [
+      "ppo"
+    ],
+    "ppo clip": [
+      "ppo"
+    ],
+    "sac": [
+      "sac"
+    ],
+    "soft actor critic": [
+      "sac"
+    ],
+    "ddpg": [
+      "ddpg"
+    ],
+    "deep deterministic policy gradient": [
+      "ddpg"
+    ],
+    "matrix factorization": [
+      "matrix-factorization"
+    ],
+    "matrix factorization for recommendation": [
+      "matrix-factorization"
+    ],
+    "collaborative filtering matrix factorization": [
+      "matrix-factorization"
+    ],
+    "hmm": [
+      "hmm"
+    ],
+    "hidden markov models": [
+      "hmm"
+    ],
+    "dyna q": [
+      "dyna-q"
+    ],
+    "dyna": [
+      "dyna-q"
+    ],
+    "bayesian ridge": [
+      "bayesian-ridge"
+    ],
+    "bayesian ridge regression": [
+      "bayesian-ridge"
+    ],
+    "bayesian networks": [
+      "bayesian-networks"
+    ],
+    "belief networks": [
+      "bayesian-networks"
+    ],
+    "bayes nets": [
+      "bayesian-networks"
+    ],
+    "gru": [
+      "gru"
+    ],
+    "gated recurrent units": [
+      "gru"
+    ],
+    "masked autoencoders": [
+      "masked-autoencoders"
+    ],
+    "mae": [
+      "masked-autoencoders"
+    ]
+  },
+  "normalization": "Case-fold, replace hyphens with spaces, trim and collapse whitespace.",
+  "ambiguousTerms": {
+    "lda": [
+      "linear-discriminant-analysis",
+      "latent-dirichlet-allocation"
+    ]
+  },
+  "searchDocuments": [
+    {
+      "id": "linear-regression",
+      "text": "linear regression ordinary least squares ols fit an affine prediction by minimizing squared residuals. regression linear models"
+    },
+    {
+      "id": "polynomial-regression",
+      "text": "polynomial regression fit a linear model to powers and products of input features. regression linear models"
+    },
+    {
+      "id": "ridge-regression",
+      "text": "ridge regression l2 regression add a squared coefficient penalty to least squares fitting. regression linear models"
+    },
+    {
+      "id": "lasso-regression",
+      "text": "lasso regression l1 regression fit with an absolute coefficient penalty that can set coefficients to zero. regression linear models"
+    },
+    {
+      "id": "elastic-net",
+      "text": "elastic net combine absolute and squared coefficient penalties. regression linear models"
+    },
+    {
+      "id": "logistic-regression",
+      "text": "logistic regression map a linear score to a class probability. classification linear models"
+    },
+    {
+      "id": "poisson-regression",
+      "text": "poisson regression model a nonnegative response using a log linked poisson mean. regression linear models"
+    },
+    {
+      "id": "decision-tree",
+      "text": "decision tree cart recursively partition feature space and predict within each leaf. classification regression tree models"
+    },
+    {
+      "id": "random-forest",
+      "text": "random forest combine randomized trees fitted to resampled observations. classification regression ensembles"
+    },
+    {
+      "id": "extra-trees",
+      "text": "extremely randomized trees extra trees aggregate trees using strongly randomized split thresholds. classification regression ensembles"
+    },
+    {
+      "id": "adaboost",
+      "text": "adaboost sequentially emphasize examples that previous weak predictors handled poorly. classification regression ensembles"
+    },
+    {
+      "id": "gradient-boosting",
+      "text": "gradient boosted trees add trees that improve the current prediction along a loss gradient. classification regression ensembles"
+    },
+    {
+      "id": "xgboost",
+      "text": "xgboost use regularized gradient boosting with optimized tree training. classification regression ensembles"
+    },
+    {
+      "id": "lightgbm",
+      "text": "lightgbm train histogram based boosted trees with leaf wise growth. classification regression ensembles"
+    },
+    {
+      "id": "catboost",
+      "text": "catboost apply gradient boosting with methods designed for categorical features. classification regression ensembles"
+    },
+    {
+      "id": "bagging",
+      "text": "bagging bootstrap aggregating fit base models on resampled datasets and combine their predictions. classification regression ensembles"
+    },
+    {
+      "id": "stacking",
+      "text": "stacking fit a meta model to predictions from multiple base models. classification regression ensembles"
+    },
+    {
+      "id": "knn",
+      "text": "k nearest neighbors knn knn predict using labels or responses of nearby fitted observations. classification regression instance based"
+    },
+    {
+      "id": "svm",
+      "text": "support vector machines svm svc svr fit margin based classification or epsilon insensitive regression models. classification regression kernel methods"
+    },
+    {
+      "id": "kernel-ridge",
+      "text": "kernel ridge regression combine ridge regularization with kernel defined similarity. regression kernel methods"
+    },
+    {
+      "id": "gaussian-naive-bayes",
+      "text": "gaussian naive bayes classify using class specific gaussian feature likelihoods. classification probabilistic models"
+    },
+    {
+      "id": "multinomial-naive-bayes",
+      "text": "multinomial naive bayes classify nonnegative feature counts using class specific multinomial likelihoods. classification probabilistic models"
+    },
+    {
+      "id": "gaussian-process",
+      "text": "gaussian processes gp gpr gpc place a probabilistic model over functions using a covariance kernel. classification regression probabilistic models"
+    },
+    {
+      "id": "linear-discriminant-analysis",
+      "text": "linear discriminant analysis lda model gaussian classes with a shared covariance matrix. classification dimensionality reduction discriminant analysis"
+    },
+    {
+      "id": "quadratic-discriminant-analysis",
+      "text": "quadratic discriminant analysis qda model gaussian classes with separate covariance matrices. classification discriminant analysis"
+    },
+    {
+      "id": "kmeans",
+      "text": "k means k means alternate nearest center assignments and center updates to reduce squared distances. clustering clustering"
+    },
+    {
+      "id": "mini-batch-kmeans",
+      "text": "mini batch k means update cluster centers using small sampled batches. clustering clustering"
+    },
+    {
+      "id": "agglomerative-clustering",
+      "text": "agglomerative clustering hierarchical agglomerative clustering merge groups repeatedly according to a linkage rule. clustering clustering"
+    },
+    {
+      "id": "dbscan",
+      "text": "dbscan density based spatial clustering build clusters from dense neighborhoods and leave sparse observations unassigned. clustering clustering"
+    },
+    {
+      "id": "hdbscan",
+      "text": "hdbscan build a density hierarchy and select stable clusters. clustering clustering"
+    },
+    {
+      "id": "mean-shift",
+      "text": "mean shift move candidate centers toward neighborhood density peaks. clustering clustering"
+    },
+    {
+      "id": "spectral-clustering",
+      "text": "spectral clustering cluster an embedding derived from a similarity graph. clustering clustering"
+    },
+    {
+      "id": "gaussian-mixture",
+      "text": "gaussian mixture models gmm represent data as a weighted mixture of gaussian components. clustering density estimation clustering"
+    },
+    {
+      "id": "pca",
+      "text": "principal component analysis pca project centered data onto orthogonal directions of greatest variance. dimensionality reduction representation learning dimensionality reduction"
+    },
+    {
+      "id": "ica",
+      "text": "independent component analysis ica fastica estimate components whose statistical dependence is small. representation learning dimensionality reduction dimensionality reduction"
+    },
+    {
+      "id": "nmf",
+      "text": "nonnegative matrix factorization nmf approximate a nonnegative matrix using nonnegative factors. representation learning dimensionality reduction dimensionality reduction"
+    },
+    {
+      "id": "tsne",
+      "text": "t distributed stochastic neighbor embedding t sne tsne construct a low dimensional visualization of neighborhood similarities. dimensionality reduction dimensionality reduction"
+    },
+    {
+      "id": "umap",
+      "text": "uniform manifold approximation and projection umap optimize an embedding from a fuzzy neighborhood graph. dimensionality reduction representation learning dimensionality reduction"
+    },
+    {
+      "id": "isomap",
+      "text": "isomap embed data using approximate geodesic distances on a neighborhood graph. dimensionality reduction dimensionality reduction"
+    },
+    {
+      "id": "lle",
+      "text": "locally linear embedding lle preserve local linear reconstruction weights in a lower dimensional embedding. dimensionality reduction dimensionality reduction"
+    },
+    {
+      "id": "kde",
+      "text": "kernel density estimation kde estimate density by averaging smooth kernels centered on observations. density estimation density estimation"
+    },
+    {
+      "id": "isolation-forest",
+      "text": "isolation forest score observations by how quickly random partitions isolate them. anomaly detection anomaly detection"
+    },
+    {
+      "id": "lof",
+      "text": "local outlier factor lof compare local density with densities of neighboring observations. anomaly detection anomaly detection"
+    },
+    {
+      "id": "one-class-svm",
+      "text": "one class support vector machine estimate a boundary enclosing a reference distribution in kernel space. anomaly detection anomaly detection"
+    },
+    {
+      "id": "apriori",
+      "text": "apriori find frequent itemsets by pruning candidates with infrequent subsets. association rules association rules"
+    },
+    {
+      "id": "fp-growth",
+      "text": "fp growth mine frequent itemsets from a compressed frequent pattern tree. association rules association rules"
+    },
+    {
+      "id": "latent-dirichlet-allocation",
+      "text": "latent dirichlet allocation lda topic lda model documents as mixtures of topics and topics as distributions over words. topic modeling representation learning topic models"
+    },
+    {
+      "id": "mlp",
+      "text": "multilayer perceptron mlp feedforward neural network compose dense layers and nonlinear activations to learn a prediction. classification regression neural networks"
+    },
+    {
+      "id": "cnn",
+      "text": "convolutional neural networks cnn convnet apply shared local filters to spatially structured inputs. classification representation learning neural networks"
+    },
+    {
+      "id": "rnn",
+      "text": "recurrent neural networks rnn elman rnn process a sequence by repeatedly updating a shared hidden state. forecasting classification generation neural networks"
+    },
+    {
+      "id": "lstm",
+      "text": "long short term memory networks lstm use gates to regulate a recurrent cell state. forecasting classification generation neural networks"
+    },
+    {
+      "id": "transformer",
+      "text": "transformers use attention and feedforward blocks to relate elements in a representation. classification representation learning generation forecasting neural networks"
+    },
+    {
+      "id": "gnn",
+      "text": "graph neural networks gnn graph convolutional network gcn update node representations using graph neighborhood information. classification regression representation learning neural networks"
+    },
+    {
+      "id": "autoencoder",
+      "text": "autoencoders ae train an encoder and decoder to reconstruct observations. representation learning dimensionality reduction anomaly detection representation learning"
+    },
+    {
+      "id": "vae",
+      "text": "variational autoencoders vae learn latent variable generation with an approximate inference network. generation representation learning generative models"
+    },
+    {
+      "id": "gan",
+      "text": "generative adversarial networks gan train a generator and discriminator through an adversarial objective. generation generative models"
+    },
+    {
+      "id": "autoregressive-models",
+      "text": "autoregressive models factor a joint distribution into ordered conditional predictions. generation density estimation generative models"
+    },
+    {
+      "id": "diffusion-models",
+      "text": "diffusion models ddpm learn to reverse a process that progressively corrupts data with noise. generation generative models"
+    },
+    {
+      "id": "normalizing-flows",
+      "text": "normalizing flows transform a simple distribution through invertible mappings. generation density estimation generative models"
+    },
+    {
+      "id": "flow-matching",
+      "text": "flow matching learn a velocity field matching a chosen probability path. generation generative models"
+    },
+    {
+      "id": "self-training",
+      "text": "self training pseudo label self training iteratively add confident model predictions as pseudo labels. classification semi supervised methods"
+    },
+    {
+      "id": "label-propagation",
+      "text": "label propagation spread supplied labels through a similarity graph. classification graph semi supervised"
+    },
+    {
+      "id": "label-spreading",
+      "text": "label spreading diffuse labels with a normalized graph and soft label retention. classification graph semi supervised"
+    },
+    {
+      "id": "next-token-prediction",
+      "text": "next token prediction causal language modeling clm train a sequence model to predict a following token from its prefix. representation learning generation self supervised methods"
+    },
+    {
+      "id": "masked-language-modeling",
+      "text": "masked language modeling mlm predict hidden tokens using their surrounding context. representation learning self supervised methods"
+    },
+    {
+      "id": "simclr",
+      "text": "contrastive learning with simclr simclr bring augmented views of one example closer than views of different examples. representation learning self supervised methods"
+    },
+    {
+      "id": "q-learning",
+      "text": "q learning tabular q learning update action values toward reward plus the best estimated next state value. sequential decision reinforcement learning"
+    },
+    {
+      "id": "sarsa",
+      "text": "sarsa state action reward state action update action values using the next action actually selected by the policy. sequential decision reinforcement learning"
+    },
+    {
+      "id": "dqn",
+      "text": "deep q networks dqn approximate action values with a neural network and stabilized value updates. sequential decision reinforcement learning"
+    },
+    {
+      "id": "reinforce",
+      "text": "reinforce use sampled returns to estimate a gradient of expected policy reward. sequential decision reinforcement learning"
+    },
+    {
+      "id": "ppo",
+      "text": "proximal policy optimization ppo ppo clip update a policy using an objective that discourages excessively large changes. sequential decision reinforcement learning"
+    },
+    {
+      "id": "sac",
+      "text": "soft actor critic sac train an off policy actor and critics with an entropy regularized objective. sequential decision reinforcement learning"
+    },
+    {
+      "id": "ddpg",
+      "text": "deep deterministic policy gradient ddpg learn a deterministic continuous action policy with an off policy critic. sequential decision reinforcement learning"
+    },
+    {
+      "id": "matrix-factorization",
+      "text": "matrix factorization for recommendation collaborative filtering matrix factorization learn user and item factors that predict observed interactions. recommendation recommendation"
+    },
+    {
+      "id": "hmm",
+      "text": "hidden markov models hmm model observations generated by a sequence of hidden markov states. forecasting generation representation learning sequence models"
+    },
+    {
+      "id": "dyna-q",
+      "text": "dyna q dyna combine q learning from experience with updates from a learned environment model. sequential decision reinforcement learning"
+    },
+    {
+      "id": "bayesian-ridge",
+      "text": "bayesian ridge regression estimate linear coefficients probabilistically with gaussian priors and noise. regression probabilistic models"
+    },
+    {
+      "id": "bayesian-networks",
+      "text": "bayesian networks belief networks bayes nets factor a joint distribution using a directed acyclic dependency graph. classification density estimation probabilistic models"
+    },
+    {
+      "id": "gru",
+      "text": "gated recurrent units gru use update and reset gates to manage recurrent state. forecasting classification generation neural networks"
+    },
+    {
+      "id": "masked-autoencoders",
+      "text": "masked autoencoders mae learn image representations by reconstructing masked patches. representation learning self supervised methods"
+    }
+  ]
+}

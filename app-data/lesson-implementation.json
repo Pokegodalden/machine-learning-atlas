@@ -1,0 +1,566 @@
+{
+  "schemaVersion": "1.0.0",
+  "completedStep": 24,
+  "updatedOn": "2026-10-24",
+  "appVersion": "2.2.0",
+  "implementedLessonCount": 10,
+  "scope": "Current implementation status; the Step 3 demonstration plan remains the original specification.",
+  "lessons": [
+    {
+      "catalogEntryId": "linear-regression",
+      "lessonId": "lesson-linear-regression",
+      "status": "implemented",
+      "adapterVersion": "ols-1",
+      "datasetId": "line-noise",
+      "features": [
+        "selected-point prediction and residual",
+        "per-point squared-loss contribution",
+        "manual coefficients",
+        "training-only least-squares fit",
+        "labeled visual interpolation",
+        "static reduced-motion fit",
+        "MAE and RMSE",
+        "residual diagnostic",
+        "generator reference toggle",
+        "Beginner and Advanced",
+        "saved parameter setup"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/linear-reference.json",
+      "absoluteNumericalTolerance": 1e-12,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "knn",
+      "lessonId": "lesson-knn",
+      "status": "implemented",
+      "adapterVersion": "knn-1",
+      "datasetIds": [
+        "two-blobs",
+        "two-moons"
+      ],
+      "features": [
+        "movable query and numeric coordinates",
+        "training-only standardization",
+        "deterministic neighbor ranking",
+        "uniform and inverse-distance votes",
+        "explicit exact-match and tie rules",
+        "sampled decision map",
+        "training and validation classification metrics",
+        "confusion matrix",
+        "stale-result provenance",
+        "Beginner and Advanced",
+        "saved parameter setup"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/knn-reference.json",
+      "absoluteNumericalTolerance": 1e-12,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "logistic-regression",
+      "lessonId": "lesson-logistic-regression",
+      "status": "implemented",
+      "adapterVersion": "logistic-newton-1",
+      "datasetIds": [
+        "two-blobs",
+        "two-moons",
+        "xor-corners"
+      ],
+      "features": [
+        "training-only standardization",
+        "L2-regularized logistic objective",
+        "actual damped Newton checkpoints",
+        "selected-point score and sigmoid",
+        "threshold-only reevaluation",
+        "endpoint threshold behavior",
+        "sampled probability field and exact straight boundary",
+        "log loss and classification metrics",
+        "confusion matrix",
+        "measured XOR challenge",
+        "saved parameter setup"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/logistic-reference.json",
+      "coefficientAbsoluteTolerance": 1e-07,
+      "probabilityAbsoluteTolerance": 1e-09,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "decision-tree",
+      "lessonId": "lesson-decision-tree",
+      "status": "implemented",
+      "adapterVersion": "cart-gini-1",
+      "datasetIds": [
+        "two-moons",
+        "two-blobs"
+      ],
+      "features": [
+        "raw-coordinate Gini CART",
+        "deterministic split and class ties",
+        "linked fitted nodes and exact regions",
+        "selected observation root-to-leaf path",
+        "depth and minimum leaf controls",
+        "actual fitted-run history",
+        "training and validation metrics",
+        "saved lesson setup",
+        "comparison integration"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/tree-reference.json",
+      "absoluteNumericalTolerance": 1e-12,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "random-forest",
+      "lessonId": "lesson-random-forest",
+      "status": "implemented",
+      "adapterVersion": "forest-gini-1",
+      "datasetIds": [
+        "two-moons",
+        "two-blobs"
+      ],
+      "features": [
+        "seeded bootstrap and feature subsampling",
+        "recorded draw identities and per-node feature choices",
+        "all-tree leaf-fraction aggregation",
+        "five labeled component examples",
+        "free and observed queries",
+        "prefix forest validation curve",
+        "identical-row single-tree baseline",
+        "worker progress and cancellation",
+        "saved setup and comparison integration"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/forest-reference.json",
+      "absoluteNumericalTolerance": 1e-12,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "svm",
+      "lessonId": "lesson-svm",
+      "status": "implemented",
+      "adapterVersion": "svm-smo-1",
+      "datasetIds": [
+        "two-blobs",
+        "two-moons"
+      ],
+      "features": [
+        "linear and RBF soft-margin SVM",
+        "train-only standardization and binary label mapping",
+        "fitted support coefficients and hinge diagnostics",
+        "actual zero/unit-score contours",
+        "kernel-aware gamma request identity",
+        "C fit history",
+        "solver progress and certificate",
+        "saved setup and score-only comparison"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/svm-reference.json",
+      "scoreAbsoluteTolerance": 0.0002,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "kmeans",
+      "lessonId": "lesson-kmeans",
+      "status": "implemented",
+      "adapterVersion": "lloyd-1",
+      "datasetIds": [
+        "three-clusters"
+      ],
+      "features": [
+        "unlabeled fitting without reference metadata",
+        "seeded kmeans++ or random initialization",
+        "cluster-count and restart controls",
+        "actual assignment and mean-update states",
+        "winning-trial selection and objective trace",
+        "inertia and Euclidean silhouette",
+        "explicit empty-cluster rule",
+        "reference-group teaching overlay",
+        "measured k history and saved setups"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/kmeans-reference.json",
+      "absoluteNumericalTolerance": 1e-09,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "pca",
+      "lessonId": "lesson-pca",
+      "status": "implemented",
+      "adapterVersion": "pca-jacobi-1",
+      "datasetIds": [
+        "tilted-cloud"
+      ],
+      "features": [
+        "centered two-feature full Jacobi SVD without standardization",
+        "one or two retained components",
+        "sample explained variance and covariance ellipse",
+        "centering and direction-variance exploration",
+        "linked scores and original-unit reconstruction",
+        "Advanced whitening with zero-variance protection",
+        "sign-stable presentation and orthogonal axes",
+        "measured fit history and saved setups"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/pca-reference.json",
+      "absoluteNumericalTolerance": 1e-09,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "mlp",
+      "lessonId": "lesson-mlp",
+      "status": "implemented",
+      "adapterVersion": "mlp-sgd-1",
+      "datasetIds": [
+        "xor-corners",
+        "two-moons",
+        "two-blobs"
+      ],
+      "features": [
+        "fresh seeded tanh network and minibatch SGD",
+        "layer/unit/rate/epoch/batch controls",
+        "actual epoch losses and checkpoint maps",
+        "selected-point activations and full neuron contributions",
+        "matched logistic baseline",
+        "explicit partial snapshots and cancel/failure recovery",
+        "measured run history and live comparison"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/mlp-reference.json",
+      "absoluteNumericalTolerance": 1e-09,
+      "finalTestEvaluated": false
+    },
+    {
+      "catalogEntryId": "q-learning",
+      "lessonId": "lesson-q-learning",
+      "status": "implemented",
+      "adapterVersion": "q-tabular-1",
+      "datasetIds": [
+        "grid-route"
+      ],
+      "features": [
+        "zero-initialized seeded tabular Q-learning",
+        "learning-rate/discount/exploration dial/episode controls",
+        "recorded transitions with scalar backups and replay",
+        "actual undiscounted episode returns",
+        "separate greedy evaluation without Q updates",
+        "independent BFS environment reference",
+        "partial snapshots and cancel/failure recovery"
+      ],
+      "acceptanceCheckCount": 5,
+      "verification": "../atlas-app/v22-validation.json",
+      "independentReference": "../atlas-app/tests/fixtures/q-learning-reference.json",
+      "absoluteNumericalTolerance": 1e-12,
+      "finalTestEvaluated": false
+    }
+  ],
+  "remainingLessons": [],
+  "comparison": {
+    "status": "implemented",
+    "modelIds": [
+      "knn",
+      "logistic-regression",
+      "decision-tree",
+      "random-forest",
+      "svm",
+      "mlp"
+    ],
+    "datasetIds": [
+      "two-blobs",
+      "two-moons"
+    ],
+    "independentPanelControls": true,
+    "sharedValidationRowIds": true,
+    "sharedRawAxes": true,
+    "finalTestEvaluated": false,
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "remainingPreviewCount": 0,
+  "experimentLibrary": {
+    "status": "implemented",
+    "configurationSchemaVersion": "1.0.0",
+    "lessonCount": 10,
+    "comparisonModels": 6,
+    "capacity": 50,
+    "storage": "browser-local with portable JSON import/export",
+    "reopen": "validate settings and recompute; never trust imported metrics",
+    "exports": [
+      "experiment-json",
+      "completed-results-json",
+      "output-rows-csv",
+      "self-contained-chart-svg"
+    ],
+    "verification": "../atlas-app/v22-validation.json",
+    "maxPortableBytes": 1048576
+  },
+  "dataWorkbench": {
+    "status": "implemented",
+    "surface": "comparison",
+    "generatorVersion": "synthetic-1",
+    "patterns": [
+      "blobs",
+      "moons"
+    ],
+    "sampleCountRange": [
+      80,
+      400
+    ],
+    "sampleCountStep": 20,
+    "controls": [
+      "samples",
+      "noise",
+      "separation",
+      "outliers",
+      "stretch",
+      "seed",
+      "features",
+      "scaling"
+    ],
+    "partitions": "balanced per-class 60/20/20",
+    "coordinateRoundingDecimals": 10,
+    "revision": "SHA-256 of canonical generated data and recipe",
+    "portableRecipeSupport": true,
+    "frozenFixturesUnchanged": true,
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "taskDataWorkbench": {
+    "status": "implemented",
+    "surfaces": [
+      "linear-regression",
+      "kmeans",
+      "pca"
+    ],
+    "generatorVersion": "task-synthetic-1",
+    "portableRecipeSupport": true,
+    "regressionProtocol": "training-only OLS; 60/20/20 partitions",
+    "unlabeledProtocol": "all declared fitting rows; raw K-means and centered PCA",
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "csvWorkbench": {
+    "status": "implemented",
+    "importerVersion": "csv-1",
+    "surfaces": [
+      "comparison",
+      "linear-regression",
+      "kmeans",
+      "pca"
+    ],
+    "maxBytes": 262144,
+    "rowRange": [
+      80,
+      400
+    ],
+    "columnRange": [
+      2,
+      12
+    ],
+    "missingInputs": "reject or fitting-median/mode",
+    "categoricalInputs": "binary fitting vocabulary; unseen evaluation values use fitting mode",
+    "portableSourceEmbedded": true,
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "settingsHistory": {
+    "status": "implemented",
+    "scope": "all ten lessons and independent comparison panels",
+    "capacityPerContext": 20,
+    "groupedGestures": true,
+    "datasetAndModelScoped": true,
+    "storage": "memory in current page",
+    "resetAndQuickLoadUndoable": true,
+    "fitReuse": "only the retained compatible completed run",
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "runTiming": {
+    "status": "implemented",
+    "version": "timing-1",
+    "lessons": 10,
+    "comparisonModels": 6,
+    "clock": "performance.now",
+    "phases": [
+      "fit",
+      "teaching references",
+      "other adapter work",
+      "worker total",
+      "worker round trip"
+    ],
+    "pairedCheck": {
+      "pairs": 3,
+      "sequential": true,
+      "alternatingOrder": true,
+      "summary": "median and observed range"
+    },
+    "resultsJsonAndSvgMetadata": true,
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "clusteringComparison": {
+    "status": "implemented",
+    "route": "#/compare/clustering",
+    "modelIds": [
+      "kmeans",
+      "kmeans"
+    ],
+    "sharedData": [
+      "frozen",
+      "generated",
+      "csv"
+    ],
+    "metrics": [
+      "inertia",
+      "silhouette",
+      "occupiedClusters",
+      "pairwiseGroupingAgreement"
+    ],
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "guidedActivities": {
+    "status": "implemented",
+    "route": "#/activities",
+    "activityIds": [
+      "tree-depth",
+      "knn-neighbors",
+      "data-noise",
+      "cluster-outliers",
+      "pca-dimensions"
+    ],
+    "storage": "current-page-memory",
+    "exports": [
+      "guided-worksheet-json"
+    ],
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "latestPatch": {
+    "appVersion": "2.2.0",
+    "name": "Ambient evolving contours and three cursor descent points",
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "interfaceLayout": {
+    "status": "implemented",
+    "name": "atlas-journeys-v22",
+    "lessons": 10,
+    "comparisonTasks": [
+      "classification",
+      "clustering"
+    ],
+    "lessonHeadlineMetricCount": 3,
+    "comparisonHeadlineMetricCountPerPanel": 2,
+    "toolPresentation": "grouped Data and View disclosures",
+    "diagnosticsDefault": "collapsed",
+    "mobileOrder": [
+      "visible teaching steps",
+      "Data/View toolbar",
+      "chart",
+      "equation and fit action",
+      "parameters",
+      "headline metrics and playback",
+      "diagnostics",
+      "current explanation and observation inspector"
+    ],
+    "viewPreservation": "fit completion retains focus, viewport, disclosure state and unfinished tool drafts",
+    "verification": "../atlas-app/v22-validation.json",
+    "teachingSteps": "four visible chapters",
+    "observationInspection": "adjacent contextual inspector",
+    "parameterPlacement": "beneath equation and primary fit action",
+    "learningJourneys": 3,
+    "algorithmIllustrations": 10,
+    "narrowLessonFocus": "explicit focus view; compact sticky chart with native controls",
+    "narrowComparison": "A/B or both stacked; shared measured result summary",
+    "resultEvidence": "current/earlier states and compatible completed-run metric differences",
+    "exploreRefinements": {
+      "heroShortcuts": "removed",
+      "lessonSlideshow": {
+        "slides": 10,
+        "intervalMs": 3000,
+        "reducedMotion": "instant changes; autoplay retained",
+        "cleanup": "timers and observers stop on navigation",
+        "controls": "previous, indicators with counter beneath, next; no Play/Pause button",
+        "rotation": "resets after selection; suspends offscreen, hidden, or while a lesson link has keyboard focus"
+      },
+      "journeys": "three overlapping questions; seven implemented lessons each",
+      "learningSignalMap": "responsive, draggable, keyboard-selectable; synchronized catalog filtering; tagged counts and examples",
+      "navigation": "button-styled links with current-page state",
+      "verification": "../atlas-app/explore-comments-browser-validation.json",
+      "brandMotto": "AN ATLAS FOR HOW MACHINES LEARN",
+      "heroEntrance": "staggered float on each Explore visit; reduced-motion fallback",
+      "footer": "v2.2 only"
+    }
+  },
+  "designVersion": "v2.2",
+  "basedOn": "2.1.0",
+  "microInteractions": {
+    "livingLogo": true,
+    "interactiveSchematicPreviews": 10,
+    "numberScrubbing": "native numeric inputs; bounded; logarithmic and integer handling; Shift fine adjustment",
+    "equationGeometryCues": [
+      "linear-regression"
+    ],
+    "predictionGuessing": [
+      "linear-regression"
+    ],
+    "previousDisplayedLine": [
+      "linear-regression"
+    ],
+    "relationshipPreviews": "catalog explanations; hover, focus and touch toggle",
+    "savedIdeas": "local browser storage; validated catalog IDs; removable Saved links",
+    "saveConfirmation": "drawn bookmark after successful writes",
+    "verification": "../atlas-app/micro-interactions-browser-validation.json"
+  },
+  "illustrationMotion": {
+    "regression": "computed least-squares endpoint; vertical residuals anchored to fixed observations at every frame",
+    "pca": "dominant covariance direction through sample mean; orthogonal projections; fixed observations",
+    "sharedInstances": [
+      "slideshow",
+      "journey cards",
+      "lesson index",
+      "catalog icons",
+      "relationship previews"
+    ],
+    "catalogAnimationEntries": 80,
+    "animationTriggers": [
+      "viewport entry",
+      "hover",
+      "keyboard focus"
+    ],
+    "scrollEntrances": "headings, subtitles and content blocks; no chart/control ancestor transforms",
+    "reducedMotion": "final static geometry; all content visible; running motion canceled",
+    "lifecycle": "one shared observer pair and frame loop; offscreen and detached icons stop; carousel tweens disposed on navigation",
+    "verification": "../atlas-app/art-motion-browser-validation.json"
+  },
+  "ambientContours": {
+    "status": "implemented",
+    "rendering": "smoothed scalar-field contours rendered in an OffscreenCanvas module worker; optimized main-thread fallback if unsupported or worker startup/runtime fails",
+    "backgroundFpsLimit": 30,
+    "canvasPixelBudget": 2400000,
+    "cursorPoints": 3,
+    "cursorBehavior": "independent display-frame loop; faster contraction toward cursor; three successive steps; no native cursor replacement; pointer-events none",
+    "inputProtection": "hide during press/drag; ignore touch movement; opaque teaching charts",
+    "reducedMotion": "static contours; cursor tracking hidden",
+    "lifecycle": "suspend hidden/pagehide; reuse on route changes; resize-aware",
+    "verification": "../atlas-app/ambient-contours-browser-validation.json",
+    "geometry": "reusable typed buffers; integer grid-edge joins; frame-shared basin trigonometry",
+    "scheduling": "deadline-preserving 30 Hz animation-frame sampling; timer fallback where worker rAF is unavailable",
+    "telemetry": "low-frequency frame count; no per-frame worker-to-DOM updates",
+    "performanceEvidence": "../atlas-app/contour-performance-validation.json"
+  },
+  "experimentSharing": {
+    "status": "implemented-and-tested",
+    "format": "bounded fragment link; versioned configuration",
+    "byteLimit": 6144,
+    "datasetSources": [
+      "built-in",
+      "generated recipe"
+    ],
+    "csv": "portable Experiment JSON only",
+    "recipient": "review first; explicit open/save; run separately",
+    "verification": "../atlas-app/sharing-browser-validation.json"
+  }
+}

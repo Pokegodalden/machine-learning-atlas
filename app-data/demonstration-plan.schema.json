@@ -1,0 +1,692 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "completedStep": {
+      "const": 3
+    },
+    "updatedOn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalogFile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "datasetManifestFile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brandManifestFile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "supportingReferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "url"
+        ]
+      },
+      "minItems": 1
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "selectedLessonCount": {
+          "type": "integer"
+        },
+        "fixtureCount": {
+          "type": "integer"
+        },
+        "implementationStatus": {
+          "const": "specified-not-implemented"
+        },
+        "runnableDemoCount": {
+          "const": 0
+        },
+        "decision": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "selectedLessonCount",
+        "fixtureCount",
+        "implementationStatus",
+        "runnableDemoCount",
+        "decision"
+      ]
+    },
+    "releaseWaves": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lessonIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "lessonIds"
+        ]
+      },
+      "minItems": 4
+    },
+    "experimentPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "datasetSeed": {
+          "type": "integer"
+        },
+        "partitionSeed": {
+          "type": "integer"
+        },
+        "modelSeed": {
+          "type": "integer"
+        },
+        "supervisedPartitions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "train": {
+              "type": "number"
+            },
+            "validation": {
+              "type": "number"
+            },
+            "test": {
+              "type": "number"
+            },
+            "stratifyBinaryLabels": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "train",
+            "validation",
+            "test",
+            "stratifyBinaryLabels"
+          ]
+        },
+        "tuning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preprocessing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comparisons": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classificationConvention": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plotCoordinates": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runState": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reproducibility": {
+          "type": "string",
+          "minLength": 1
+        },
+        "performanceLimits": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "datasetSeed",
+        "partitionSeed",
+        "modelSeed",
+        "supervisedPartitions",
+        "tuning",
+        "preprocessing",
+        "comparisons",
+        "classificationConvention",
+        "plotCoordinates",
+        "runState",
+        "reproducibility",
+        "performanceLimits"
+      ]
+    },
+    "presentationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visualStyle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "semanticColors": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dataClass0": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataClass1": {
+              "type": "string",
+              "minLength": 1
+            },
+            "activeModel": {
+              "type": "string",
+              "minLength": 1
+            },
+            "error": {
+              "type": "string",
+              "minLength": 1
+            },
+            "supplementaryQuantity": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "dataClass0",
+            "dataClass1",
+            "activeModel",
+            "error",
+            "supplementaryQuantity"
+          ]
+        },
+        "unlabeledScenes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "controls": {
+          "type": "string",
+          "minLength": 1
+        },
+        "playback": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reducedMotion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "states": {
+          "type": "string",
+          "minLength": 1
+        },
+        "depth": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "visualStyle",
+        "semanticColors",
+        "unlabeledScenes",
+        "controls",
+        "playback",
+        "reducedMotion",
+        "states",
+        "depth"
+      ]
+    },
+    "comparisonGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "catalogEntryIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "datasetIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "sharedMetrics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "rules": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "catalogEntryIds",
+          "datasetIds",
+          "sharedMetrics",
+          "rules"
+        ]
+      },
+      "minItems": 1
+    },
+    "nextCoverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "catalogEntryId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "learningType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "const": "backlog-not-selected"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "catalogEntryId",
+          "learningType",
+          "status",
+          "reason"
+        ]
+      },
+      "minItems": 2
+    },
+    "coverageNote": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "catalogEntryId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "learnerOrder": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "buildOrder": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "releaseWave": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "const": "specified-not-implemented"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "learningGoal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "primaryDatasetId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "challengeDatasetId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "task": {
+            "type": "string",
+            "minLength": 1
+          },
+          "suggestedMinutes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timeEstimateStatus": {
+            "type": "string",
+            "minLength": 1
+          },
+          "recommendedPriorLessons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "entryPolicy": {
+            "type": "string",
+            "minLength": 1
+          },
+          "catalogPrerequisites": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "catalogParameterIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "parameterOverrides": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "parameterId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "default": {
+                  "type": [
+                    "number",
+                    "string",
+                    "boolean"
+                  ]
+                },
+                "maximum": {
+                  "type": "number"
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "level": {
+                  "enum": [
+                    "beginner",
+                    "advanced"
+                  ]
+                }
+              },
+              "required": [
+                "parameterId"
+              ]
+            },
+            "minItems": 0
+          },
+          "runControls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "default": {
+                  "type": "integer"
+                },
+                "minimum": {
+                  "type": "integer"
+                },
+                "maximum": {
+                  "type": "integer"
+                },
+                "integer": {
+                  "type": "boolean"
+                },
+                "choices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "minItems": 1
+                },
+                "purpose": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "default",
+                "purpose"
+              ]
+            },
+            "minItems": 0
+          },
+          "sceneInteractions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "storyboard": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "explanation": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "explanation"
+              ]
+            },
+            "minItems": 4
+          },
+          "equations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "trainingRecipe": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "reflectionPrompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "acceptanceChecks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 5
+          },
+          "sourceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "viewModes": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "beginner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "advanced": {
+                "type": "string",
+                "minLength": 1
+              },
+              "statePolicy": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "beginner",
+              "advanced",
+              "statePolicy"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "catalogEntryId",
+          "title",
+          "learnerOrder",
+          "buildOrder",
+          "releaseWave",
+          "status",
+          "question",
+          "learningGoal",
+          "primaryDatasetId",
+          "challengeDatasetId",
+          "task",
+          "suggestedMinutes",
+          "timeEstimateStatus",
+          "recommendedPriorLessons",
+          "entryPolicy",
+          "catalogPrerequisites",
+          "catalogParameterIds",
+          "parameterOverrides",
+          "runControls",
+          "sceneInteractions",
+          "storyboard",
+          "equations",
+          "trainingRecipe",
+          "metrics",
+          "reflectionPrompt",
+          "acceptanceChecks",
+          "sourceRefs",
+          "viewModes"
+        ]
+      },
+      "minItems": 10
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "completedStep",
+    "updatedOn",
+    "title",
+    "catalogFile",
+    "datasetManifestFile",
+    "brandManifestFile",
+    "supportingReferences",
+    "scope",
+    "releaseWaves",
+    "experimentPolicy",
+    "presentationPolicy",
+    "comparisonGroups",
+    "nextCoverage",
+    "coverageNote",
+    "lessons"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Machine Learning Atlas demonstration plan contract"
+}

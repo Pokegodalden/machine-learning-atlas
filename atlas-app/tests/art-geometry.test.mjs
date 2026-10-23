@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {artPoints,regressionGeometry,pcaGeometry} from '../src/ui/art-geometry.js';
+const close=(a,b,t=1e-9)=>assert(Math.abs(a-b)<t,`${a} differs from ${b}`);
+test('Fitted illustration line satisfies both least-squares normal equations',()=>{const g=regressionGeometry(1),residuals=artPoints.map(([x,y])=>y-g.slope*x-g.intercept);close(residuals.reduce((a,b)=>a+b,0),0);close(residuals.reduce((sum,r,i)=>sum+r*artPoints[i][0],0),0);});
+test('Every animated residual starts at its fixed observation and ends vertically on the displayed line',()=>{for(const t of [0,.1,.5,.9,1]){const g=regressionGeometry(t);g.residuals.forEach((r,i)=>{assert.deepEqual([r.x,r.y],artPoints[i]);close(r.predicted,g.slope*r.x+g.intercept);});g.line.forEach(([x,y])=>close(y,g.slope*x+g.intercept));}});
+test('Fitted PCA axis passes through the mean and is the dominant covariance eigenvector',()=>{const g=pcaGeometry(1),mean=[0,1].map(j=>artPoints.reduce((s,p)=>s+p[j],0)/artPoints.length);mean.forEach((m,j)=>close(m,g.center[j]));let a=0,b=0,c=0;for(const p of artPoints){const x=p[0]-mean[0],y=p[1]-mean[1];a+=x*x;b+=x*y;c+=y*y;}const [x,y]=g.v;close(x*(b*x+c*y)-y*(a*x+b*y),0,1e-7);assert(a*x*x+2*b*x*y+c*y*y>=a*y*y-2*b*x*y+c*x*x);});
+test('PCA projections stay on the displayed axis and reconstruction segments are perpendicular at every frame',()=>{for(const t of [0,.1,.5,.9,1]){const g=pcaGeometry(t);g.projections.forEach((p,i)=>{assert.deepEqual([p.x,p.y],artPoints[i]);close((p.px-g.center[0])*g.v[1]-(p.py-g.center[1])*g.v[0],0);close((p.x-p.px)*g.v[0]+(p.y-p.py)*g.v[1],0);});}});
+test('Illustration fit progress clamps safely to its initial and fitted geometry',()=>{assert.deepEqual(regressionGeometry(-1),regressionGeometry(0));assert.deepEqual(regressionGeometry(2),regressionGeometry(1));assert.deepEqual(pcaGeometry(-1),pcaGeometry(0));assert.deepEqual(pcaGeometry(2),pcaGeometry(1));});

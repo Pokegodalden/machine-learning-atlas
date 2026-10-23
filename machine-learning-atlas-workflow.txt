@@ -1,0 +1,579 @@
+MACHINE LEARNING ATLAS - PROJECT WORKFLOW
+Updated: 24 October 2026
+Current app: v2.2.0 (original and earlier editions preserved)
+App URL: http://127.0.0.1:8773/?v=2.2&rev=workflow-completion#/explore
+Repository: https://github.com/Pokegodalden/machine-learning-atlas
+Public preview: Deployment in preparation; human release acceptance remains open.
+
+STATUS KEY
+(Done) = Completed for the stated scope.
+(In progress) = Some work is complete; remaining work is listed.
+(Not started) = Planned work has not been completed.
+
+NUMBERING NOTE
+This file preserves the original 14-step workflow. After Step 5, the numbered
+implementation milestones used in the conversation diverged from the original
+workflow: implementation Steps 6-8 delivered three lessons, and implementation
+Step 9 delivered live comparison; implementation Steps 10 and 11 added decision
+trees and random forests; implementation Step 12 added support vector machines, Step 13 added K-means, Step 14 added PCA, Step 15 added the small neural network, and Step 16 added Q-learning.
+Step 17 audited release readiness and added named experiment save/reopen and exports.
+Steps 18 and 19 extended reproducible data controls across classification, regression,
+K-means, and PCA.
+Those milestones are recorded separately below.
+A finished implementation milestone does not mark an entire broader workflow
+step complete. The original step descriptions are retained under PLANNED WORK.
+
+Paths in this file are relative to the outputs folder containing this file.
+
+======================================================================
+A. ORIGINAL 14-STEP WORKFLOW WITH CURRENT STATUS
+======================================================================
+
+1. Define the app’s learning experience (Done)
+
+   CURRENT STATUS
+   Completed: Product specification, intended audience, Explore/Experiment/Compare,
+   Beginner/Advanced levels, learning loop, and the 3Blue1Brown-inspired direction.
+   Evidence: step-01-product-specification.md; step-01-style-reference.png.
+
+   PLANNED WORK
+
+   Establish three main activities: Explore, Experiment, and Compare. Explore explains algorithms; Experiment lets users change data and parameters; Compare shows how different models behave on the same problem.
+
+   Support two explanation levels: Beginner, with plain-language descriptions, and Advanced, with equations, assumptions, and implementation details.
+
+   Deliverable: A feature specification and a clear description of the intended audience.
+
+2. Create the algorithm taxonomy and catalog (Done)
+
+   CURRENT STATUS
+   Completed: Structured catalog of 80 entries across 22 families and five learning
+   types, explanations, parameter metadata, search indexes, schemas, and references.
+   Evidence: step-02-catalog-guide.md; app-data/catalog.json; app-data/taxonomy.json.
+
+   PLANNED WORK
+
+   Organize the catalog using the learning types already discussed: supervised, unsupervised, semi-supervised, self-supervised, and reinforcement learning.
+
+   Give every entry multiple tags for model family, task, and data type. Keep architectures, such as transformers, distinguishable from training algorithms and learning approaches.
+
+   Each entry should contain a name, description, intuition, supported tasks, assumptions, strengths, limitations, parameters, example, and source references.
+
+   Deliverable: A structured catalog that drives navigation, search, and algorithm pages.
+
+3. Choose the first set of interactive demonstrations (Done)
+
+   CURRENT STATUS
+   Completed: Ten starter lessons selected and sequenced, seven frozen input
+   fixtures, lesson storyboards, parameter specifications, and acceptance checks.
+   This marks the demonstration plan complete; lesson implementation is tracked below.
+   Evidence: step-03-demonstration-plan.md; app-data/demonstration-plan.json.
+
+   PLANNED WORK
+
+   Start with a manageable set that illustrates different behaviors: linear regression, logistic regression, a decision tree, random forest, K-nearest neighbors, a support vector machine, K-means, PCA, a small neural network, and Q-learning.
+
+   Include explanatory catalog entries for the wider range of algorithms from the beginning. Expand runnable demonstrations in later releases, using a repeatable template for each addition.
+
+   Deliverable: A release checklist identifying which entries have explanations, runnable demonstrations, or both.
+
+4. Design the screens and navigation (Done)
+
+   CURRENT STATUS
+   Completed: Approved overview, algorithm detail, lesson/parameter, and comparison
+   screen designs, navigation, responsive layouts, and clickable design prototype.
+   Evidence: step-04-screen-design.md; design-prototype/.
+
+   PLANNED WORK
+
+   Create an overview page with an expandable taxonomy, searchable algorithm cards, and filters for learning type, task, and model family.
+
+   Each algorithm page should include an explanation, a worked example, an interactive playground, and results. Add a comparison screen where users select compatible algorithms for the same task.
+
+   Use consistent colors and labels across the taxonomy, charts, and controls.
+
+   Deliverable: Screen mockups covering the main user journey from discovery to experimentation.
+
+5. Define the application architecture (Done)
+
+   CURRENT STATUS
+   Completed: Modular browser app, SVG rendering, routing, content loader, worker
+   execution, versioned contracts, run state, storage, build, and local server.
+   Evidence: step-05-application-architecture.md; atlas-app/src/.
+
+   PLANNED WORK
+
+   Separate the interface, algorithm catalog, experiment engine, and results visualization.
+
+   Use a consistent experiment contract: dataset, preprocessing choices, algorithm, parameters, random seed, and evaluation settings go in; predictions, metrics, training history, and visualization data come out.
+
+   Lightweight demonstrations can run locally. More demanding experiments can use a backend with progress updates and cancellation.
+
+   Deliverable: An architecture diagram and a shared input/output specification.
+
+6. Build dataset selection and preprocessing (Done)
+
+   CURRENT STATUS
+   (Done) Seven frozen fixtures cover the selected tasks and environment.
+   (Done) Supported classification lessons offer dataset selection.
+   (Done) K-means fits all 240 declared unlabeled rows with comparable raw units;
+   reference metadata is excluded from its worker fitting input.
+   (Done) PCA centers all 200 unlabeled fit rows without standardization or
+   generator-parameter leakage.
+   (Done) Implemented classifiers fit scaling using training rows only.
+   (Done) Shared classification panel: generated blobs/moons, sample count, noise,
+   separation, outliers, stretch, data seed, feature selection, and raw/train-only
+   scaling. Recipes preserve revisions through save, reopen, and exports.
+   (Done) Regression recipe: samples, generating slope/intercept, noise, response
+   outliers, and seed with training-only fitting and reserved final-check rows.
+   (Done) Unlabeled K-means/PCA recipes: samples, shape/spread, rotation, stretch,
+   outliers, seed and selected features; raw clustering and centered PCA previews.
+   (Done) Generated recipes save/reopen/recompute and export with exact revisions.
+   (Done) CSV column/target mapping and task compatibility; numeric median/binary mode
+   imputation and category vocabulary fit only on training rows for supervised tasks.
+   (Done) Reproducible splits, embedded portable source, mapped previews, real worker
+   fits, source revisions, current-result exports and adaptive regression ranges.
+   Scope: 80–400 records, 256 KiB UTF-8 CSV, 2–12 columns, one regression input or one/two
+   other inputs. General multicategory/higher-dimensional data is expansion work.
+
+   PLANNED WORK
+
+   Provide small example datasets for classification, regression, clustering, dimensionality reduction, and reinforcement learning.
+
+   Let users adjust synthetic data properties such as sample count, noise, class separation, outliers, and cluster shape. Add CSV upload after the built-in examples work reliably.
+
+   Provide task-appropriate preprocessing controls, including feature selection, scaling, missing-value handling, and categorical encoding. Fit learned preprocessing on training data to prevent leakage into evaluation.
+
+   Deliverable: A reusable dataset panel with a preview and clear validation messages.
+
+7. Add model customization using dials, sliders, and numeric controls (Done)
+
+   CURRENT STATUS
+   (Done) Reusable sliders, stepped integer controls, logarithmic controls, dials,
+   selectors, toggles, numeric inputs, range validation, and keyboard alternatives.
+   (Done) Reset defaults and saved lesson setup loading; current/stale result states.
+   (Done) Working controls for ten interactive lessons and independent comparison
+   panels, with threshold-only prediction updates separated from training changes.
+   (Done) K-means cluster count, Advanced restarts, and initialization selection.
+   (Done) PCA component count, Advanced whitening, and centering/direction views.
+   (Done) MLP depth, width, learning rate, epochs, batch size, and a combined work limit.
+   (Done) Q-learning alpha/gamma sliders, epsilon dial, numeric alternatives,
+   episode budget, and presentation-only recorded trajectory controls.
+   (Done) CSV-dependent input/task constraints and regression coefficient ranges.
+   (Done) Restore previous parameter settings in all ten lessons and independently
+   in both comparison panels; Reset and quick setup Load are undoable. Numeric editing
+   sessions, slider drags, held keys and dial drags are grouped into complete changes.
+   (Done) Per-context history is capped at 20, resets on data/model/protocol changes
+   or saved experiment opening/reload, and validates snapshots before restoring.
+   (Done) Training changes cancel incompatible workers; compatible retained fits
+   may be reused. Threshold-only restoration keeps fitted scores/probabilities.
+   Scope complete for the starter model controls and bounded input constraints.
+
+   PLANNED WORK
+
+   Build a parameter panel beside the visualization. Every control should show its name, current value, default, allowed range, and a short explanation of its effect.
+
+   Use sliders for continuous quantities, stepped sliders for integers, dropdowns for discrete choices, and dials where a compact visual control helps. Always provide keyboard operation and an editable numeric value.
+
+   Example controls:
+
+   - Linear/ridge regression: Regularization strength, intercept. Controls: Logarithmic slider, toggle.
+   - Logistic regression: Regularization, decision threshold. Controls: Logarithmic slider, slider from 0–1.
+   - Decision tree: Maximum depth, minimum samples per leaf. Controls: Integer sliders; “unlimited” option.
+   - Random forest: Number of trees, depth, features considered. Controls: Integer sliders, dropdown.
+   - K-nearest neighbors: Neighbor count, distance metric, weighting. Controls: Integer slider, dropdowns.
+   - Support vector machine: C, kernel, gamma. Controls: Logarithmic sliders, dropdown.
+   - K-means: Number of clusters, initialization, restarts. Controls: Integer sliders, dropdown.
+   - PCA: Number of components. Controls: Integer slider limited by dataset dimensions.
+   - Neural network: Layers, units, learning rate, batch size, epochs. Controls: Layer editor, sliders, dropdown.
+   - Q-learning: Learning rate, discount factor, exploration rate. Controls: Dials/sliders with numeric inputs.
+
+   Separate training parameters from prediction controls. Changing tree depth requires retraining; changing a classification threshold can update results using existing probabilities.
+
+   Include Reset defaults, Restore previous settings, and Save preset. Mark results as outdated when training parameters change, and use a clear Run experiment action.
+
+   Deliverable: A reusable parameter system with validation and algorithm-specific control definitions.
+
+8. Implement the experiment engine (Done)
+
+   CURRENT STATUS
+   (Done) Worker pipeline, request validation, reproducible fixtures, real metrics,
+   result provenance, cancellation, failure recovery, and superseded-run rejection.
+   (Done) Working linear regression, kNN, logistic regression, tree, forest, SVM, K-means, PCA, MLP, and Q-learning adapters.
+   (Done) All ten starter adapters include model-specific validation and bounded
+   computation. Iterative learners report actual progress and support cancellation.
+   Scope complete for all ten runnable starter algorithms. Reusable tooling for
+   future adapters and larger datasets remains expansion work, tracked in the audit.
+
+   PLANNED WORK
+
+   Connect the controls to working model implementations. Each run should validate inputs, prepare data, train the model, evaluate it, and return results.
+
+   Show progress for longer runs and provide cancellation. Store the configuration with every result so users can reproduce it. Apply sensible computation limits and explain those limits in the interface when relevant.
+
+   Fixed seeds should make demonstrations repeatable where supported.
+
+   Deliverable: An end-to-end experiment pipeline used by every runnable algorithm.
+
+9. Create algorithm-specific visual explanations (Done)
+
+   CURRENT STATUS
+   (Done) Linear fit, residuals, loss, point inspector, and residual diagnostics.
+   (Done) kNN distances, neighbor ranking, voting, and sampled decision regions.
+   (Done) Logistic score, sigmoid, probability field, threshold, and solver trace.
+   (Done) Linked comparison maps and observation/disagreement inspection.
+   (Done) Fitted tree nodes, exact regions, decision paths, and depth-run history.
+   (Done) Forest bootstrap/feature inspection, full probability aggregation,
+   component examples, actual prefix curves, and a matched single-tree baseline.
+   (Done) SVM support coefficients, signed margins, hinge diagnostics, linear/RBF
+   score contours, measured C history, and kernel comparison.
+   (Done) K-means actual assignment/mean states, centroid movement, selected-trial
+   objective trace, point-distance inspection, and optional teaching references.
+   (Done) PCA centering, fitted axes, variance accounting, linked score spaces,
+   reconstruction/residual geometry, and correctly labeled whitening.
+   (Done) MLP actual epoch curves/checkpoint maps, neuron activations and full
+   input contributions, sampled-network labels, and honest partial-run views.
+   (Done) Q-learning actual transition backups, sampled-episode playback,
+   reward curves, fixed greedy-policy route, and cell/action inspection.
+   Scope complete for the ten starter explanations. Broader visual polish and
+   additional scene templates remain expansion work, tracked in the audit.
+
+   PLANNED WORK
+
+   Choose visuals that reveal each algorithm’s behavior: fitted lines and residuals for regression, decision boundaries for classification, tree diagrams for decision trees, cluster assignments and centroids for K-means, and projections with explained variance for PCA.
+
+   Show loss curves and validation performance for neural networks. For Q-learning, use a small grid environment with actions, rewards, and the learned policy.
+
+   Where implementations expose intermediate steps, add play, pause, and step-through controls.
+
+   Deliverable: A visualization library with a clear teaching purpose for each display.
+
+10. Add evaluation and model comparison (Done)
+
+   CURRENT STATUS
+   (Done) Regression MAE/RMSE and classification confusion, accuracy, precision,
+   recall, F1, and logistic log loss for implemented lessons.
+   (Done) Live kNN/logistic/tree/forest/SVM/MLP comparisons on identical revisions and rows,
+   independent settings, shared axes, actual disagreements, and metric deltas.
+   (Done) K-means inertia, Euclidean silhouette, sizes, and actual k/run history.
+   (Done) PCA explained variance, original-unit reconstruction error, and fit history.
+   (Done) MLP binary log loss and classification metrics, matched logistic baseline,
+   and six-classifier comparison on identical original rows.
+   (Done) Q-learning training returns/recent success, separate fixed greedy
+   evaluation, and BFS environment reference; no classification metrics.
+   (Done) Measured fit, reference, other worker and round-trip timings for all ten
+   lessons; sequential alternating three-pair timing studies with medians/ranges.
+   (Done) Shared unlabeled K-means comparisons on frozen/generated/CSV inputs,
+   independent settings, linked equal-unit plots, inertia/silhouette, label-invariant
+   pairwise grouping agreement, overlap counts, save/reopen and exports.
+   (Done) Reconciled against the original starter deliverable on 24 October 2026:
+   six compatible classifiers and independent K-means settings use identical data,
+   task-appropriate metrics, measured timing and explicit interpretation limits.
+   Further regression/PCA adapters and compatible comparisons are expansion backlog
+   under Step 14, rather than unfinished work in the completed starter scope.
+   Final-check evaluation is still reserved and not exposed.
+
+   PLANNED WORK
+
+   Use metrics appropriate to the task. Classification can show a confusion matrix, precision, recall, and F1; regression can show MAE, RMSE, and residuals; clustering can show suitable internal metrics alongside the plotted groups.
+
+   Compare models using the same dataset, split, and evaluation procedure, while allowing model-specific preprocessing. Show training time as well as predictive performance.
+
+   Explain that performance on one example dataset does not establish a universally best algorithm.
+
+   Deliverable: A comparison screen that helps users understand tradeoffs.
+
+11. Build guided experiments (Done)
+
+   CURRENT STATUS
+   (Done) Ten connected lesson sequences with point inspection, questions,
+   explanations, reflection prompts, and Beginner/Advanced presentation.
+   (Done) Five explicit predict/run/explain activities for tree depth, neighbors,
+   noise, outliers and PCA dimensions; actual baseline/changed-run evidence,
+   one-variable and protocol checks, task metrics, reflection and worksheet export.
+   Scope complete for the bounded starter activities; new topics are expansion.
+
+   PLANNED WORK
+
+   Turn the controls into short learning activities: increase tree depth to observe overfitting, change K to examine neighborhood sensitivity, add noise to test robustness, or reduce PCA components to explore information loss.
+
+   Ask users to predict the effect before running the experiment, then explain the observed result. Connect explanations to actual outputs rather than assuming a particular outcome.
+
+   Deliverable: Guided lessons that help users understand why parameter changes matter.
+
+12. Add saving, sharing, and export (Done)
+
+   CURRENT STATUS
+   (Done) Versioned browser-local lesson setup save/load with validation.
+   (Done) Comparison state survives navigation within the current page.
+   (Done) Up to 50 named lesson/comparison configurations; rename and remove/undo.
+   (Done) Portable JSON import/export with revision, adapter, seed/protocol, and
+   parameter validation; reopen settings or recompute actual outputs with Open & run.
+   (Done) Named comparison setups persist across reloads with both independent panels.
+   (Done) Completed Results JSON, output rows CSV, and standalone chart SVG exports;
+   visible logistic thresholds and task-specific quantities are preserved.
+   (Done) Corrupt/denied/quota storage recovery; old quick lesson setups are preserved.
+   (Done) Algorithm bookmarks, Saved links and removal are implemented in v2.2.
+   (Done) Bounded links preserve validated built-in/generated revisions, independent
+   parameters, seeds and protocols. Recipients review before opening, without
+   automatic saving or execution. Clipboard denial provides a selectable link.
+   Imported CSV remains in portable JSON files rather than links.
+   Evidence: atlas-v2.2/atlas-app/sharing-browser-validation.json (42 checks).
+   Live unsaved panels reset on reload; computed models are recomputed on reopen.
+
+   PLANNED WORK
+
+   Let users save experiments with their dataset settings, parameters, seed, and evaluation configuration. Provide bookmarks for algorithms and reusable parameter presets.
+
+   Offer export of charts, predictions, and an experiment summary. If sharing is included, a shared experiment should preserve enough information to reproduce the result and clearly indicate when its dataset is unavailable.
+
+   Deliverable: A complete save-and-reopen workflow.
+
+13. Test correctness, usability, and accessibility (In progress)
+
+   CURRENT STATUS
+   (Done) Current implementation passes 298 numerical/state/geometry/sharing tests
+   and 2272 browser checks across 30 suites. A full run was followed by a library
+   assertion update and targeted rerun. Seven frozen fixtures remain verified.
+   (Done) Implemented features checked for keyboard use, reduced motion, responsive
+   layouts, invalid input, stale results, cancellation, and worker recovery.
+   (Done) All ten selected runnable lessons have numerical and browser coverage.
+   (Done) End-to-end saved configuration reopen/rerun for all ten lessons and
+   comparisons, portable files, exports, error recovery, and mobile library layouts.
+   (Done) Focused Edge/Chrome review: 76 semantic, contrast, responsive and real-fit
+   cases, with no detected issues. Human screen-reader use remains unverified.
+   (Done) Controlled local performance checks at narrow, desktop and 4K sizes,
+   plus simulated 4x CPU throttling; the declared local budgets passed.
+   (Done) Prepared a beginner pilot packet, explicit scope and expansion priorities.
+   Remaining: Actual human screen-reader interpretation, beginner participant
+   observations and fixes, Firefox/Safari and physical-device review. No human
+   review, accessibility certification or final-check evaluation is claimed.
+
+   PLANNED WORK
+
+   Verify parameter boundaries, invalid datasets, reproducibility, cancellation, and metric calculations. Check that controls affect the intended parameter and that charts reflect the latest completed run.
+
+   Test keyboard navigation, screen-reader labels, readable contrast, responsive layouts, and chart interpretation without color alone. Have beginners try the guided lessons and identify confusing terminology.
+
+   Deliverable: A validated release candidate with documented limitations.
+
+14. Release, then expand the catalog and playground (In progress)
+
+   CURRENT STATUS
+   (Done) Local v2.2 build, source/build archive, defined starter scope and
+   prioritized expansion backlog. Earlier editions are preserved.
+   (Done) Created public repository Pokegodalden/machine-learning-atlas with
+   user approval for public source code. GitHub Pages deployment is in preparation.
+   Remaining: Verify public preview deployment and complete Step 13 human acceptance
+   before declaring an accepted first release. A public preview does not waive it.
+   Evidence: atlas-v2.2/RELEASE-CHECKLIST.txt; atlas-v2.2/BEGINNER-PILOT.txt.
+
+   PLANNED WORK
+
+   Release once browsing, explanations, customization, training, visualizations, and comparison work together.
+
+   Add subsequent algorithm demonstrations through the same workflow: catalog entry, parameter definitions, dataset compatibility, execution adapter, visuals, metrics, lesson, and verification.
+
+   Expand toward semi-supervised and self-supervised experiments, recommendation systems, graph models, and generative models as the experiment engine gains the capabilities they require.
+
+   Deliverable: The first working app and a prioritized expansion backlog.
+
+A first-release acceptance target is: a user can discover an algorithm, understand its purpose, adjust its parameters, run an experiment, interpret the results, compare it with another compatible model, and reopen the saved experiment.
+
+======================================================================
+B. DELIVERED IMPLEMENTATION MILESTONES
+These are the step numbers used in the delivered project files.
+======================================================================
+
+Step 1. Product specification and mathematical visual direction (Done)
+  Audience, learning experience, screen roles, parameter behavior, and style.
+  File: step-01-product-specification.md
+
+Additional milestone. Approved logo and typography (Done)
+  Three separate closed cyan A-shaped contours, yellow convergence path,
+  and the approved LaTeX-inspired italic serif wordmark.
+  Asset: brand/selected-logo.png
+
+Step 2. Structured taxonomy and catalog (Done)
+  80 entries, 22 families, five learning types, 158 proposed controls.
+  File: step-02-catalog-guide.md
+
+Step 3. First ten demonstrations and dataset fixtures (Done)
+  Lesson order, storyboards, compatibility, acceptance checks, seven fixtures.
+  File: step-03-demonstration-plan.md
+
+Step 4. Screen design and clickable prototype (Done)
+  Explore, details, lesson/controls, comparison, navigation, responsive layouts.
+  File: step-04-screen-design.md
+
+Step 5. Runnable application architecture and foundation (Done)
+  Modules, workers, contracts, saved setups, build, verification, local server.
+  File: step-05-application-architecture.md
+
+Step 6. Complete linear regression lesson (Done)
+  Fit, residuals, equations, loss, point inspection, and diagnostics.
+  File: step-06-linear-regression-lesson.md
+
+Step 7. Complete k-nearest neighbors lesson (Done)
+  Query, scaling, distances, neighbors, votes, metrics, and decision map.
+  File: step-07-knn-lesson.md
+
+Step 8. Complete logistic regression lesson (Done)
+  Score, sigmoid, C, threshold, probabilities, log loss, and solver trace.
+  File: step-08-logistic-regression-lesson.md
+
+Step 9. Live model comparison (Done)
+  Shared data and row IDs, independent controls, current-result validation,
+  decision maps, metric deltas, linked selection, and disagreements.
+  File: step-09-model-comparison.md
+
+Step 10. Complete decision-tree lesson and comparison integration (Done)
+  Gini CART, linked nodes/regions, decision paths, depth and leaf controls,
+  measured run history, reference verification, and three-classifier comparison.
+  File: step-10-decision-tree-lesson.md
+
+Step 11. Complete random-forest lesson and comparison integration (Done)
+  Seeded bootstrap and feature sampling, recorded draws, five labeled example
+  boundaries, all-tree leaf-fraction aggregation, query inspection, measured
+  prefix curves, matched single-tree baseline, progress, and comparison.
+  File: step-11-random-forest-lesson.md
+
+Step 12. Complete support-vector-machine lesson and comparison integration (Done)
+  Linear/RBF kernels, C and gamma controls, train-only standardization, support
+  coefficients, actual score contours, margin/hinge inspection, measured history,
+  optimization certificates, cancellation, and score-only comparison.
+  File: step-12-svm-lesson.md
+
+Step 13. Complete K-means lesson (Done)
+  Seeded K-means++/random starts, cluster and restart controls, actual winning
+  trial states, assignment/mean steps, empty-cluster trace, inertia, silhouette,
+  reference overlay, observation inspection, measured k history, and saved setups.
+  File: step-13-kmeans-lesson.md
+
+Step 14. Complete PCA lesson (Done)
+  Centered full two-column SVD, one/two components, sample variance shares,
+  centering and direction exploration, linked scores/reconstruction, original-unit
+  error, protected whitening, sign-invariant subspaces, and saved setups.
+  File: step-14-pca-lesson.md
+
+Step 15. Complete small neural-network lesson and comparison integration (Done)
+  Fresh seeded tanh/SGD training, five training controls, actual checkpoint maps
+  and loss curves, full-neuron inspection, matched logistic reference, explicitly
+  partial cancellation/failure snapshots, measured history, and comparison.
+  File: step-15-mlp-lesson.md
+
+Step 16. Complete Q-learning lesson (Done)
+  Zero-initialized seeded tabular training, alpha/gamma/epsilon/episode controls,
+  actual scalar backups and episode replay, measured reward history, separate
+  greedy evaluation and BFS reference, honest finite-budget failures, and partial
+  cancellation/failure recovery. All ten starter lessons are now implemented.
+  File: step-16-q-learning-lesson.md
+
+Step 17. Release-readiness audit, experiment library, and exports (Done)
+  Audited the remaining original workflow scope. Added named lesson/comparison
+  configurations, validated portable files, actual reopen/rerun across all ten
+  lessons, independent comparison restoration, removal/undo, and current-result
+  JSON/CSV/SVG exports. Public release and broader acceptance reviews remain open.
+  File: step-17-release-readiness.md
+
+Step 18. Shared classification data and preprocessing (Done)
+  Reproducible synthetic recipes, draft previews, feature selection, raw/train-only
+  scaling, paired invalidation and portable generated-data experiments.
+  File: step-18-data-workbench.md
+
+Step 19. Regression and unlabeled synthetic-data workbenches (Done)
+  Task-specific recipes, previews, numeric/range controls, real worker fits, dynamic
+  counts and provenance, feature/rank constraints, and portable save/reopen/exports.
+  File: step-19-task-data-workbenches.md
+
+Step 20. CSV import, compatibility and fitted preprocessing (Done)
+  Bounded UTF-8 CSV, mapped numeric/binary preparation, training-only learned
+  quantities, actual worker fits, validated portable source and exports.
+  File: step-20-csv-import.md
+
+Step 21. Restore previous model settings (Done)
+  Complete parameter snapshots, grouped gestures, undoable Reset/quick Load, bounded
+  per-context history, independent comparison panels and compatible-fit validation.
+  File: step-21-settings-history.md
+
+Step 22. Measured run timing and repeated comparison evidence (Done)
+  Ten timed adapters, phase accounting and sequential three-pair timing studies.
+  File: step-22-run-timing.md
+
+Step 23. Shared unlabeled clustering comparison (Done)
+  Independent K-means settings, real shared fits, internal metrics, grouping overlap,
+  linked inspection, data tools, timed pairs and portable experiment exports.
+  File: step-23-clustering-comparison.md
+
+Step 24. Guided predict/run/explain activities (Done)
+  Five activities with predictions, validated baseline/changed-run evidence,
+  actual task metrics, reflection and worksheet export.
+  File: step-24-guided-activities.md
+
+Patch 0.20.1. Preserve the lesson view after fitting (Done)
+  Fix forced focus scrolling and panel collapse across all ten lessons.
+  File: fit-scroll-fix.md
+
+Patch 0.20.2. Larger bounded CSV imports (Done)
+  CSV up to 256 KiB, portable JSON up to 1 MiB, early structural rejection;
+  existing 400-record/model limits and saved-library budget remain bounded.
+  File: csv-size-update.md
+
+Update 0.21.0. Chart-first layout (Done)
+  Wider lesson chart with a parameter rail and three key metrics; compact
+  workspace tools; expandable diagnostics and secondary actions. Both compare
+  views show two headline metrics per plot. Mobile puts charts before controls.
+  Preserves the approved style, fitting behavior, drafts and viewport handling.
+  Report: atlas-app/chart-first-validation.json
+
+======================================================================
+C. SELECTED RUNNABLE LESSON CHECKLIST
+The order below is the selected lesson sequence, not new workflow numbering.
+======================================================================
+
+1. Linear regression (Done)
+2. k-nearest neighbors (Done)
+3. Logistic regression (Done)
+4. Decision tree (Done)
+5. Random forest (Done)
+6. Support vector machine (Done)
+7. K-means (Done)
+8. PCA (Done)
+9. Small multilayer perceptron (Done)
+10. Q-learning (Done)
+
+Next acceptance target: Human screen-reader review and beginner usability pilot
+from original workflow Step 13. Deployment and acceptance remain tracked above.
+
+======================================================================
+D. CURRENT VERIFICATION AND PROJECT RECORDS
+======================================================================
+
+- Current app and README: atlas-v2.2/atlas-app/
+- Implementation status: atlas-v2.2/app-data/lesson-implementation.json
+- Release readiness: atlas-v2.2/app-data/release-readiness.json
+- Aggregate verification: atlas-v2.2/atlas-app/v22-validation.json
+- Browser provenance: atlas-v2.2/atlas-app/browser-batch-validation.json
+- Sharing: atlas-v2.2/atlas-app/sharing-browser-validation.json
+- Focused accessibility/browser review: atlas-v2.2/atlas-app/release-accessibility-validation.json
+- Controlled performance: atlas-v2.2/atlas-app/release-performance-validation.json
+- Beginner pilot packet: atlas-v2.2/BEGINNER-PILOT.txt
+- Release scope and expansion priorities: atlas-v2.2/RELEASE-CHECKLIST.txt
+- Latest source/build archive: machine-learning-atlas-v2.2.zip
+- Numerical/state/illustration/sharing tests passed: 298
+- Browser checks passed: 2272 across 30 suites
+- Additional focused Edge/Chrome review cases: 76 (separate from browser count)
+- Canonical dataset checksums verified: 7
+- Interactive lessons implemented: 10 of 10
+- Final-check data evaluated: No
+- Actual human screen-reader review completed: No
+- Beginner usability pilot completed: No
+- Public preview deployment: In preparation
+- Accepted first release declared: No
+
+This checklist records implemented work and verified evidence. Pending human
+acceptance items remain open. The separate polishing workflow remains planned.
+
+
+Windows verification: use atlas-app/scripts/verify-all.cjs to share one browser
+process across suites. Repair evidence: ../work/codex-1909-resolution.json.

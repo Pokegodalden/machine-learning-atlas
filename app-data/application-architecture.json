@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "completedStep": 5,
+  "updatedOn": "2026-10-15",
+  "title": "Machine Learning Atlas application architecture",
+  "sourceDirectory": "../atlas-app",
+  "buildDirectory": "../atlas-app/dist",
+  "specification": "../step-05-application-architecture.md",
+  "stack": {"ui": "browser ES modules", "scenes": "SVG", "compute": "dedicated module workers", "storage": "localStorage", "tools": "Node built-ins", "hosting": "static HTTP"},
+  "canonicalContent": ["catalog.json", "taxonomy.json", "demonstration-plan.json", "dataset-manifest.json"],
+  "contracts": "../atlas-app/src/core/contracts.d.ts",
+  "resultIdentity": ["runId", "configKey", "datasetRevision", "adapterVersion"],
+  "experimentStates": ["ready", "running", "completed", "requires-new-run", "canceled", "failed"],
+  "foundationSlice": {"adapter": "linear-regression", "version": "ols-1", "fit": "exact ordinary least squares", "input": "line-noise", "trainingRows": 96, "validationRows": 32, "finalTestEvaluated": false, "checkpoints": "one actual fitted-model snapshot", "plannedAdapterCount": 9, "completedLessonCount": 0},
+  "persistence": {"formatVersion": "1.0.0", "scope": "one setup per model per browser origin", "validatesDatasetRevision": true, "storesResults": false},
+  "comparison": {"status": "input-preview", "futureCoordinator": "independent experiment per model, identical dataset revision and evaluated row IDs"},
+  "assets": {"logo": "approved raster bundled unchanged", "fonts": "installed mathematical serif fallbacks", "remoteAssetRequests": 0},
+  "validationReport": "../atlas-app/architecture-validation.json"
+}

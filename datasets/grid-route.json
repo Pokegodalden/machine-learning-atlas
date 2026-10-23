@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "grid-route",
+  "name": "A deterministic grid route",
+  "kind": "synthetic-environment",
+  "rows": 6,
+  "columns": 6,
+  "start": [
+    5,
+    0
+  ],
+  "goal": [
+    0,
+    5
+  ],
+  "walls": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "actions": [
+    "up",
+    "right",
+    "down",
+    "left"
+  ],
+  "actionDeltas": [
+    [
+      -1,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      -1
+    ]
+  ],
+  "rewards": {
+    "nonterminalStep": -0.02,
+    "enterGoal": 1
+  },
+  "invalidMove": "Remain in the same state and receive the nonterminal step reward.",
+  "terminal": "Entering the goal ends the episode; the goal reward replaces the step reward.",
+  "episodeStepLimit": 100,
+  "truncation": "A step limit resets the rollout but is not a terminal goal; bootstrap a nonterminal truncated transition.",
+  "tieBreak": "Choose the first maximizing action in actions order.",
+  "usage": "Environment specification only; no agent has been trained.",
+  "reference": {
+    "shortestRouteSteps": 10,
+    "method": "Breadth-first search of the specified deterministic grid, not a learned result."
+  }
+}

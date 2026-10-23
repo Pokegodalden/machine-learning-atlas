@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "1.0.0",
+  "completedStep": 24,
+  "updatedOn": "2026-10-24",
+  "appVersion": "2.2.0",
+  "status": "audit-completed-follow-up-required",
+  "releaseCandidateDeclared": false,
+  "publicDeployment": false,
+  "implementedScope": {
+    "catalogEntries": 80,
+    "starterLessons": 10,
+    "comparisonModels": 6,
+    "frozenFixtures": 7,
+    "namedExperimentCapacity": 50,
+    "portableExperimentImportExport": true,
+    "completedResultsJson": true,
+    "outputRowsCsv": true,
+    "selfContainedChartSvg": true,
+    "classificationDataWorkbench": true,
+    "regressionAndUnlabeledDataWorkbenches": true,
+    "csvImportAndFittedPreparation": true,
+    "previousParameterSettings": true,
+    "measuredRunTiming": true,
+    "pairedTimingStudy": true,
+    "clusteringComparison": true,
+    "guidedPredictRunExplainActivities": 5,
+    "algorithmBookmarks": true,
+    "reproducibleSharingLinks": true
+  },
+  "coreJourney": [
+    {
+      "criterion": "Discover an algorithm and read its explanation",
+      "status": "implemented-and-tested",
+      "evidence": "atlas-app/browser-validation.json"
+    },
+    {
+      "criterion": "Customize and run all ten starter lessons",
+      "status": "implemented-and-tested",
+      "evidence": "atlas-app/experiment-library-browser-validation.json"
+    },
+    {
+      "criterion": "Interpret actual metrics and teaching visuals",
+      "status": "implemented-and-tested",
+      "evidence": "atlas-app/unit-validation.txt"
+    },
+    {
+      "criterion": "Compare compatible classifiers on the same rows",
+      "status": "implemented-and-tested",
+      "evidence": "atlas-app/comparison-browser-validation.json"
+    },
+    {
+      "criterion": "Save, refresh, reopen, and recompute lessons and comparisons",
+      "status": "implemented-and-tested",
+      "evidence": "atlas-app/experiment-library-browser-validation.json"
+    },
+    {
+      "criterion": "Export reproducible settings and current outputs",
+      "status": "implemented-and-tested",
+      "evidence": "atlas-app/experiment-library-browser-validation.json"
+    }
+  ],
+  "auditDecisions": [
+    {
+      "originalWorkflowStep": 8,
+      "status": "Done for the ten implemented starter adapters",
+      "reason": "Every runnable starter uses the worker pipeline, validated requests, provenance, cancellation/failure handling, and reproducible task-appropriate evaluation. Future-adapter tooling is expansion work."
+    },
+    {
+      "originalWorkflowStep": 9,
+      "status": "Done for the ten implemented starter visual explanations",
+      "reason": "All planned starter displays and supported recorded intermediate steps are implemented and tested. Additional polish and templates are expansion work."
+    },
+    {
+      "originalWorkflowStep": 6,
+      "status": "Done for bounded starter datasets and CSV tools",
+      "reason": "Task-compatible CSV, column mapping, numeric/binary missing-value handling and fit-only preprocessing are implemented; higher-dimensional/multicategory data remains expansion work."
+    },
+    {
+      "originalWorkflowStep": 7,
+      "status": "Done for starter model controls and bounded dataset constraints",
+      "reason": "Complete parameter customization, validated previous-setting restoration, grouped edits, reset/quick-load history and current/stale run handling are implemented and tested."
+    },
+    {
+      "originalWorkflowStep": 11,
+      "status": "Done for five bounded starter activities",
+      "reason": "Predictions, immutable actual baseline/changed-run evidence, one-variable safeguards, task metrics, reflection and worksheet export cover overfitting, neighborhoods, noise, outliers and dimensionality."
+    },
+    {
+      "originalWorkflowStep": 10,
+      "status": "Done for the stated starter scope",
+      "reason": "Six classifiers, independent K-means settings, appropriate metrics and measured timing meet the starter deliverable. Further comparison adapters are expansion backlog."
+    },
+    {
+      "originalWorkflowStep": 12,
+      "status": "Done for the stated starter scope",
+      "reason": "Local save/reopen, presets, bookmarks, portable files and bounded reproducible links are implemented and tested."
+    }
+  ],
+  "remaining": [
+    {
+      "priority": 1,
+      "workflowStep": 13,
+      "item": "Human screen-reader interpretation, beginner pilot, Firefox/Safari and physical-device review",
+      "status": "awaiting-human-and-broader-device-review",
+      "nextMilestone": true
+    },
+    {
+      "priority": 1,
+      "workflowStep": 14,
+      "item": "Verify public preview and complete human acceptance before first accepted release",
+      "status": "in-progress",
+      "nextMilestone": false
+    }
+  ],
+  "limitations": [
+    "Configuration files restore settings and the explanation chapter; they do not persist computed models or every transient query/replay position.",
+    "Reopening recomputes matching frozen, generated or embedded CSV inputs and adapters; unavailable revisions are rejected.",
+    "Browser-local storage is scoped to the current origin; portable files provide independent copies.",
+    "No release-scope waiver, final-check evaluation, hosted sharing service, or public deployment is implied.",
+    "CSV source is embedded in saved/portable configurations and JSON/SVG metadata; output rows omit reserved predictions.",
+    "Parameter history is transient, capped at 20 changes per active context and resets on data/model/protocol changes, saved experiment opening or page reload. It does not persist earlier computed models.",
+    "Guided notes are transient in the current page. Worksheets contain recorded evidence rather than a live fit, without automatic grading, embedded CSV source or imported computed models."
+  ],
+  "verification": {
+    "unitReport": "../atlas-app/unit-validation.txt",
+    "browserReport": "../atlas-app/browser-batch-validation.json",
+    "aggregateReport": "../atlas-app/v22-validation.json",
+    "fullAccessibilityReviewCompleted": false,
+    "performanceAcceptanceCompleted": true,
+    "beginnerPilotCompleted": false,
+    "focusedAccessibilityReport": "../atlas-app/release-accessibility-validation.json",
+    "performanceAcceptanceReport": "../atlas-app/release-performance-validation.json",
+    "browserMatrix": [
+      "Microsoft Edge (Chromium)",
+      "Google Chrome (Chromium)"
+    ]
+  },
+  "latestPatch": {
+    "appVersion": "2.2.0",
+    "name": "Original workflow reconciliation and reproducible experiment sharing",
+    "verification": "../atlas-app/v22-validation.json"
+  },
+  "designVersion": "v2.2",
+  "basedOn": "2.1.0",
+  "microInteractions": {
+    "livingLogo": true,
+    "interactiveSchematicPreviews": 10,
+    "numberScrubbing": "native numeric inputs; bounded; logarithmic and integer handling; Shift fine adjustment",
+    "equationGeometryCues": [
+      "linear-regression"
+    ],
+    "predictionGuessing": [
+      "linear-regression"
+    ],
+    "previousDisplayedLine": [
+      "linear-regression"
+    ],
+    "relationshipPreviews": "catalog explanations; hover, focus and touch toggle",
+    "savedIdeas": "local browser storage; validated catalog IDs; removable Saved links",
+    "saveConfirmation": "drawn bookmark after successful writes",
+    "verification": "../atlas-app/micro-interactions-browser-validation.json"
+  },
+  "illustrationMotion": {
+    "regression": "computed least-squares endpoint; vertical residuals anchored to fixed observations at every frame",
+    "pca": "dominant covariance direction through sample mean; orthogonal projections; fixed observations",
+    "sharedInstances": [
+      "slideshow",
+      "journey cards",
+      "lesson index",
+      "catalog icons",
+      "relationship previews"
+    ],
+    "catalogAnimationEntries": 80,
+    "animationTriggers": [
+      "viewport entry",
+      "hover",
+      "keyboard focus"
+    ],
+    "scrollEntrances": "headings, subtitles and content blocks; no chart/control ancestor transforms",
+    "reducedMotion": "final static geometry; all content visible; running motion canceled",
+    "lifecycle": "one shared observer pair and frame loop; offscreen and detached icons stop; carousel tweens disposed on navigation",
+    "verification": "../atlas-app/art-motion-browser-validation.json"
+  },
+  "ambientContours": {
+    "status": "implemented",
+    "rendering": "smoothed scalar-field contours rendered in an OffscreenCanvas module worker; optimized main-thread fallback if unsupported or worker startup/runtime fails",
+    "backgroundFpsLimit": 30,
+    "canvasPixelBudget": 2400000,
+    "cursorPoints": 3,
+    "cursorBehavior": "independent display-frame loop; faster contraction toward cursor; three successive steps; no native cursor replacement; pointer-events none",
+    "inputProtection": "hide during press/drag; ignore touch movement; opaque teaching charts",
+    "reducedMotion": "static contours; cursor tracking hidden",
+    "lifecycle": "suspend hidden/pagehide; reuse on route changes; resize-aware",
+    "verification": "../atlas-app/ambient-contours-browser-validation.json",
+    "geometry": "reusable typed buffers; integer grid-edge joins; frame-shared basin trigonometry",
+    "scheduling": "deadline-preserving 30 Hz animation-frame sampling; timer fallback where worker rAF is unavailable",
+    "telemetry": "low-frequency frame count; no per-frame worker-to-DOM updates",
+    "performanceEvidence": "../atlas-app/contour-performance-validation.json"
+  },
+  "experimentSharing": {
+    "status": "implemented-and-tested",
+    "format": "bounded fragment link; versioned configuration",
+    "byteLimit": 6144,
+    "datasetSources": [
+      "built-in",
+      "generated recipe"
+    ],
+    "csv": "portable Experiment JSON only",
+    "recipient": "review first; explicit open/save; run separately",
+    "verification": "../atlas-app/sharing-browser-validation.json"
+  },
+  "repository": {
+    "url": "https://github.com/Pokegodalden/machine-learning-atlas",
+    "visibility": "public",
+    "ownerConfirmed": true,
+    "deploymentStatus": "preparing-github-pages"
+  }
+}

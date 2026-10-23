@@ -1,0 +1,717 @@
+{
+  "status": "passed",
+  "method": "Local headless Edge and Chrome; 17 route templates plus four narrow widths; DOM accessible-name and rendered-color checks, Chromium accessibility tree inspection and a real fit. Color checks approximate composed solid backgrounds and require manual review of exceptions. Both browsers use Chromium; Firefox, Safari and human assistive-technology interpretation remain untested.",
+  "humanScreenReaderReviewCompleted": false,
+  "beginnerPilotCompleted": false,
+  "results": [
+    {
+      "browser": "Edge",
+      "route": "explore",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "algorithm/pca",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "algorithm/transformer",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "library",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "activities",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare/clustering",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [
+        "A · First setting grouping plot. Left and right arrow keys select observations.",
+        "B · Second setting grouping plot. Left and right arrow keys select observations."
+      ],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/linear-regression",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/knn",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/logistic-regression",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/decision-tree",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/random-forest",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/svm",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/kmeans",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/pca",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/mlp",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/q-learning",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "explore",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare/clustering",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/linear-regression",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "library",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "explore",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare/clustering",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/linear-regression",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "library",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "explore",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare/clustering",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/linear-regression",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "library",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "explore",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "compare/clustering",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/linear-regression",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "library",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Edge",
+      "route": "lesson/linear-regression",
+      "action": "real fit",
+      "finiteSlope": true,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "explore",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "algorithm/pca",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "algorithm/transformer",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "library",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "activities",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare/clustering",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [
+        "A · First setting grouping plot. Left and right arrow keys select observations.",
+        "B · Second setting grouping plot. Left and right arrow keys select observations."
+      ],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/linear-regression",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/knn",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/logistic-regression",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/decision-tree",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/random-forest",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/svm",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/kmeans",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/pca",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/mlp",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/q-learning",
+      "viewport": 1440,
+      "lang": "en",
+      "mainCount": 1,
+      "h1Count": 1,
+      "unnamed": [],
+      "contrastIssues": [],
+      "namedCharts": [],
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "explore",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare/clustering",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/linear-regression",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "library",
+      "viewport": 320,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "explore",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare/clustering",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/linear-regression",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "library",
+      "viewport": 390,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "explore",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare/clustering",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/linear-regression",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "library",
+      "viewport": 610,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "explore",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "compare/clustering",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/linear-regression",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "library",
+      "viewport": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "browser": "Chrome",
+      "route": "lesson/linear-regression",
+      "action": "real fit",
+      "finiteSlope": true,
+      "errors": []
+    }
+  ],
+  "issueCases": 0
+}

@@ -1,0 +1,593 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "catalog.schema.json"
+    },
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completedStep": {
+      "const": 2
+    },
+    "updatedOn": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "taxonomyFile": {
+      "const": "taxonomy.json"
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "logoFile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logoManifest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "logoFile",
+        "logoManifest",
+        "description"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entryCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "coverage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentStatus": {
+          "const": "draft-reviewed"
+        },
+        "runnableDemoCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "starterCandidateCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "nextStep": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "entryCount",
+        "coverage",
+        "contentStatus",
+        "runnableDemoCount",
+        "starterCandidateCount",
+        "nextStep"
+      ]
+    },
+    "parameterPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "presetOrigin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundsOrigin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "backendMapping": {
+          "type": "string",
+          "minLength": 1
+        },
+        "onTrainingChange": {
+          "type": "string",
+          "minLength": 1
+        },
+        "onSamplingChange": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "presetOrigin",
+        "boundsOrigin",
+        "backendMapping",
+        "onTrainingChange",
+        "onSamplingChange"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      },
+      "minItems": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "title",
+    "completedStep",
+    "updatedOn",
+    "taxonomyFile",
+    "brand",
+    "scope",
+    "parameterPolicy",
+    "sources",
+    "entries"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Machine Learning Atlas catalog contract",
+  "$defs": {
+    "parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "valueType": {
+          "enum": [
+            "integer",
+            "number",
+            "string",
+            "boolean"
+          ]
+        },
+        "category": {
+          "enum": [
+            "training",
+            "prediction",
+            "exploration",
+            "sampling"
+          ]
+        },
+        "widget": {
+          "enum": [
+            "slider",
+            "dial",
+            "dropdown",
+            "toggle"
+          ]
+        },
+        "numericInput": {
+          "type": "boolean"
+        },
+        "default": {
+          "type": [
+            "number",
+            "integer",
+            "string",
+            "boolean"
+          ]
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "scale": {
+          "enum": [
+            "linear",
+            "logarithmic"
+          ]
+        },
+        "step": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "enum": [
+            "beginner",
+            "advanced"
+          ]
+        },
+        "updateBehavior": {
+          "enum": [
+            "requires-run",
+            "recompute-output",
+            "update-scene",
+            "requires-generation"
+          ]
+        },
+        "dynamicConstraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "defaultOrigin": {
+          "const": "illustrative-project-preset"
+        },
+        "mappingStatus": {
+          "enum": [
+            "requires-adapter",
+            "implemented"
+          ]
+        },
+        "alternativeWidgets": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "dial",
+              "slider",
+              "numeric-input"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "valueType",
+        "category",
+        "widget",
+        "numericInput",
+        "default",
+        "description",
+        "level",
+        "updateBehavior",
+        "dynamicConstraints",
+        "defaultOrigin",
+        "mappingStatus",
+        "alternativeWidgets"
+      ]
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "kind": {
+          "enum": [
+            "algorithm",
+            "model-family",
+            "architecture",
+            "training-method",
+            "training-framework"
+          ]
+        },
+        "primaryFamily": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "additionalFamilies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "learningTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "dataTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "difficulty": {
+          "enum": [
+            "introductory",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intuition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "explanation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "beginner": {
+              "type": "string",
+              "minLength": 1
+            },
+            "advancedFocus": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "beginner",
+            "advancedFocus"
+          ]
+        },
+        "example": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scope": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "title",
+            "scope"
+          ]
+        },
+        "visualization": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "concept": {
+              "type": "string",
+              "minLength": 1
+            },
+            "style": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "concept",
+            "style"
+          ]
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parameter"
+          },
+          "minItems": 1
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "relatedEntries": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "contentStatus": {
+          "enum": [
+            "draft-reviewed",
+            "published"
+          ]
+        },
+        "demo": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": [
+                "not-implemented",
+                "implemented"
+              ]
+            },
+            "starterCandidate": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "status",
+            "starterCandidate"
+          ]
+        },
+        "methodTags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "parameterScope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "aliases",
+        "kind",
+        "primaryFamily",
+        "additionalFamilies",
+        "learningTypes",
+        "tasks",
+        "dataTypes",
+        "difficulty",
+        "description",
+        "intuition",
+        "assumptions",
+        "strengths",
+        "limitations",
+        "prerequisites",
+        "explanation",
+        "example",
+        "visualization",
+        "parameters",
+        "sources",
+        "relatedEntries",
+        "contentStatus",
+        "demo",
+        "methodTags",
+        "parameterScope"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "kind": {
+          "enum": [
+            "official-documentation",
+            "official-source-code",
+            "research-paper",
+            "textbook",
+            "researcher-lecture"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "url",
+        "kind"
+      ]
+    }
+  }
+}

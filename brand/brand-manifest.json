@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "Machine Learning Atlas",
+  "selectedOn": "2026-10-15",
+  "asset": "selected-logo.png",
+  "sourceAsset": "../logo-concepts/convergence-a-v5-latex.png",
+  "status": "user-selected",
+  "symbol": "Three separate closed cyan contour loops forming an A-like silhouette, enclosing a yellow three-node convergence path.",
+  "wordmark": "Machine Learning Atlas",
+  "typography": "LaTeX-inspired italic serif rendered as part of the concept image; exact font identity is not asserted.",
+  "format": "PNG raster concept on a dark background",
+  "usage": "Use this approved concept as the branding reference for upcoming app screens. A vector master, transparent icon, and font integration are later implementation assets.",
+  "generationPrompts": "../logo-concepts/convergence-a-v5-latex-prompts.json"
+}

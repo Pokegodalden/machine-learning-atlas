@@ -1,0 +1,82 @@
+MACHINE LEARNING ATLAS — v2.2
+Interactive UI edition based on v2.1. Earlier builds are preserved.
+
+1. Create independent sources, content, preview port 8773 and v2.2 identity. (Done)
+2. Build three learning journeys and ten distinct schematic mathematical illustrations. (Done)
+3. Connect lesson questions, data origin, equation controls and a compact focus view. (Done)
+4. Improve text, numeric controls, scale ticks, semantic color and reduced-motion behavior. (Done)
+5. Add actual compatible-run evidence with explicit current/earlier states and threshold-aware metrics. (Done)
+6. Add responsive A/B comparison, both-stacked option and linked current-result summary. (Done)
+7. Verify numerical behavior, existing tools, focused gestures, responsive layouts and preservation of both earlier builds. (Done) See atlas-app/v22-validation.json.
+8. Package independent source and static build. (Done) machine-learning-atlas-v2.2.zip.
+
+Remaining original roadmap: sharing expansion, full accessibility/performance acceptance, beginner pilot and deployment. Reserved final-check rows remain unevaluated.
+
+v2.2 http://127.0.0.1:8773/?v=2.1#/explore
+v2.0 http://127.0.0.1:8771/?v=2.0#/explore
+
+EXPLORE BROWSER COMMENTS
+1. Remove the three hero shortcut buttons. (Done)
+2. Replace the featured illustration with a seamless ten-lesson slideshow. (Done)
+3. Broaden the second and third questions to seven existing lessons each. (Done)
+4. Enlarge the learning-signal graph and add dragging, live filtering, examples and keyboard interaction. (Done)
+5. Style primary navigation as button options. (Done)
+Validation: see atlas-app/explore-comments-browser-validation.json and atlas-app/v22-validation.json.
+
+EXPLORE CAROUSEL AND BRAND POLISH
+1. Merge arrows, slide indicators and the counter beneath into one control strip. (Done)
+2. Remove Play/Pause and autoplay every three seconds. (Done)
+3. Place AN ATLAS FOR HOW MACHINES LEARN beneath the wordmark. (Done)
+4. Float hero heading and introduction in on each Explore visit, respecting reduced motion. (Done)
+5. Simplify the footer to v2.2. (Done)
+Validation: see atlas-app/explore-comments-browser-validation.json and atlas-app/v22-validation.json.
+
+V2.2 MATHEMATICAL MICRO-INTERACTIONS
+1. Add separately animated logo contours with a reduced-motion fallback. (Done)
+2. Give all ten schematic lesson previews a slider and direct diagram dragging, suspending autoplay during interaction. (Done)
+3. Link linear-regression equation hover/focus to slope and intercept geometry. (Done)
+4. Add bounded numeric scrubbing, fine adjustment and a position arc without removing typing or keyboard controls. (Done)
+5. Add a linear-regression prediction guess, chart placement and exact equation reveal. (Done)
+6. Show a temporary previous displayed line during coefficient adjustment. (Done)
+7. Add paired related-idea previews supporting hover, focus, touch and Escape. (Done)
+8. Add persistent idea bookmarks, Saved links, removal and quiet successful-save confirmation. (Done)
+9. Verify numerical references, interaction behavior, responsive layouts, fit scroll stability and preservation of v2.1. (Done) See atlas-app/v22-validation.json.
+10. Package independent v2.2 sources and static build. (Done) machine-learning-atlas-v2.2.zip.
+
+Current preview: http://127.0.0.1:8773/?v=2.2#/explore
+Preserved v2.1: http://127.0.0.1:8772/?v=2.1#/explore
+
+V2.2 GEOMETRY AND MOTION CORRECTIONS
+1. Replace rotated regression sketches with computed least-squares geometry and observation-anchored vertical residuals. (Done)
+2. Replace rotated PCA clouds with a computed principal direction through the mean and orthogonal projections. (Done)
+3. Reuse corrected geometry in every preview, journey, lesson index, catalog icon and relationship preview. (Done)
+4. Animate all eighty atlas icons on viewport entry, hover and keyboard focus; stop offscreen and detached work. (Done)
+5. Float headings, subtitles and content blocks into view while preserving chart/control layout and reduced-motion visibility. (Done)
+6. Verify geometry invariants, rendered instances, keyboard progress controls, scroll entries and regression behavior. (Done) See atlas-app/art-motion-browser-validation.json.
+7. Refresh the v2.2 build and download archive. (Done) machine-learning-atlas-v2.2.zip.
+
+V2.2 AMBIENT CONTOURS AND CURSOR DESCENT
+1. Add a smoothed contour field that changes continuously behind the app. (Done)
+2. Add three gold points taking successive steps toward the mouse cursor. (Done)
+3. Preserve input hit testing, native cursor, chart readability and touch behavior. (Done)
+4. Bound canvas size/redraw rate and suspend hidden, reduced-motion or parked pages. (Done)
+5. Verify the effect and existing lesson interactions, then refresh the build archive. (Done) See atlas-app/ambient-contours-browser-validation.json.
+
+V2.2 CONTOUR PERFORMANCE UPDATE
+1. Replace per-cell allocations and string-keyed joins with reusable typed buffers and integer grid-edge joins. (Done)
+2. Move contour calculation and drawing to an OffscreenCanvas worker targeting 30 fps; add an optimized compatibility/recovery path. (Done)
+3. Separate the cursor into an active-only display-frame loop, shorten its delay and coalesce worker pointer updates. (Done)
+4. Retain reduced-motion, visibility, lifecycle, input and backing-pixel protections. (Done)
+5. Compare old/new cadence and render costs at narrow, desktop and 4K sizes; verify geometry and lesson regressions. (Done) See atlas-app/ambient-contours-browser-validation.json, contour-geometry-validation.json and contour-performance-validation.json.
+6. Refresh current v2.2 sources, static build and ZIP archive. (Done) machine-learning-atlas-v2.2.zip.
+
+ORIGINAL WORKFLOW COMPLETION PASS - 24 OCTOBER 2026
+1. Reconcile original starter comparison scope and existing bookmarks. (Done)
+2. Add bounded validated sharing links with review-before-open and CSV file fallback. (Done)
+3. Verify 298 unit tests, 2272 browser checks and focused Edge/Chrome accessibility/layout cases. (Done)
+4. Measure controlled local responsiveness and representative real fits. (Done)
+5. Prepare beginner pilot packet, explicit release scope and expansion priorities. (Done)
+6. Create public GitHub repository with user approval. (Done) Pokegodalden/machine-learning-atlas.
+7. Publish and smoke-check GitHub Pages preview. (In progress)
+8. Complete actual human screen-reader and beginner acceptance. (Not started) Awaiting participants.
+The separate professional-polishing workflow remains planned.

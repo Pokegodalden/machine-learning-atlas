@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "1.0.0",
+  "learningTypes": [
+    {
+      "id": "supervised",
+      "label": "Supervised learning",
+      "description": "Learn from supplied input and target pairs."
+    },
+    {
+      "id": "unsupervised",
+      "label": "Unsupervised learning",
+      "description": "Discover structure without externally supplied target labels."
+    },
+    {
+      "id": "semi-supervised",
+      "label": "Semi-supervised learning",
+      "description": "Learn from a mixture of labeled and unlabeled examples."
+    },
+    {
+      "id": "self-supervised",
+      "label": "Self-supervised learning",
+      "description": "Construct training targets from the data itself."
+    },
+    {
+      "id": "reinforcement",
+      "label": "Reinforcement learning",
+      "description": "Learn action selection to maximize cumulative reward."
+    }
+  ],
+  "families": [
+    {
+      "id": "linear-models",
+      "label": "Linear and generalized linear models",
+      "description": "Weighted feature relationships and linked response distributions."
+    },
+    {
+      "id": "tree-models",
+      "label": "Decision trees",
+      "description": "Recursive feature-based partitions."
+    },
+    {
+      "id": "ensembles",
+      "label": "Ensembles",
+      "description": "Combine several predictors."
+    },
+    {
+      "id": "instance-based",
+      "label": "Instance-based methods",
+      "description": "Use nearby or similar observations."
+    },
+    {
+      "id": "kernel-methods",
+      "label": "Kernel methods",
+      "description": "Use similarity functions to express feature-space relationships."
+    },
+    {
+      "id": "probabilistic-models",
+      "label": "Probabilistic models",
+      "description": "Represent data or predictions with probability distributions."
+    },
+    {
+      "id": "discriminant-analysis",
+      "label": "Discriminant analysis",
+      "description": "Class-conditional distribution models for classification."
+    },
+    {
+      "id": "clustering",
+      "label": "Clustering",
+      "description": "Group observations by a chosen notion of similarity."
+    },
+    {
+      "id": "dimensionality-reduction",
+      "label": "Dimensionality reduction",
+      "description": "Build lower-dimensional representations."
+    },
+    {
+      "id": "density-estimation",
+      "label": "Density estimation",
+      "description": "Estimate probability density."
+    },
+    {
+      "id": "anomaly-detection",
+      "label": "Anomaly detection",
+      "description": "Score unusual observations."
+    },
+    {
+      "id": "association-rules",
+      "label": "Frequent patterns and association rules",
+      "description": "Find frequent itemsets and derive co-occurrence rules."
+    },
+    {
+      "id": "topic-models",
+      "label": "Topic models",
+      "description": "Represent documents with latent topics."
+    },
+    {
+      "id": "neural-networks",
+      "label": "Neural network architectures",
+      "description": "Parameterized networks with different connectivity patterns."
+    },
+    {
+      "id": "representation-learning",
+      "label": "Representation learning",
+      "description": "Learn encodings useful for reconstruction or downstream tasks."
+    },
+    {
+      "id": "generative-models",
+      "label": "Generative models",
+      "description": "Model data distributions to generate samples."
+    },
+    {
+      "id": "graph-semi-supervised",
+      "label": "Graph-based semi-supervised methods",
+      "description": "Spread label information over a similarity graph."
+    },
+    {
+      "id": "semi-supervised-methods",
+      "label": "Semi-supervised training methods",
+      "description": "Combine externally labeled and unlabeled observations."
+    },
+    {
+      "id": "self-supervised-methods",
+      "label": "Self-supervised methods",
+      "description": "Learn through targets constructed from observations."
+    },
+    {
+      "id": "reinforcement-learning",
+      "label": "Reinforcement learning algorithms",
+      "description": "Value, policy, and actor–critic learning."
+    },
+    {
+      "id": "recommendation",
+      "label": "Recommendation methods",
+      "description": "Learn preferences and item relevance."
+    },
+    {
+      "id": "sequence-models",
+      "label": "Probabilistic sequence models",
+      "description": "Model hidden states and observed sequences."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "classification",
+      "label": "Classification",
+      "description": "Predict a discrete category."
+    },
+    {
+      "id": "regression",
+      "label": "Regression",
+      "description": "Predict a numerical response."
+    },
+    {
+      "id": "clustering",
+      "label": "Clustering",
+      "description": "Assign observations to discovered groups."
+    },
+    {
+      "id": "dimensionality-reduction",
+      "label": "Dimensionality reduction",
+      "description": "Reduce coordinates or feature dimensions."
+    },
+    {
+      "id": "density-estimation",
+      "label": "Density estimation",
+      "description": "Estimate a probability distribution over observations."
+    },
+    {
+      "id": "anomaly-detection",
+      "label": "Anomaly detection",
+      "description": "Score observations that differ from a reference pattern."
+    },
+    {
+      "id": "association-rules",
+      "label": "Association rules",
+      "description": "Describe item co-occurrence."
+    },
+    {
+      "id": "topic-modeling",
+      "label": "Topic modeling",
+      "description": "Discover latent document themes."
+    },
+    {
+      "id": "representation-learning",
+      "label": "Representation learning",
+      "description": "Learn reusable data encodings."
+    },
+    {
+      "id": "generation",
+      "label": "Generation",
+      "description": "Produce new samples."
+    },
+    {
+      "id": "sequential-decision",
+      "label": "Sequential decision making",
+      "description": "Choose actions over time."
+    },
+    {
+      "id": "recommendation",
+      "label": "Recommendation",
+      "description": "Predict preferences or rank items."
+    },
+    {
+      "id": "forecasting",
+      "label": "Forecasting",
+      "description": "Predict future values using time-ordered information."
+    }
+  ],
+  "dataTypes": [
+    {
+      "id": "tabular",
+      "label": "Tabular",
+      "description": "Feature vectors; raw categories may require encoding."
+    },
+    {
+      "id": "text",
+      "label": "Text",
+      "description": "Tokens or numerical document features."
+    },
+    {
+      "id": "image",
+      "label": "Images",
+      "description": "Pixel arrays or image representations."
+    },
+    {
+      "id": "audio",
+      "label": "Audio",
+      "description": "Samples, frames, or derived features."
+    },
+    {
+      "id": "time-series",
+      "label": "Time series",
+      "description": "Ordered measurements with time-aware evaluation."
+    },
+    {
+      "id": "graph",
+      "label": "Graphs",
+      "description": "Nodes, edges, and associated features."
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "description": "Collections of discrete items."
+    },
+    {
+      "id": "user-item",
+      "label": "User and item interactions",
+      "description": "Ratings or interaction records."
+    },
+    {
+      "id": "environment",
+      "label": "Interactive environments",
+      "description": "States, actions, rewards, and transitions."
+    }
+  ],
+  "prerequisites": [
+    {
+      "id": "algebra",
+      "label": "Basic algebra",
+      "description": "Variables, weighted sums, and functions."
+    },
+    {
+      "id": "geometry",
+      "label": "Graphs and distance",
+      "description": "Coordinates, distances, and visual relationships."
+    },
+    {
+      "id": "probability",
+      "label": "Probability",
+      "description": "Conditional probabilities and distributions."
+    },
+    {
+      "id": "linear-algebra",
+      "label": "Linear algebra",
+      "description": "Vectors, matrices, and projections."
+    },
+    {
+      "id": "calculus",
+      "label": "Calculus",
+      "description": "Derivatives and gradient updates."
+    },
+    {
+      "id": "neural-networks",
+      "label": "Neural network foundations",
+      "description": "Layers, activations, losses, and training."
+    },
+    {
+      "id": "graphs",
+      "label": "Graph foundations",
+      "description": "Nodes, edges, and neighborhoods."
+    },
+    {
+      "id": "markov-decisions",
+      "label": "Markov decision processes",
+      "description": "States, policies, rewards, and discounted returns."
+    }
+  ],
+  "trainingApproaches": [
+    {
+      "id": "transfer-learning",
+      "label": "Transfer learning",
+      "description": "Adapt learned representations to another task."
+    },
+    {
+      "id": "active-learning",
+      "label": "Active learning",
+      "description": "Select observations for labeling."
+    },
+    {
+      "id": "weak-supervision",
+      "label": "Weak supervision",
+      "description": "Use imperfect or indirect supervision."
+    },
+    {
+      "id": "online-learning",
+      "label": "Online learning",
+      "description": "Update a model as observations arrive."
+    },
+    {
+      "id": "continual-learning",
+      "label": "Continual learning",
+      "description": "Learn across changing tasks or distributions."
+    },
+    {
+      "id": "federated-learning",
+      "label": "Federated learning",
+      "description": "Coordinate training across separate data holders."
+    },
+    {
+      "id": "meta-learning",
+      "label": "Meta-learning",
+      "description": "Learn an adaptation strategy across tasks."
+    }
+  ],
+  "rules": [
+    "Each entry has one primary family and may reference additional families.",
+    "Learning types, tasks, data types, and entity kind are independent navigation axes.",
+    "Tags describe the configuration discussed here; architecture tags are common uses, not exhaustive capabilities.",
+    "Self-supervised and unsupervised categories can overlap; generative modeling is a task/family rather than a sixth learning paradigm.",
+    "Use full names for both meanings of LDA; alias search may return multiple entries.",
+    "Neural architectures need an objective and training method; an architecture tag does not select them.",
+    "Source references support technical explanations; proposed teaching controls are project choices."
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0.0",
+  "createdOn": "2026-10-15",
+  "datasets": [
+    {
+      "id": "line-noise",
+      "name": "A line with observation noise",
+      "kind": "synthetic-array",
+      "file": "../datasets/line-noise.json",
+      "sampleCount": 160,
+      "featureCount": 1,
+      "targetKind": "numeric",
+      "partitionCounts": {
+        "train": 96,
+        "validation": 32,
+        "test": 32
+      },
+      "sha256": "77385b6b210a6703017acd4785641c8167a426e79ca2e004952c69c78ce3d89d"
+    },
+    {
+      "id": "two-blobs",
+      "name": "Two overlapping labeled groups",
+      "kind": "synthetic-array",
+      "file": "../datasets/two-blobs.json",
+      "sampleCount": 240,
+      "featureCount": 2,
+      "targetKind": "binary",
+      "partitionCounts": {
+        "train": 144,
+        "validation": 48,
+        "test": 48
+      },
+      "sha256": "500cac1794cac1fdeb6bf650587eee19e28e39b98bed004f61bdfa21bc36ae32"
+    },
+    {
+      "id": "two-moons",
+      "name": "Two curved labeled groups",
+      "kind": "synthetic-array",
+      "file": "../datasets/two-moons.json",
+      "sampleCount": 240,
+      "featureCount": 2,
+      "targetKind": "binary",
+      "partitionCounts": {
+        "train": 144,
+        "validation": 48,
+        "test": 48
+      },
+      "sha256": "5f776f6eb4b14a16e14933219c544ee13449b81d00121729e7b73aa6ecf3d784"
+    },
+    {
+      "id": "xor-corners",
+      "name": "An XOR pattern with noise",
+      "kind": "synthetic-array",
+      "file": "../datasets/xor-corners.json",
+      "sampleCount": 240,
+      "featureCount": 2,
+      "targetKind": "binary",
+      "partitionCounts": {
+        "train": 144,
+        "validation": 48,
+        "test": 48
+      },
+      "sha256": "8fe312b936e97210fc6741ab9f817a216341b71fb9c29efd2ee46e19713a9266"
+    },
+    {
+      "id": "three-clusters",
+      "name": "Three compact unlabeled groups",
+      "kind": "synthetic-array",
+      "file": "../datasets/three-clusters.json",
+      "sampleCount": 240,
+      "featureCount": 2,
+      "targetKind": "none",
+      "partitionCounts": {
+        "fit": 240
+      },
+      "sha256": "7d8c90502d636e959e353315f5da46cce925db46bef486eb48c27fbd71df5c04"
+    },
+    {
+      "id": "tilted-cloud",
+      "name": "A tilted elongated point cloud",
+      "kind": "synthetic-array",
+      "file": "../datasets/tilted-cloud.json",
+      "sampleCount": 200,
+      "featureCount": 2,
+      "targetKind": "none",
+      "partitionCounts": {
+        "fit": 200
+      },
+      "sha256": "e75363deb82eff5de32e83950d713e39840429dfa27287b78aad31d9f8ff5781"
+    },
+    {
+      "id": "grid-route",
+      "name": "A deterministic grid route",
+      "kind": "synthetic-environment",
+      "file": "../datasets/grid-route.json",
+      "rows": 6,
+      "columns": 6,
+      "shortestRouteSteps": 10,
+      "sha256": "9640e8a3a28914b6eac9961c1950308faf95495bf82c7094be877d99b197ea1a"
+    }
+  ],
+  "scope": "Seven frozen input fixtures for ten planned demonstrations. Interactive dataset generators belong to Step 6."
+}
