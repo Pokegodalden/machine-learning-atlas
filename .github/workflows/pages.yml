@@ -1,0 +1,72 @@
+name: Validate and deploy Atlas
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Unpack initial source transfer if present
+        shell: python
+        run: |
+          from pathlib import Path, PurePosixPath
+          import zipfile
+          archive = Path('atlas-source.zip')
+          if archive.exists():
+              with zipfile.ZipFile(archive) as source:
+                  assert sum(i.file_size for i in source.infolist()) < 50_000_000
+                  for item in source.infolist():
+                      path = PurePosixPath(item.filename)
+                      assert not path.is_absolute() and '..' not in path.parts
+                      assert path.parts[0] in {'atlas-app', 'app-data', 'datasets', 'brand', 'README.md', '.gitignore', '.gitattributes', 'WORKFLOW-v2.2.txt', 'RELEASE-CHECKLIST.txt', 'BEGINNER-PILOT.txt', 'machine-learning-atlas-workflow.txt', 'machine-learning-atlas-polishing-workflow.txt'}
+                      source.extract(item, '.')
+      - name: Verify numerical and state contracts
+        working-directory: atlas-app
+        run: node --test tests/*.test.mjs
+      - name: Build and verify frozen datasets
+        working-directory: atlas-app
+        run: node scripts/build.mjs
+      - name: Retain imported source in Git history
+        if: hashFiles('atlas-source.zip') != ''
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm atlas-source.zip
+          git add atlas-app app-data datasets brand README.md .gitignore .gitattributes WORKFLOW-v2.2.txt RELEASE-CHECKLIST.txt BEGINNER-PILOT.txt machine-learning-atlas-workflow.txt machine-learning-atlas-polishing-workflow.txt
+          git commit -m 'Import validated Atlas sources and project records'
+          git push origin HEAD:main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: atlas-app/dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
