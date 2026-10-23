@@ -38,6 +38,8 @@ jobs:
                       assert not path.is_absolute() and '..' not in path.parts
                       assert path.parts[0] in {'atlas-app', 'app-data', 'datasets', 'brand', 'README.md', '.gitignore', '.gitattributes', 'WORKFLOW-v2.2.txt', 'RELEASE-CHECKLIST.txt', 'BEGINNER-PILOT.txt', 'machine-learning-atlas-workflow.txt', 'machine-learning-atlas-polishing-workflow.txt'}
                       source.extract(item, '.')
+              for cache in Path('app-data/__pycache__').glob('*.pyc'):
+                  cache.unlink()
       - name: Verify numerical and state contracts
         working-directory: atlas-app
         run: node --test tests/*.test.mjs
